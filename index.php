@@ -11,8 +11,8 @@
     <script type="text/javascript" src="src/js/sidebar.js"></script>  
 </head>
 <body>
-    <!-- navigation bar on top -->
-    <div class="w3-top">
+    <header>
+        <!-- top navbar -->
         <nav class="w3-bar w3-blue">
             <!-- collapse sidebar button -->
             <button class="w3-button w3-left w3-xlarge w3-hide-large" onclick="openSideBar()">
@@ -34,9 +34,19 @@
                 <a href="#" class="w3-bar-item w3-button w3-mobile w3-right"><img src="assets/icons/search.png" class="navleftIcon" alt="toggle search bar"></img></a>
             </div>                       
         </nav>
-    </div>
+        
+    </header>
+    <!-- sidebar on the left -->
     <div id="sidebar" class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left">
 
+    </div>
+    <div>
+        <div class="w3-card w3-margin">
+            <!-- js code for the player -->
+        </div>
+        <div class="w3-card w3-margin">
+            <!-- php code for the table or js code with ajax -->
+        </div>
     </div>
 </body>
 </html>

@@ -18,7 +18,6 @@ body {
 
 /* the sidebar need to be a little bit under the top navbar and light blue */
 #sidebar {
-    margin-top: 67px;
     width: 400px;
     background-color: rgb(116,193,255); 
 }
