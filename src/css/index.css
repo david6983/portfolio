@@ -13,19 +13,51 @@ body {
     font-weight: bold;
     font-size: larger;
     /* center vertically and horizontally */
-    padding: 20px 166px !important; 
+    padding: 20px 170px !important; 
 }
 
 /* the sidebar need to be a little bit under the top navbar and light blue */
 #sidebar {
     margin-top: 67px;
-    padding-left: 20%;
+    width: 400px;
     background-color: rgb(116,193,255); 
 }
 
 /* nav items have to be center vertically*/
 .navMiddleButton {
     /* center vertically and horizontally */
-    padding: 20px 130px !important;
+    padding: 20px 16px !important;
     font-size: larger;
+}
+
+/* inside the sidebar : the text is white,centered */
+.sidebarItem {
+    text-align: center !important;
+    color: white;
+}
+
+/* resize the playlist icon on the left */
+#playlistIcon {
+    width: 30px;
+    height: 30px;
+}
+
+@media only screen and (max-width: 992px) and (min-width: 772px) {
+    .mainLogo {
+        padding: 20px 3% !important; 
+    }
+}
+
+@media only screen and (max-width: 772px) {
+    .mainLogo {
+        padding: 20px 20px !important; 
+    }
+    
+}
+
+@media only screen and (max-width: 600px) {
+    .mainLogo {
+        padding: 20px 33% !important;
+    }
+    
 }
