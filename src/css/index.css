@@ -9,9 +9,29 @@ body {
     height: 50px;
 }
 
+.mainLogo {
+    font-weight: bold;
+    font-size: larger;
+    margin: auto;
+    /* center vertically and horizontally */
+    padding: 20px 16px !important; 
+}
+
+.navLeftButton {
+    padding: 0px 0px 0px 0px;
+}
+
 /* the sidebar need to be a little bit under the top navbar and light blue */
 #sidebar {
-    margin-top: 66px;
+    margin-top: 67px;
+    padding-left: 20%;
     background-color: rgb(116,193,255); 
 }
 
+/* nav items have to be center vertically*/
+.navMiddleButton {
+    /* center vertically and horizontally */
+    padding: 20px 16px !important;
+    font-size: larger;
+    margin: auto;
+}
