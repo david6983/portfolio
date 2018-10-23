@@ -25,8 +25,8 @@
                 <a href="#" class="w3-bar-item w3-button w3-mobile navMiddleButton">Settings</a>
                 <a href="#" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tutorial</a>
                 <!-- search and user profile icons -->
-                <a href="#" class="w3-bar-item w3-button w3-mobile navLeftButton"><img src="assets/icons/search.png" class="navleftIcon" alt="toggle search bar"></img></a>
-                <a href="#" class="w3-bar-item w3-button w3-mobile navLeftButton"><img src="assets/icons/user.png" class="navleftIcon" alt="userProfile"></img></a>
+                <a href="#" class="w3-bar-item w3-button w3-mobile w3-right"><img src="assets/icons/user.png" class="navleftIcon" alt="userProfile"></img></a>
+                <a href="#" class="w3-bar-item w3-button w3-mobile w3-right"><img src="assets/icons/search.png" class="navleftIcon" alt="toggle search bar"></img></a>
             </div>                       
         </nav>
     </div>
