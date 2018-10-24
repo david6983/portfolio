@@ -7,14 +7,14 @@
     <title>test wavesurfer js</title>
     <script src="https://unpkg.com/wavesurfer.js"></script>
 </head>
-<body>
+<body style="background-color: rgb(255,255,255);">
     
     <div id="waveform"></div>
     <script>
         var wavesurfer = WaveSurfer.create({
             container: '#waveform',
-            waveColor: 'violet',
-            progressColor: 'purple'
+            waveColor: 'lightblue',
+            barWidth: 3 /* more like soundcloud player */
         });
         wavesurfer.load("http://musiques/BIG ROOM/Dimitri%20Vegas,%20Martin%20Garrix,%20Like%20Mike%20-%20Tremor%20(Official%20Music%20Video)_(360p).mp3");
         
