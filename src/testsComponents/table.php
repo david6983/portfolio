@@ -21,7 +21,7 @@
             <tr>
                 <td contenteditable="true">1</td>
                 <td contenteditable="true">Like I Do</td>
-                <td contenteditable="true">David Guetta, Brooks</td>              
+                <td contenteditable="true" id="1" onblur="update('1')">David Guetta, Brooks</td>              
                 <td contenteditable="true">Future Bounce</td>
                 <td contenteditable="true">2A</td>
                 <td contenteditable="true">126</td>
@@ -70,5 +70,12 @@
             </tr>
         </table> 
         <p id="result"></p>
+        <script>
+            function update(id){
+                var str = document.getElementById(id).textContent;
+                document.getElementById(id).innerHTML = str;
+                console.log(document.getElementById(id).textContent);
+            }
+        </script>
 </body>
 </html>
