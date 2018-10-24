@@ -41,6 +41,12 @@ body {
     height: 30px;
 }
 
+#camalotImg {
+    width: 250px;
+    margin-left: 19%;
+    margin-top: 20px;
+}
+
 @media only screen and (max-width: 992px) and (min-width: 772px) {
     .mainLogo {
         padding: 20px 3% !important; 
@@ -60,3 +66,4 @@ body {
     }
     
 }
+

@@ -38,7 +38,7 @@
     </header>
     <!-- sidebar on the left -->
     <div id="sidebar" class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left">
-
+        <img id="camalotImg" src="assets/img/camalote-wheel-logo.png" alt="camalote wheel of keys"></img>
     </div>
     <div>
         <div class="w3-card w3-margin">
