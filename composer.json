@@ -1,0 +1,9 @@
+{
+    "name": "2key/2key",
+    "description": "a free alternative to mixedinkey using wamp",
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    },
+    "license": "MIT",
+    "require": {}
+}
