@@ -51,7 +51,7 @@
             margin-top: 20px;">
         <button class="w3-button w3-round-xlarge w3-blue sidebarElement">Analyze your tracks</button>
     </div>
-    <div>
+    <div class="mainContent">
         <div class="w3-card w3-margin">
             <!-- js code for the player -->
         </div>

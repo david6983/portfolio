@@ -22,6 +22,10 @@ body {
     background-color: rgb(116,193,255); 
 }
 
+.mainContent {
+    margin-left: 400px;
+}
+
 /* nav items have to be center vertically*/
 .navMiddleButton {
     /* center vertically and horizontally */
@@ -52,19 +56,26 @@ body {
     .mainLogo {
         padding: 20px 3% !important; 
     }
+    .mainContent {
+        margin-left: 0;
+    }
 }
 
 @media only screen and (max-width: 772px) {
     .mainLogo {
         padding: 20px 20px !important; 
     }
-    
+    .mainContent {
+        margin-left: 0;
+    }
 }
 
 @media only screen and (max-width: 600px) {
     .mainLogo {
         padding: 20px 33% !important;
     }
-    
+    .mainContent {
+        margin-left: 0;
+    }
 }
 
