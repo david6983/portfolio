@@ -3,6 +3,29 @@ body {
     background-color: rgb(245, 245,245);
 }
 
+.lightblue {
+    background-color: #00C2FF;
+    color: white;
+}
+
+.turquoise {
+    background-color: #56D9F9;
+    color: white;
+}
+
+.lighterblue {
+    background-color: #88E8FF;
+    color: white;
+}
+
+.marginLeft32p{
+    margin-left: 32%;
+}
+
+#totalNumberOfMusic {
+    margin-left: 50%;
+}
+
 /* resizing the icons on the left in the top navbar */
 .navleftIcon {
     width: 50px;
@@ -38,6 +61,28 @@ body {
     text-align: center !important;
     color: white;
 }
+
+.textSideBar{
+    font-weight: bolder;
+    color: white;
+}
+
+.textSideBarMargin{
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.playlistBadge{
+    background-color: #88E8FF;
+    padding: 10px 8px 10px 8px;
+    margin-left: 35% !important;
+    border-radius: 5px;
+}
+
+.textSideBarMargin span{
+    margin-left: 37%;
+}
+
 
 /* resize the playlist icon on the left */
 #playlistIcon {

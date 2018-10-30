@@ -49,7 +49,11 @@
         <img src="assets/img/camalote-wheel-logo.png" alt="camalote wheel of keys" style="width: 250px;
             margin-left: 19%;
             margin-top: 20px;">
-        <button class="w3-button w3-round-xlarge w3-blue sidebarElement">Analyze your tracks</button>
+        <button class="w3-button w3-round-xlarge lightblue sidebarElement">Analyze your tracks</button>
+        <p class="textSideBar textSideBarMargin">ANALYSIS QUEUE <span id="numberOfMusicToAnalyse">EMPTY</span></p>
+        <p class="textSideBar textSideBarMargin">NEW COLLECTION <button class="w3-button w3-round-xlarge lightblue marginLeft32p"><img class="navleftIcon" src="assets/icons/add.png" alt="plusIcon"></button></p>
+        <p class="textSideBar textSideBarMargin">VIEW ALL <button id="totalNumberOfMusic" class="w3-button w3-round-xlarge lightblue">0</button></p>
+
     </div>
     <div class="mainContent">
         <div class="w3-card w3-margin">
