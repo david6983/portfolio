@@ -41,6 +41,12 @@ body {
     height: 30px;
 }
 
+.sidebarElement {
+    margin-left: 5%;
+    margin-top: 20px;
+    width: 90%;
+    font-size: larger;
+}
 
 @media only screen and (max-width: 992px) and (min-width: 772px) {
     .mainLogo {
