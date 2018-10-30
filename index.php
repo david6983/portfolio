@@ -41,6 +41,7 @@
         <img src="assets/img/camalote-wheel-logo.png" alt="camalote wheel of keys" style="width: 250px;
             margin-left: 19%;
             margin-top: 20px;">
+        <button class="w3-button w3-round-xlarge w3-blue sidebarElement">Analyze your tracks</button>
     </div>
     <div>
         <div class="w3-card w3-margin">
