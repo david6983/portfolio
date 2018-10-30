@@ -28,8 +28,8 @@
                 <!-- navigation buttons : modify,settings, ... -->
                 <div onclick="tagsEditableFalse()" class="w3-bar-item w3-button w3-mobile navMiddleButton">Collections</div>
                 <div onclick="tagsEditableTrue()" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tags</div>
-                <div class="w3-bar-item w3-button w3-mobile navMiddleButton">Settings</div>
-                <div class="w3-bar-item w3-button w3-mobile navMiddleButton">Tutorial</div>
+                <a href="src/pages/settings.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Settings</a>
+                <a href="src/pages/tutorial.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tutorial</a>
                 <!-- search and user profile icons -->
                 <div class="w3-bar-item w3-button w3-mobile w3-right"><img src="assets/icons/user.png" class="navleftIcon" alt="userProfile"></div>
                 <div class="w3-bar-item w3-button w3-mobile w3-right"><img src="assets/icons/search.png" class="navleftIcon" alt="toggle search bar"></div>
@@ -50,6 +50,7 @@
         </div>
         <div class="w3-card w3-margin">
             <!-- php code for the table or js code with ajax -->
+            <div contenteditable="false">test</div>
         </div>
     </div>
 </body>
