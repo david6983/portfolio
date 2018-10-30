@@ -23,7 +23,7 @@ body {
 }
 
 #totalNumberOfMusic {
-    margin-left: 50%;
+    margin-left: 46%;
 }
 
 /* resizing the icons on the left in the top navbar */
@@ -83,6 +83,9 @@ body {
     margin-left: 37%;
 }
 
+.playlistmenuinner {
+    overflow: auto;
+}
 
 /* resize the playlist icon on the left */
 #playlistIcon {
