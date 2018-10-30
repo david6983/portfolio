@@ -3,10 +3,33 @@ body {
     background-color: rgb(245, 245,245);
 }
 
+.lightblue {
+    background-color: #00C2FF;
+    color: white;
+}
+
+.turquoise {
+    background-color: #56D9F9;
+    color: white;
+}
+
+.lighterblue {
+    background-color: #88E8FF;
+    color: white;
+}
+
+.marginLeft32p{
+    margin-left: 32%;
+}
+
+#totalNumberOfMusic {
+    margin-left: 46%;
+}
+
 /* resizing the icons on the left in the top navbar */
 .navleftIcon {
     width: 50px;
-    height: 50px;
+    /* height: 50px; */
 }
 
 .mainLogo {
@@ -22,6 +45,10 @@ body {
     background-color: rgb(116,193,255); 
 }
 
+.mainContent {
+    margin-left: 400px;
+}
+
 /* nav items have to be center vertically*/
 .navMiddleButton {
     /* center vertically and horizontally */
@@ -33,6 +60,31 @@ body {
 .sidebarItem {
     text-align: center !important;
     color: white;
+}
+
+.textSideBar{
+    font-weight: bolder;
+    color: white;
+}
+
+.textSideBarMargin{
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.playlistBadge{
+    background-color: #88E8FF;
+    padding: 10px 8px 10px 8px;
+    margin-left: 35% !important;
+    border-radius: 5px;
+}
+
+.textSideBarMargin span{
+    margin-left: 37%;
+}
+
+.playlistmenuinner {
+    overflow: auto;
 }
 
 /* resize the playlist icon on the left */
@@ -52,19 +104,26 @@ body {
     .mainLogo {
         padding: 20px 3% !important; 
     }
+    .mainContent {
+        margin-left: 0;
+    }
 }
 
 @media only screen and (max-width: 772px) {
     .mainLogo {
         padding: 20px 20px !important; 
     }
-    
+    .mainContent {
+        margin-left: 0;
+    }
 }
 
 @media only screen and (max-width: 600px) {
     .mainLogo {
         padding: 20px 33% !important;
     }
-    
+    .mainContent {
+        margin-left: 0;
+    }
 }
 
