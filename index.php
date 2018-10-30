@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="src/css/index.css">
     <script src="src/js/collapseMenuBar.js"></script>
     <script src="src/js/sidebar.js"></script>  
+    <script src="src/js/tagsEditable.js"></script> 
 </head>
 <body>
     <header>
@@ -25,13 +26,13 @@
             <!-- Buttons -->
             <div id="navItems" class="w3-hide-small">
                 <!-- navigation buttons : modify,settings, ... -->
-                <a href="#" class="w3-bar-item w3-button w3-mobile navMiddleButton">Collections</a>
-                <a href="#" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tags</a>
-                <a href="#" class="w3-bar-item w3-button w3-mobile navMiddleButton">Settings</a>
-                <a href="#" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tutorial</a>
+                <div onclick="tagsEditableFalse()" class="w3-bar-item w3-button w3-mobile navMiddleButton">Collections</div>
+                <div onclick="tagsEditableTrue()" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tags</div>
+                <div class="w3-bar-item w3-button w3-mobile navMiddleButton">Settings</div>
+                <div class="w3-bar-item w3-button w3-mobile navMiddleButton">Tutorial</div>
                 <!-- search and user profile icons -->
-                <a href="#" class="w3-bar-item w3-button w3-mobile w3-right"><img src="assets/icons/user.png" class="navleftIcon" alt="userProfile"></a>
-                <a href="#" class="w3-bar-item w3-button w3-mobile w3-right"><img src="assets/icons/search.png" class="navleftIcon" alt="toggle search bar"></a>
+                <div class="w3-bar-item w3-button w3-mobile w3-right"><img src="assets/icons/user.png" class="navleftIcon" alt="userProfile"></div>
+                <div class="w3-bar-item w3-button w3-mobile w3-right"><img src="assets/icons/search.png" class="navleftIcon" alt="toggle search bar"></div>
             </div>                       
         </nav>
         
