@@ -15,7 +15,7 @@
         for($i=2; $i < count($a) ; $i++){
             $v = scandir($dir.'\\'.$a[$i]);
             for($j=2; $j < count($v) ; $j++){
-                echo "<p>".utf8_encode($v[$j])."</p>";
+                echo "<p>$a[$i] : ".utf8_encode($v[$j])."</p>";
                 
             }
         }

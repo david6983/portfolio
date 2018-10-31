@@ -29,44 +29,44 @@
                 <td contenteditable="true">G:\MUSIQUES</td>
             </tr>
             <tr>
-                <td>2</td>
-                <td>recces</td>
-                <td>Skrillex</td>
-                <td>Dubstep</td>
-                <td>11A</td>
-                <td>96</td>
-                <td>2:31</td>
-                <td>G:\MUSIQUES</td>
+                <td contenteditable="true">2</td>
+                <td contenteditable="true">recces</td>
+                <td contenteditable="true">Skrillex</td>
+                <td contenteditable="true">Dubstep</td>
+                <td contenteditable="true">11A</td>
+                <td contenteditable="true">96</td>
+                <td contenteditable="true">2:31</td>
+                <td contenteditable="true">G:\MUSIQUES</td>
             </tr>
             <tr>
-                <td>3</td>
-                <td>When I'm gone</td>
-                <td>Brooks</td>
-                <td>Future Bounce</td>
-                <td>12B</td>
-                <td>127</td>
-                <td>3:31</td>
-                <td>G:\MUSIQUES</td>
+                <td contenteditable="true">3</td>
+                <td contenteditable="true">When I'm gone</td>
+                <td contenteditable="true">Brooks</td>
+                <td contenteditable="true">Future Bounce</td>
+                <td contenteditable="true">12B</td>
+                <td contenteditable="true">127</td>
+                <td contenteditable="true">3:31</td>
+                <td contenteditable="true">G:\MUSIQUES</td>
             </tr>
             <tr>
-                <td>4</td>
-                <td>Get Lemon</td>
-                <td>Disciple, all artists</td>
-                <td>Dubstep</td>
-                <td>5B</td>
-                <td>150</td>
-                <td>3:22</td>
-                <td>G:\MUSIQUES</td>
+                <td contenteditable="true">4</td>
+                <td contenteditable="true">Get Lemon</td>
+                <td contenteditable="true">Disciple, all artists</td>
+                <td contenteditable="true">Dubstep</td>
+                <td contenteditable="true">5B</td>
+                <td contenteditable="true">150</td>
+                <td contenteditable="true">3:22</td>
+                <td contenteditable="true">G:\MUSIQUES</td>
             </tr>
             <tr>
-                <td>5</td>
-                <td>Majenta Riddim</td>
-                <td>DJ Snake</td>
-                <td>Moombahton</td>
-                <td>6A</td>
-                <td>101</td>
-                <td>2:56</td>
-                <td>G:\MUSIQUES\Electro</td>
+                <td >5</td>
+                <td >Majenta Riddim</td>
+                <td >DJ Snake</td>
+                <td >Moombahton</td>
+                <td >6A</td>
+                <td >101</td>
+                <td >2:56</td>
+                <td >G:\MUSIQUES\Electro</td>
             </tr>
         </table> 
         <p id="result"></p>
