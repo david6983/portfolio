@@ -46,9 +46,7 @@
     </header>
     <!-- sidebar on the left -->
     <div id="sidebar" class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left">
-        <img src="assets/img/camalote-wheel-logo.png" alt="camalote wheel of keys" style="width: 200px;
-            margin-left: 24%;
-            margin-top: 20px;">
+        <img id="camelotImg" src="assets/img/camalote-wheel-logo.png" alt="camalote wheel of keys">
         <button class="w3-button w3-round-xlarge lightblue sidebarElement">Analyze your tracks</button>
         <p class="textSideBar textSideBarMargin">ANALYSIS QUEUE <span id="numberOfMusicToAnalyse">EMPTY</span></p>
         <p class="textSideBar textSideBarMargin">NEW COLLECTION <button class="w3-button w3-round-xlarge lightblue marginLeft32p"><img class="navleftIcon" src="assets/icons/add.png" alt="plusIcon"></button></p>
