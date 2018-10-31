@@ -10,6 +10,7 @@
     <script src="src/js/collapseMenuBar.js"></script>
     <script src="src/js/sidebar.js"></script>  
     <script src="src/js/tagsEditable.js"></script> 
+    <script src="src/js/searchBar.js"></script>
 </head>
 <body>
     <header>
@@ -39,7 +40,7 @@
                         test
                     </div>
                 </div>
-                <div class="w3-bar-item w3-button w3-mobile w3-right"><img src="assets/icons/search.png" class="navleftIcon" alt="toggle search bar"></div>
+                <div onclick="collapseSearchInput()" class="w3-bar-item w3-button w3-mobile w3-right"><img src="assets/icons/search.png" class="navleftIcon" alt="toggle search bar"></div>
             </div>                       
         </nav>
         
@@ -54,19 +55,19 @@
         <!-- here is the code to generate a menu scrollable with overflow css property
         for the playlists thanks to either ajax or php
         -->
-        
-        <div>
-            <button class="w3-button w3-round-xlarge lightblue sidebarElement">
-                <img class="" src="assets/icons/import.png" alt="importIcon">
-                Import
-            </button>
-            <button class="w3-button w3-round-xlarge lightblue sidebarElement">
-                <img class="" src="assets/icons/export.png" alt="exportIcon">
-                Export
-            </button>
-        </div>
+        <button id="importButton" class="w3-button w3-round-xlarge lightblue sidebarElement">
+            <img class="ioIcons" src="assets/icons/import.png" alt="importIcon">
+            Import
+        </button>
+        <button id="exportButton" class="w3-button w3-round-xlarge lightblue sidebarElement">
+            <img class="ioIcons" src="assets/icons/export.png" alt="exportIcon">
+            Export
+        </button>
     </div>
     <div class="mainContent">
+        <div class="w3-card w3-margin">
+            <input class="w3-input w3-border w3-hide type="text" placeholder="Search for a song.." id="searchInput" onkeyup="">
+        </div>
         <div class="w3-card w3-margin">
             <!-- js code for the player -->
         </div>
