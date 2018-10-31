@@ -19,7 +19,7 @@ body {
 }
 
 .marginLeft32p{
-    margin-left: 25%;
+    margin-left: 32%;
 }
 
 #totalNumberOfMusic {
@@ -41,7 +41,7 @@ body {
 
 /* the sidebar need to be a little bit under the top navbar and light blue */
 #sidebar {
-    width: 36px;
+    width: 400px;
     background-color: rgb(116,193,255); 
 }
 
@@ -120,10 +120,22 @@ body {
 
 @media only screen and (max-width: 600px) {
     .mainLogo {
-        padding: 20px 26% !important;
+        padding: 20px 23% !important;
     }
     .mainContent {
         margin-left: 0;
+    }
+    #sidebar {
+        width: 100%;
+    }
+    .marginLeft32p {
+        margin-left: 16%;
+    }
+    .textSideBarMargin span {
+        margin-left: 20%;
+    }
+    #totalNumberOfMusic {
+        margin-left: 33%;
     }
 }
 
