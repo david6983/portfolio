@@ -66,7 +66,7 @@
     </div>
     <div class="mainContent">
         <div class="w3-card w3-margin">
-            <input class="w3-input w3-border w3-hide type="text" placeholder="Search for a song.." id="searchInput" onkeyup="">
+            <input class="w3-input w3-border w3-hide" type="text" placeholder="Search for a song.." id="searchInput" onkeyup="">
         </div>
         <div class="w3-card w3-margin">
             <!-- js code for the player -->
