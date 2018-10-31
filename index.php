@@ -58,11 +58,11 @@
         <div>
             <button class="w3-button w3-round-xlarge lightblue sidebarElement">
                 <img class="" src="assets/icons/import.png" alt="importIcon">
-                Import Playlists
+                Import
             </button>
             <button class="w3-button w3-round-xlarge lightblue sidebarElement">
                 <img class="" src="assets/icons/export.png" alt="exportIcon">
-                Export Playlists
+                Export
             </button>
         </div>
     </div>
