@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="src/css/index.css">
     <script src="src/js/collapseMenuBar.js"></script>
     <script src="src/js/sidebar.js"></script>  
+    <script src="src/js/tagsEditable.js"></script> 
 </head>
 <body>
     <header>
@@ -25,29 +26,53 @@
             <!-- Buttons -->
             <div id="navItems" class="w3-hide-small">
                 <!-- navigation buttons : modify,settings, ... -->
-                <a href="#" class="w3-bar-item w3-button w3-mobile navMiddleButton">Collections</a>
-                <a href="#" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tags</a>
-                <a href="#" class="w3-bar-item w3-button w3-mobile navMiddleButton">Settings</a>
-                <a href="#" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tutorial</a>
+                <div onclick="tagsEditableFalse()" class="w3-bar-item w3-button w3-mobile navMiddleButton">Collections</div>
+                <div onclick="tagsEditableTrue()" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tags</div>
+                <a href="src/pages/settings.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Settings</a>
+                <a href="src/pages/tutorial.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tutorial</a>
                 <!-- search and user profile icons -->
-                <a href="#" class="w3-bar-item w3-button w3-mobile w3-right"><img src="assets/icons/user.png" class="navleftIcon" alt="userProfile"></a>
-                <a href="#" class="w3-bar-item w3-button w3-mobile w3-right"><img src="assets/icons/search.png" class="navleftIcon" alt="toggle search bar"></a>
+                <div class="w3-dropdown-hover w3-bar-item w3-button w3-mobile w3-right navleftIcon">
+                    <button class="w3-button" style="padding: 0;">
+                        <img src="assets/icons/user.png" class="navleftIcon" alt="userProfile">
+                    </button>
+                    <div class="w3-dropdown-content w3-bar-block">
+                        test
+                    </div>
+                </div>
+                <div class="w3-bar-item w3-button w3-mobile w3-right"><img src="assets/icons/search.png" class="navleftIcon" alt="toggle search bar"></div>
             </div>                       
         </nav>
         
     </header>
     <!-- sidebar on the left -->
     <div id="sidebar" class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left">
-        <img src="assets/img/camalote-wheel-logo.png" alt="camalote wheel of keys" style="width: 250px;
-            margin-left: 19%;
-            margin-top: 20px;">
+        <img id="camelotImg" src="assets/img/camalote-wheel-logo.png" alt="camalote wheel of keys">
+        <button class="w3-button w3-round-xlarge lightblue sidebarElement">Analyze your tracks</button>
+        <p class="textSideBar textSideBarMargin">ANALYSIS QUEUE <span id="numberOfMusicToAnalyse">EMPTY</span></p>
+        <p class="textSideBar textSideBarMargin">NEW COLLECTION <button class="w3-button w3-round-xlarge lightblue marginLeft32p"><img class="navleftIcon" src="assets/icons/add.png" alt="plusIcon"></button></p>
+        <p class="textSideBar textSideBarMargin w3-large">VIEW ALL <button id="totalNumberOfMusic" class="w3-button w3-round-xlarge lightblue">0</button></p>
+        <!-- here is the code to generate a menu scrollable with overflow css property
+        for the playlists thanks to either ajax or php
+        -->
+        
+        <div>
+            <button class="w3-button w3-round-xlarge lightblue sidebarElement">
+                <img class="" src="assets/icons/import.png" alt="importIcon">
+                Import
+            </button>
+            <button class="w3-button w3-round-xlarge lightblue sidebarElement">
+                <img class="" src="assets/icons/export.png" alt="exportIcon">
+                Export
+            </button>
+        </div>
     </div>
-    <div>
+    <div class="mainContent">
         <div class="w3-card w3-margin">
             <!-- js code for the player -->
         </div>
         <div class="w3-card w3-margin">
             <!-- php code for the table or js code with ajax -->
+            <div contenteditable="false">test</div>
         </div>
     </div>
 </body>
