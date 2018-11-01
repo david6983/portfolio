@@ -1,14 +1,44 @@
 /* app background color */
 body {
+    /* we don't need a 100% white background */
     background-color: rgb(245, 245,245);
+}
+
+/* define the lightblue color for an element and the text inside need to be white */
+.lightblue {
+    background-color: #00C2FF;
+    color: white;
+}
+
+/* turquoise color for some buttons in the sidebar */
+.turquoise {
+    background-color: #56D9F9;
+    color: white;
+}
+
+/* lighter blue color for some others buttons in the sidebar */
+.lighterblue {
+    background-color: #88E8FF;
+    color: white;
+}
+
+/* fast css method to apply a margin of 32% */
+.marginLeft32p{
+    margin-left: 32%;
+}
+
+/* shift the result on the right */
+#totalNumberOfMusic {
+    margin-left: 46%;
 }
 
 /* resizing the icons on the left in the top navbar */
 .navleftIcon {
     width: 50px;
-    height: 50px;
+    /* height: 50px; */
 }
 
+/* 2KEY logo */
 .mainLogo {
     font-weight: bold;
     font-size: larger;
@@ -16,10 +46,37 @@ body {
     padding: 20px 170px !important; 
 }
 
+/* big wheel on top of the sidebar */
+#camelotImg {
+    width: 200px; /* real width */
+    margin-left: 24%;
+    margin-top: 20px; 
+}
+
+.ioIcons {
+    width: 25%;
+}
+
+#importButton {
+    float: left;
+    width: 42%;
+}
+
+#exportButton {
+    float: right;
+    margin-right: 5%;
+    width: 42%;
+}
+
 /* the sidebar need to be a little bit under the top navbar and light blue */
 #sidebar {
     width: 400px;
     background-color: rgb(116,193,255); 
+}
+
+/* the content at the right of the side bar*/
+.mainContent {
+    margin-left: 400px;
 }
 
 /* nav items have to be center vertically*/
@@ -35,30 +92,92 @@ body {
     color: white;
 }
 
+/* white and bolder text inside the side bar */
+.textSideBar{
+    font-weight: bolder;
+    color: white;
+}
+
+/* side bar text margin */
+.textSideBarMargin{
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+/* special class to create a "badge" based on the themes */
+.playlistBadge{
+    background-color: #88E8FF;
+    padding: 10px 8px 10px 8px;
+    margin-left: 35% !important;
+    border-radius: 5px;
+}
+
+/* shifting the result */
+.textSideBarMargin span{
+    margin-left: 37%;
+}
+
+/* allow the scroll inside the sidebar */
+.playlistmenuinner {
+    overflow: auto;
+}
+
 /* resize the playlist icon on the left */
 #playlistIcon {
     width: 30px;
     height: 30px;
 }
 
+/* special class for a element in the sidebar */
+.sidebarElement {
+    margin-left: 5%;
+    margin-top: 20px;
+    width: 90%;
+    font-size: larger;
+}
 
+/* BIG TABLETS */
 @media only screen and (max-width: 992px) and (min-width: 772px) {
     .mainLogo {
         padding: 20px 3% !important; 
     }
+    .mainContent {
+        margin-left: 0;
+    }
 }
 
+/* MID TABLETS */
 @media only screen and (max-width: 772px) {
     .mainLogo {
         padding: 20px 20px !important; 
     }
-    
+    .mainContent {
+        margin-left: 0;
+    }
 }
 
+/* MOBILES */
 @media only screen and (max-width: 600px) {
     .mainLogo {
-        padding: 20px 33% !important;
+        padding: 20px 23% !important;
     }
-    
+    .mainContent {
+        margin-left: 0;
+    }
+    #sidebar {
+        width: 100%;
+    }
+    .marginLeft32p {
+        margin-left: 16%;
+    }
+    .textSideBarMargin span {
+        margin-left: 20%;
+    }
+    #totalNumberOfMusic {
+        margin-left: 33%;
+    }
+    #camelotImg {
+        margin-left: 19%;
+    }
 }
 
