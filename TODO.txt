@@ -1,1 +1,11 @@
 -create classes in php
+-settings :
+    -virtual host configuration
+    -track analysis quality : standart or optimised
+    -content editable on :
+        -name ?
+        -artist ?
+        -bpm ?
+        -lenght ?
+        -genre ?
+        -path ?

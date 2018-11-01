@@ -53,6 +53,21 @@ body {
     margin-top: 20px; 
 }
 
+.ioIcons {
+    width: 25%;
+}
+
+#importButton {
+    float: left;
+    width: 42%;
+}
+
+#exportButton {
+    float: right;
+    margin-right: 5%;
+    width: 42%;
+}
+
 /* the sidebar need to be a little bit under the top navbar and light blue */
 #sidebar {
     width: 400px;
@@ -160,6 +175,9 @@ body {
     }
     #totalNumberOfMusic {
         margin-left: 33%;
+    }
+    #camelotImg {
+        margin-left: 19%;
     }
 }
 
