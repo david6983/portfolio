@@ -65,13 +65,13 @@
         </button>
     </div>
     <div class="mainContent">
-        <div class="w3-card w3-margin">
+        <div class="w3-card w3-margin w3-white">
             <input class="w3-input w3-border w3-hide" type="text" placeholder="Search for a song.." id="searchInput" onkeyup="">
         </div>
-        <div class="w3-card w3-margin">
+        <div class="w3-card w3-margin w3-white">
             <!-- js code for the player -->
         </div>
-        <div class="w3-card w3-margin">
+        <div class="w3-card w3-margin w3-white">
             <!-- php code for the table or js code with ajax -->
             <div contenteditable="false">test</div>
         </div>
