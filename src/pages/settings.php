@@ -37,7 +37,7 @@
         </nav>
         
     </header>
-    <form metho="POST">
+    <form metho="POST" action="userSettings.php">
         <div class="w3-card w3-margin">
             <div class="w3-container lightblue">
                 <h2 class="w3-tooltip">About your library <span class="w3-text">(<em>hosted by WAMP server</em>)</span></h2>
@@ -61,9 +61,9 @@
             </div>
             <div class="w3-container w3-white">
                 <p>
-                    <input class="w3-radio" type="radio" name="precision" value="standard">
+                    <input class="w3-radio" type="radio" name="analysisPrecision" value="0">
                     <label>Standard</label>
-                    <input class="w3-radio" type="radio"  name="precision" value="optimised">
+                    <input class="w3-radio" type="radio"  name="analysisPrecision" value="1">
                     <label>Optimised</label>
                 </p>
 
