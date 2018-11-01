@@ -37,15 +37,41 @@
         </nav>
         
     </header>
-    <!-- sidebar on the left -->
-    <div id="sidebar" class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left">
-        
-    </div>
-    <div>
+    <form metho="POST" action="userSettings.php">
         <div class="w3-card w3-margin">
-            
+            <div class="w3-container lightblue">
+                <h2 class="w3-tooltip">About your library <span class="w3-text">(<em>hosted by WAMP server</em>)</span></h2>
+            </div>
+            <div class="w3-container w3-white">
+                <p>
+                    <label class="w3-tooltip">Name of the virtualHost <span class="w3-text">(<em>which contains your musics library !</em>)</span> :</label>
+                    <input class="w3-input w3-border" type="text">
+                </p>
+                <p>
+                    <label class="w3-tooltip">the local path to this library <span class="w3-text">(<em >the same as the virtualhost in WAMP !</em>)</span> :</label>
+                    <input class="w3-input w3-border" type="text">
+                </p>
+            </div>
         </div>
-        
-    </div>
+        <div class="w3-card w3-margin">
+            <div class="w3-container lightblue">
+                <h2 class="w3-tooltip">Analysis precision
+                    <span class="w3-text">(<em>for the BPM precision especialy</em>)</span>
+                </h2>
+            </div>
+            <div class="w3-container w3-white">
+                <p>
+                    <input class="w3-radio" type="radio" name="analysisPrecision" value="0">
+                    <label>Standard</label>
+                    <input class="w3-radio" type="radio"  name="analysisPrecision" value="1">
+                    <label>Optimised</label>
+                </p>
+
+            </div>
+        </div>
+        <div class="w3-container">
+            <input class="w3-button w3-round-xlarge lightblue" type="submit" value="Save">
+        </div>
+    </form>
 </body>
 </html>
