@@ -29,14 +29,21 @@
                 <td contenteditable="true">G:\MUSIQUES</td>
             </tr>
             <tr>
-                <td contenteditable="true">2</td>
-                <td contenteditable="true">recces</td>
-                <td contenteditable="true">Skrillex</td>
-                <td contenteditable="true">Dubstep</td>
-                <td contenteditable="true">11A</td>
-                <td contenteditable="true">96</td>
-                <td contenteditable="true">2:31</td>
-                <td contenteditable="true">G:\MUSIQUES</td>
+                <td>2</td>
+                <td><input type="text" value="recces" ></td>
+                <td><input type="text" value="Skrillex" ></td>
+                <td><input type="text" value="Dubstep" ></td>
+                <td>
+                    <select>
+                        <option value="1A">1A</option>
+                        <option value="2A">2A</option>
+                        <option value="3A">3A</option>
+                        <option value="4A">4A</option>
+                    <select>
+                </td>
+                <td><input type="number" value="96" > BPM</td>
+                <td><input type="number" min="00" max="60" value="2" >:<input type="number" min="00" max="60" value="31" ></td>
+                <td><input type="text" value="G:\MUSIQUES" ></td>
             </tr>
             <tr>
                 <td contenteditable="true">3</td>
