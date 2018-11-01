@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
+        <style>
+            input,select {
+                border: none;
+            }
+        </style>
         <table class="w3-table w3-striped w3-bordered">
             <tr class="w3-blue" >
                 <th>#</th>
@@ -41,8 +46,8 @@
                         <option value="4A">4A</option>
                     <select>
                 </td>
-                <td><input type="number" value="96" > BPM</td>
-                <td><input type="number" min="00" max="60" value="2" >:<input type="number" min="00" max="60" value="31" ></td>
+                <td><input type="number" value="96" ></td>
+                <td><input type="number" min="00" max="60" value="2" > : <input type="number" min="00" max="60" value="31" ></td>
                 <td><input type="text" value="G:\MUSIQUES" ></td>
             </tr>
             <tr>
