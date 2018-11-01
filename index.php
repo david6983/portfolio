@@ -16,7 +16,7 @@
     <header>
         <h1>Welcome to 2KEY</h1>
     </header>
-    <form class="connectForm" method="POST" action="index.php">
+    <form class="connectForm" method="POST" action="main.php">
         <div class="w3-card w3-margin">
             <div class="w3-container lightblue">
                 <h2>Choose a session</h2>
@@ -33,6 +33,5 @@
         </div>      
         
     </form>
-    <p><?php echo $_POST["username"]; ?> </p>
 </body>
 </html>

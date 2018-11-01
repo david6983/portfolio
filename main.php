@@ -13,7 +13,6 @@
     <script src="src/js/searchBar.js"></script>
 </head>
 <body>
-    <p><?php echo $_POST["username"]; ?> </p>
     <header>
         <!-- top navbar -->
         <nav class="w3-bar w3-blue">
@@ -33,17 +32,17 @@
                 <a href="src/pages/settings.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Settings</a>
                 <a href="src/pages/tutorial.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tutorial</a>
                 <!-- search and user profile icons -->
-                <div class="w3-dropdown-click w3-bar-item w3-button w3-mobile w3-right navleftIcon">
+                <div onclick="collapseSearchInput()" class="w3-bar-item w3-button w3-mobile navLeftElement"><img src="assets/icons/search.png" class="navleftIcon" alt="toggle search bar"></div>
+                <div class="w3-dropdown-hover w3-bar-item w3-button w3-mobile navleftIcon">
                     <button class="w3-button" style="padding: 0;">
                         <img src="assets/icons/user.png" class="navleftIcon" alt="userProfile">
                     </button>
                     <div class="w3-dropdown-content w3-bar-block">
                         <div class="w3-container">
-                            
+                            <p>Session name : <?php echo $_POST["username"]; ?> </p>
                         </div>
                     </div>
                 </div>
-                <div onclick="collapseSearchInput()" class="w3-bar-item w3-button w3-mobile w3-right"><img src="assets/icons/search.png" class="navleftIcon" alt="toggle search bar"></div>
             </div>                       
         </nav>
         
