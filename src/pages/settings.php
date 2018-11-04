@@ -63,10 +63,47 @@
                 <p>
                     <input class="w3-radio" type="radio" name="analysisPrecision" value="0">
                     <label>Standard</label>
+                </p>
+                <p>
                     <input class="w3-radio" type="radio"  name="analysisPrecision" value="1">
                     <label>Optimised</label>
                 </p>
 
+            </div>
+        </div>
+        <div class="w3-card w3-margin">
+            <div class="w3-container lightblue">
+                <h2 class="w3-tooltip">Editable tags
+                    <span class="w3-text">(<em>which tags are editable for your tracks ?</em>)</span>
+                </h2>
+            </div>
+            <div class="w3-container w3-white">
+                <p>
+                    <input class="w3-check" type="checkbox" checked="checked">
+                    <label>Name</label>
+                </p>
+                <p>
+                    <input class="w3-check" type="checkbox" checked="checked">
+                    <label>Artist names</label>
+                </p>
+                <p>
+                    <input class="w3-check" type="checkbox" checked="checked">
+                    <label>BPM</label>
+                </p>
+                <p>
+                    <input class="w3-check" type="checkbox" checked="checked">
+                    <label>Lenght</label>
+                </p>
+                <p>
+                    <input class="w3-check" type="checkbox" checked="checked">
+                    <label>Genre</label>
+                </p>
+                <p>
+                    <input class="w3-check" type="checkbox" checked="checked">
+                    <label>Path</label>
+                </p>
+                <p>
+                </p>
             </div>
         </div>
         <div class="w3-container">

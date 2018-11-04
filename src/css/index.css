@@ -136,6 +136,11 @@ body {
     font-size: larger;
 }
 
+/* instead of w3-right */
+.navLeftElement {
+    margin-left: 49%;
+}
+
 /* BIG TABLETS */
 @media only screen and (max-width: 992px) and (min-width: 772px) {
     .mainLogo {
@@ -153,6 +158,9 @@ body {
     }
     .mainContent {
         margin-left: 0;
+    }
+    .navLeftElement {
+        margin-left: 4%;
     }
 }
 
