@@ -11,6 +11,7 @@
     <script src="src/js/sidebar.js"></script>  
     <script src="src/js/tagsEditable.js"></script> 
     <script src="src/js/searchBar.js"></script>
+    <script src="src/js/playerDisplay.js"></script>
 </head>
 <body>
     <header>
@@ -144,8 +145,25 @@
             <input class="w3-input w3-border w3-hide" type="text" placeholder="Search for a song.." id="searchInput" onkeyup="">
         </div>
         <!-- player -->
-        <div class="w3-card w3-margin w3-white">
+        <div class="w3-card w3-margin w3-white Player">
             <!-- js code for the player -->
+            <div id="waveform" class="w3-container"></div>
+            <!-- player buttons -->
+            <div class="w3-container">        
+                <button class="w3-button">
+                    <img src="assets\icons\previous.png" alt="previous logo">
+                </button>
+                <button class="w3-button w3-blue w3-circle" onclick="pauseToPlayImg()">
+                    <img id="playpauseImg" src="assets\icons\pause.png" alt="pause logo">
+                </button>
+                <button class="w3-button">
+                    <img class="rotate180" src="assets\icons\previous.png" alt="next logo">
+                </button>              
+            </div>
+            <!-- song attributs -->
+            <div class="w3-container">
+                <!-- display a table with all the track's attributs -->
+            </div>
         </div>
         <!-- table -->
         <div class="w3-card w3-margin w3-white">

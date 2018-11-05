@@ -38,6 +38,11 @@ body {
     /* height: 50px; */
 }
 
+/* return 180° an element */
+.rotate180 {
+    transform: rotate(180deg); 
+}
+
 /* 2KEY logo */
 .mainLogo {
     font-weight: bold;
