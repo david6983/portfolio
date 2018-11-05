@@ -61,7 +61,7 @@
             </div>
             <div class="w3-container w3-white">
                 <p>
-                    <input class="w3-radio" type="radio" name="analysisPrecision" value="0">
+                    <input class="w3-radio" type="radio" name="analysisPrecision" value="0" checked>
                     <label>Standard</label>
                 </p>
                 <p>
