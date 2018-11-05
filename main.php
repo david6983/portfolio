@@ -146,6 +146,18 @@
         <!-- player -->
         <div class="w3-card w3-margin w3-white">
             <!-- js code for the player -->
+            <!-- player buttons -->
+            <div class="w3-container">
+                <div class="w3-button">
+                    <img src="assets\icons\previous.png" alt="previous logo">
+                </div>
+                <div class="w3-button w3-blue w3-circle">
+                    <img src="assets\icons\pause.png" alt="pause logo">
+                </div>
+                <div class="w3-button">
+                    <img class="rotate180" src="assets\icons\previous.png" alt="next logo">
+                </div>
+            </div>
         </div>
         <!-- table -->
         <div class="w3-card w3-margin w3-white">
