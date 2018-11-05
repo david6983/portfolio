@@ -33,13 +33,24 @@
                 <a href="src/pages/tutorial.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tutorial</a>
                 <!-- search and user profile icons -->
                 <div onclick="collapseSearchInput()" class="w3-bar-item w3-button w3-mobile navLeftElement"><img src="assets/icons/search.png" class="navleftIcon" alt="toggle search bar"></div>
-                <div class="w3-dropdown-hover w3-bar-item w3-button w3-mobile navleftIcon">
-                    <button class="w3-button" style="padding: 0;">
-                        <img src="assets/icons/user.png" class="navleftIcon" alt="userProfile">
-                    </button>
-                    <div class="w3-dropdown-content w3-bar-block">
-                        <div class="w3-container">
-                            <p>Session name : <?php echo $_POST["username"]; ?> </p>
+                <div class="w3-button w3-bar-item w3-mobile navleftIcon" onclick="displayModal('sessionMenu')">
+                    <img src="assets/icons/user.png" class="navleftIcon" alt="userProfile">
+                </div>
+                <!-- session menu (modal) -->
+                <div id="sessionMenu" class="w3-modal">
+                    <div class="w3-modal-content">
+                        <div class="w3-card">
+                            <div class="w3-container lightblue">
+                                <h3>Your session </h3>
+                                <span onclick="closeModal('sessionMenu')" class="w3-button w3-display-topright">&times;</span>
+                            </div>
+                            <div class="w3-container">
+                                <!-- php request for all user caracteristics -->
+                                <!-- SELECT * FROM USER WHERE userName= $['POST] -->
+                            </div>
+                            <div class="w3-container">
+                                <a href="index.php" class="w3-bar-item w3-button w3-mobile w3-blue w3-round-xlarge">Change session</a>
+                            </div>
                         </div>
                     </div>
                 </div>
