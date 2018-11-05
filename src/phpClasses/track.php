@@ -4,13 +4,22 @@
         private $_name;
         private $_artists;
         private $_genre;
-        private $_path;
+        private $_path; 
         private $_key;
         private $_lenght;
         private $_bpm;
 
+        /**
+         * check if a file isAvailable in the library 
+         * 
+         * @return bool isAvailable or not
+         */
         public function isAvailable(){
-
+            if( file_exists($this->get_path()) ){
+                return true;
+            }else{
+                return false;
+            }
         }
       
         /**
