@@ -15,6 +15,7 @@
         <table class="w3-table w3-striped w3-bordered">
             <tr class="w3-blue" >
                 <th>#</th>
+                <th class="hoverButton"></th>
                 <th>Name</th>
                 <th>Artists</th>
                 <th>Genre</th>
@@ -25,6 +26,7 @@
             </tr>
             <tr>
                 <td contenteditable="true">1</td>
+                <td class="hoverButton"></td>
                 <td contenteditable="true">Like I Do</td>
                 <td contenteditable="true" id="1" onblur="update('1')">David Guetta, Brooks</td>              
                 <td contenteditable="true">Future Bounce</td>
@@ -35,6 +37,7 @@
             </tr>
             <tr>
                 <td>2</td>
+                <td class="hoverButton"></td>
                 <td><input type="text" value="recces" ></td>
                 <td><input type="text" value="Skrillex" ></td>
                 <td><input type="text" value="Dubstep" ></td>
@@ -52,6 +55,7 @@
             </tr>
             <tr>
                 <td contenteditable="true">3</td>
+                <td class="hoverButton"></td>
                 <td contenteditable="true">When I'm gone</td>
                 <td contenteditable="true">Brooks</td>
                 <td contenteditable="true">Future Bounce</td>
@@ -62,6 +66,7 @@
             </tr>
             <tr>
                 <td contenteditable="true">4</td>
+                <td class="hoverButton"></td>
                 <td contenteditable="true">Get Lemon</td>
                 <td contenteditable="true">Disciple, all artists</td>
                 <td contenteditable="true">Dubstep</td>
@@ -70,9 +75,19 @@
                 <td contenteditable="true">3:22</td>
                 <td contenteditable="true">G:\MUSIQUES</td>
             </tr>
-            <tr>
+            <tr onmouseover="console.log(1)" onmouseout="console.log(0)">
                 <td >5</td>
-                <td >Majenta Riddim</td>
+                <td class="hoverButton"><input type="checkbox" class="w3-check"></td>
+                <td ><div>Majenta Riddim</div>
+                    <div>
+                        <button class="w3-button">
+                            <img style="width: 24px" src="../../assets/icons/add.png" alt="add">
+                        </button>
+                        <button class="w3-button">
+                            <img style="width: 24px" src="../../assets/icons/add.png" alt="play">
+                        </button>
+                    </div>
+                </td>
                 <td >DJ Snake</td>
                 <td >Moombahton</td>
                 <td >6A</td>
@@ -88,6 +103,9 @@
                 document.getElementById(id).innerHTML = str;
                 console.log(document.getElementById(id).textContent);
             }
+
+            
+
         </script>
 </body>
 </html>
