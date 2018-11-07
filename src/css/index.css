@@ -59,6 +59,10 @@ body {
     background-color: rgb(116,193,255); 
 }
 
+.hoverButton {
+    display: none;
+}
+
 /* the content at the right of the side bar*/
 .mainContent {
     margin-left: 400px;

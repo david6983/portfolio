@@ -11,6 +11,9 @@
             input,select {
                 border: none;
             }
+            .hoverButton {
+                display: none !important;
+            }
         </style>
         <table class="w3-table w3-striped w3-bordered">
             <tr class="w3-blue" >
@@ -77,7 +80,7 @@
             </tr>
             <tr onmouseover="console.log(1)" onmouseout="console.log(0)">
                 <td >5</td>
-                <td class="hoverButton"><input type="checkbox" class="w3-check"></td>
+                <td class="hoverButton"></td>
                 <td ><div>Majenta Riddim</div>
                     <div>
                         <button class="w3-button">
@@ -103,7 +106,8 @@
                 document.getElementById(id).innerHTML = str;
                 console.log(document.getElementById(id).textContent);
             }
-
+            //<input type="checkbox" class="w3-check">
+            
             
 
         </script>
