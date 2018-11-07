@@ -1,0 +1,6 @@
+input,select {
+    border: none;
+}
+.hoverElement{
+    display: none !important;
+}
