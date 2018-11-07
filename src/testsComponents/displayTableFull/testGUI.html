@@ -9,42 +9,43 @@
     <link rel="stylesheet" href="render.css">
 </head>
 <body>
-    <table class="w3-table w3-striped w3-bordered tableOfSongs">
-        <tr class="w3-blue">
-            <th>#</th>
-            <th class="hoverElement"></th>
-            <th class="hoverElement"></th>
-            <th class="hoverElement"></th>
-            <th>Name</th>
-            <th>Artists</th>
-            <th>Genre</th>
-            <th>Key</th>
-            <th>BPM</th>
-            <th>Lenght</th>
-            <th>Path</th>
-        </tr>
-        <tr id="track1">
-            <td id="id1">1</td>
-            <td id="checkbox1" contenteditable="true" class="hoverElement"><input type="checkbox" class="w3-check"></td>
-            <td id="play1" class="hoverElement">
-                <button class="w3-button" >
-                    <img src="..\..\..\assets\icons\play.png" alt="add" style="width: 25px;">
-                </button>
-            </td>
-            <td id="add1" class="hoverElement">
-                <button class="w3-button" >
-                    <img src="..\..\..\assets\icons\plus.png" alt="add" style="width: 25px;">
-                </button>
-            </td>
-            <td id="name1" contenteditable="true" >Like I Do</td>
-            <td id="artist1" contenteditable="true" onblur="update('artist1')">David Guetta, Brooks</td>              
-            <td id="genre1" contenteditable="true" >Future Bounce</td>
-            <td id="key1" contenteditable="true" >2A</td>
-            <td id="bpm1" contenteditable="true" >126</td>
-            <td id="lenght1" contenteditable="true" >2:31</td>
-            <td id="path1" contenteditable="true" >G:\MUSIQUES</td>
-        </tr>
-        <tr id="track2">
+    <div class="w3-container">
+        <table class="w3-table w3-striped w3-bordered w3-responsive tableOfSongs">
+            <tr class="w3-blue">
+                <th>#</th>
+                <th class="hoverElement"></th>
+                <th class="hoverElement"></th>
+                <th class="hoverElement"></th>
+                <th>Name</th>
+                <th>Artists</th>
+                <th>Genre</th>
+                <th>Key</th>
+                <th>BPM</th>
+                <th>Lenght</th>
+                <th>Path</th>
+            </tr>
+            <tr id="track1">
+                <td id="id1">1</td>
+                <td id="checkbox1" contenteditable="true" class="hoverElement"><input type="checkbox" class="w3-check"></td>
+                <td id="play1" class="hoverElement">
+                    <button class="w3-button" >
+                        <img src="..\..\..\assets\icons\play.png" alt="add" style="width: 25px;">
+                    </button>
+                </td>
+                <td id="add1" class="hoverElement">
+                    <button class="w3-button" >
+                        <img src="..\..\..\assets\icons\plus.png" alt="add" style="width: 25px;">
+                    </button>
+                </td>
+                <td id="name1" contenteditable="true" >Like I Do</td>
+                <td id="artist1" contenteditable="true" onblur="update('artist1')">David Guetta, Brooks</td>              
+                <td id="genre1" contenteditable="true" >Future Bounce</td>
+                <td id="key1" contenteditable="true" >2A</td>
+                <td id="bpm1" contenteditable="true" >126</td>
+                <td id="lenght1" contenteditable="true" >2:31</td>
+                <td id="path1" contenteditable="true" >G:\MUSIQUES</td>
+            </tr>
+            <tr id="track2">
                 <td id="id2">1</td>
                 <td id="checkbox2" contenteditable="true" class="hoverElement"></td>
                 <td id="play2" class="hoverElement"></td>
@@ -57,15 +58,16 @@
                 <td id="lenght2" contenteditable="true" >2:31</td>
                 <td id="path2" contenteditable="true" >G:\MUSIQUES</td>
             </tr>
-        <script>
-            function update(id){
-                var str = document.getElementById(id).textContent;
-                document.getElementById(id).innerHTML = str;
-                console.log(document.getElementById(id).textContent);
-                //ajax request to bdd
-            }
-        </script>
-    </table>
+            <script>
+                function update(id){
+                    var str = document.getElementById(id).textContent;
+                    document.getElementById(id).innerHTML = str;
+                    console.log(document.getElementById(id).textContent);
+                    //ajax request to bdd
+                }
+            </script>
+        </table>
+    </div>
     <div class="w3-container w3-blue checkBar">
         <button class="w3-button w3-round-xlarge cancelCheck" >
             <img src="..\..\..\assets\icons\checklist.png" alt="cancel check" style="width: 25px;">
@@ -79,6 +81,10 @@
             <img src="..\..\..\assets\icons\add.png" alt="add" style="width: 25px;">
             <p>Add to</p>
         </button> 
+    </div>
+    <div class="w3-bar w3-border w3-round">
+        <button id="displayNextSong" class="w3-button">&#10094; Previous</button>
+        <button id="displayPreviousSong" class="w3-button w3-right">Next &#10095;</button>
     </div>
 </body>
 </html>

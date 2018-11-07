@@ -15,7 +15,7 @@
                 display: none !important;
             }
         </style>
-        <table class="w3-table w3-striped w3-bordered">
+        <table class="w3-table w3-striped w3-bordered w3-responsive">
             <tr class="w3-blue" >
                 <th>#</th>
                 <th class="hoverButton"></th>
