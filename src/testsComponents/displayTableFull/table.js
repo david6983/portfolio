@@ -16,7 +16,7 @@ class Playlist {
                 track_path:"D:/musiques"
             },
             {
-                track_id:"1",
+                track_id:"2",
                 track_name:"Like I do",
                 track_artists:"David Guetta,Brooks",
                 track_genre:"Future Bounce",
@@ -26,7 +26,7 @@ class Playlist {
                 track_path:"D:/musiques"
             },
             {
-                track_id:"1",
+                track_id:"3",
                 track_name:"Like I do",
                 track_artists:"David Guetta,Brooks",
                 track_genre:"Future Bounce",
@@ -143,6 +143,24 @@ class Playlist {
         let e = document.querySelectorAll(".hoverElement");
         e.forEach(function(e){
             e.setAttribute("style","display: none;");
+        })
+    }
+    hideControlExcept(id){
+        let e = document.querySelectorAll(".hoverElement");
+        e.forEach(function(e){
+            if( e.getAttribute("id") !== null){
+                if( e.querySelector("input") !== null){
+                    e.querySelector("input").setAttribute("style","display: none;");
+                }else{
+                    e.querySelector("button").setAttribute("style","display: none;");
+                }
+                if(e.getAttribute("id") === "checkbox"+id){
+                    e.querySelector("input").removeAttribute("style");
+                }
+                else if(e.getAttribute("id") === "add"+id || e.getAttribute("id") === "play"+id  ){
+                    e.querySelector("button").removeAttribute("style");
+                }
+            }
         })
     }
     showControl(){
