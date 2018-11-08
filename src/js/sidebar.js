@@ -1,5 +1,5 @@
 function openSideBar(){
-    var x = document.getElementById("sidebar");
+    let x = document.getElementById("sidebar");
     
     if (x.classList.contains("w3-collapse") ) {
         x.classList.remove("w3-collapse");

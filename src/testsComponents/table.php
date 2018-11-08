@@ -15,7 +15,7 @@
                 display: none !important;
             }
         </style>
-        <table class="w3-table w3-striped w3-bordered">
+        <table class="w3-table w3-striped w3-bordered w3-responsive">
             <tr class="w3-blue" >
                 <th>#</th>
                 <th class="hoverButton"></th>
@@ -102,7 +102,7 @@
         <p id="result"></p>
         <script>
             function update(id){
-                var str = document.getElementById(id).textContent;
+                let str = document.getElementById(id).textContent;
                 document.getElementById(id).innerHTML = str;
                 console.log(document.getElementById(id).textContent);
             }
