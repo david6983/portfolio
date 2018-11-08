@@ -1,5 +1,5 @@
 class Playlist {
-    constructor(containerId){
+    constructor(){
         /* ajax request for fill up the playlist */
         this.id = 0;
         this.name = "test";
@@ -36,23 +36,22 @@ class Playlist {
                 track_path:"D:/musiques"
             },
         ];
-        this.containerId = containerId;
     }
-    createTable(){
+    createTable(id){
         /* create the header */
         let h = this.createHeader();
-        var table = document.getElementById("renderedPlaylist");
+        let table = document.getElementById(id);
         table.appendChild(h);
         /* add the lignes */
         this.createAllLignes(table);
     }
     setNewAttribute(element,attribut,value){
-        var att = document.createAttribute(attribut);
+        let att = document.createAttribute(attribut);
         att.value = value;
         element.setAttributeNode(att);
     }
     createHeaderColumn(content,classAttribut){
-        var column = document.createElement("th");
+        let column = document.createElement("th");
         if( classAttribut != ""){
             column.setAttribute("class",classAttribut);
         }
@@ -61,12 +60,12 @@ class Playlist {
     }
     createHeader(){
         /* create a ligne */
-        var h = document.createElement("tr");
+        let h = document.createElement("tr");
         h.setAttribute("class","w3-blue");
         h.appendChild(this.createHeaderColumn("#",""));
-        h.appendChild(this.createHeaderColumn("","hoverButton"));
-        h.appendChild(this.createHeaderColumn("","hoverButton"));
-        h.appendChild(this.createHeaderColumn("","hoverButton"));
+        h.appendChild(this.createHeaderColumn("","hoverElement"));
+        h.appendChild(this.createHeaderColumn("","hoverElement"));
+        h.appendChild(this.createHeaderColumn("","hoverElement"));
         h.appendChild(this.createHeaderColumn("Name",""));
         h.appendChild(this.createHeaderColumn("Artists",""));
         h.appendChild(this.createHeaderColumn("Genre",""));
@@ -79,9 +78,9 @@ class Playlist {
     }
     createLigne(track){
         let index = track.track_id;
-        var l = document.createElement("tr");
+        let l = document.createElement("tr");
         
-        var idCol = document.createElement("td");
+        let idCol = document.createElement("td");
         idCol.setAttribute("id","id"+index);
         idCol.appendChild(document.createTextNode(index));
         l.appendChild(idCol);
@@ -100,21 +99,21 @@ class Playlist {
         return l;
     }
     createSimpleColumn(id,index,content){
-        var c = document.createElement("td");
+        let c = document.createElement("td");
         c.setAttribute("id",id+index);
         c.setAttribute("contentEditable","true");
         c.appendChild(document.createTextNode(content));
         return c;
     }
     createHoverButton(id,index,imgPath,alt){
-        var b = document.createElement("td");
+        let b = document.createElement("td");
         b.setAttribute("id",id+index);
         b.setAttribute("class","hoverElement");
         
-        var btn = document.createElement("button");
+        let btn = document.createElement("button");
         btn.setAttribute("class","w3-button");
         
-        var img = document.createElement("img");
+        let img = document.createElement("img");
         img.setAttribute("src",imgPath);
         img.setAttribute("alt",alt);
         img.setAttribute("style","width:25px;");
@@ -124,11 +123,11 @@ class Playlist {
         return b;
     }
     createHoverCheckbox(index){
-        var c = document.createElement("td");
+        let c = document.createElement("td");
         c.setAttribute("id","checkbox"+index);
         c.setAttribute("class","hoverElement");
 
-        var i = document.createElement("input");
+        let i = document.createElement("input");
         i.setAttribute("type","checkbox");
         i.setAttribute("class","w3-check");
         c.appendChild(i);
@@ -136,9 +135,20 @@ class Playlist {
         return c;
     }
     createAllLignes(table){
-        for(var i = 0; i < this.nbOfTracks; i++) {
+        for(let i = 0; i < this.nbOfTracks; i++) {
             table.appendChild(this.createLigne(this.tracks[i]));           
         }
     }
-    
+    hideControl(){
+        let e = document.querySelectorAll(".hoverElement");
+        e.forEach(function(e){
+            e.setAttribute("style","display: none;");
+        })
+    }
+    showControl(){
+        let e = document.querySelectorAll(".hoverElement");
+        e.forEach(function(e){
+            e.removeAttribute("style");
+        })
+    }
 }

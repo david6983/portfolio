@@ -11,7 +11,7 @@
     
     <div id="waveform"></div>
     <script>
-        var wavesurfer = WaveSurfer.create({
+        let wavesurfer = WaveSurfer.create({
             container: '#waveform',
             waveColor: 'lightblue',
             barWidth: 3 /* more like soundcloud player */

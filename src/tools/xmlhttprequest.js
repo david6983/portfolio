@@ -4,7 +4,7 @@
  * @return xhr the request object
  */
 function getXMLHttpRequest(){
-    var xhr=null; //initialisation
+    let xhr=null; //initialisation
     if(window.XMLHttpRequest || window.ActiveXObject){
         /* internet explorer */
         if(window.ActiveXObject){

@@ -102,7 +102,7 @@
         <p id="result"></p>
         <script>
             function update(id){
-                var str = document.getElementById(id).textContent;
+                let str = document.getElementById(id).textContent;
                 document.getElementById(id).innerHTML = str;
                 console.log(document.getElementById(id).textContent);
             }
