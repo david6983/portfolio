@@ -130,6 +130,9 @@ class Playlist {
         let i = document.createElement("input");
         i.setAttribute("type","checkbox");
         i.setAttribute("class","w3-check");
+        i.setAttribute("name","selected");
+        i.setAttribute("value",index);
+        
         c.appendChild(i);
 
         return c;
@@ -167,6 +170,14 @@ class Playlist {
         let e = document.querySelectorAll(".hoverElement");
         e.forEach(function(e){
             e.removeAttribute("style");
+        })
+    }
+    showAllCheckBoxes(){
+        let e = document.querySelectorAll(".hoverElement");
+        e.forEach(function(e){
+            if( e.querySelector("input") !== null){
+                e.querySelector("input").removeAttribute("style");
+            }
         })
     }
 }
