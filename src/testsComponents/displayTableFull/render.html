@@ -6,19 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tbale renderer</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="table.js"></script>
 </head>
 <body>
-    <script>
-        /*
-            tableau :
-                creer la balise header
-                creer les lignes à partir d'un objet track 
-        
-            manageTable() :
-                new TableFromPlaylist(nbligne,id_playlist) --> si id_playlist=0 se sera toute les zikmumus
-
-        
-        */    
-    </script>
+    <div id="playlistContainer" class="w3-container">
+        <table id="renderedPlaylist" class="w3-table w3-striped w3-bordered w3-responsive tableOfSongs">
+            <script>
+                var playlistRenderer = new Playlist("playlistContainer");
+                playlistRenderer.createTable("playlistContainer");    
+            </script>
+        </table>
+    </div>
 </body>
 </html>
