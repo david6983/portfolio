@@ -87,7 +87,7 @@ class Playlist {
 
         l.appendChild(this.createHoverCheckbox(index));
         l.appendChild(this.createHoverButton("play",index,"..\\..\\..\\assets\\icons\\play.png","play"))
-        l.appendChild(this.createHoverButton("add",index,"..\\..\\..\\assets\\icons\\plus.png","add"))
+        l.appendChild(this.createHoverButton("remove",index,"..\\..\\..\\assets\\icons\\remove.png","remove"))
         
         l.appendChild(this.createSimpleColumn("name",index,track.track_name));
         l.appendChild(this.createSimpleColumn("artist",index,track.track_artists));
@@ -132,7 +132,7 @@ class Playlist {
         i.setAttribute("class","w3-check");
         i.setAttribute("name","selected");
         i.setAttribute("value",index);
-        
+
         c.appendChild(i);
 
         return c;
@@ -160,7 +160,7 @@ class Playlist {
                 if(e.getAttribute("id") === "checkbox"+id){
                     e.querySelector("input").removeAttribute("style");
                 }
-                else if(e.getAttribute("id") === "add"+id || e.getAttribute("id") === "play"+id  ){
+                else if(e.getAttribute("id") === "remove"+id || e.getAttribute("id") === "play"+id  ){
                     e.querySelector("button").removeAttribute("style");
                 }
             }
@@ -180,4 +180,5 @@ class Playlist {
             }
         })
     }
+
 }
