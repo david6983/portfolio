@@ -148,37 +148,10 @@ class Playlist {
             e.setAttribute("style","display: none;");
         })
     }
-    hideControlExcept(id){
-        let e = document.querySelectorAll(".hoverElement");
-        e.forEach(function(e){
-            if( e.getAttribute("id") !== null){
-                if( e.querySelector("input") !== null){
-                    e.querySelector("input").setAttribute("style","display: none;");
-                }else{
-                    e.querySelector("button").setAttribute("style","display: none;");
-                }
-                if(e.getAttribute("id") === "checkbox"+id){
-                    e.querySelector("input").removeAttribute("style");
-                }
-                else if(e.getAttribute("id") === "remove"+id || e.getAttribute("id") === "play"+id  ){
-                    e.querySelector("button").removeAttribute("style");
-                }
-            }
-        })
-    }
     showControl(){
         let e = document.querySelectorAll(".hoverElement");
         e.forEach(function(e){
             e.removeAttribute("style");
         })
     }
-    showAllCheckBoxes(){
-        let e = document.querySelectorAll(".hoverElement");
-        e.forEach(function(e){
-            if( e.querySelector("input") !== null){
-                e.querySelector("input").removeAttribute("style");
-            }
-        })
-    }
-
 }
