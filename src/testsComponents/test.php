@@ -8,19 +8,21 @@
 </head>
 <body>
     <?php 
-        $sum=0;
         $dir = "D:\Documents\Musique\MUSIQUES\MUSIQUE LIBRARY WEI";
-        // Sort in ascending order - this is default
-        $a = scandir($dir); //the path to the library putted in settings     
-        for($i=2; $i < count($a) ; $i++){
-            $v = scandir($dir.'\\'.$a[$i]);
-            for($j=2; $j < count($v) ; $j++){
-                echo "<p>$a[$i] : ".utf8_encode($v[$j])."</p>";
-                
+        
+
+
+        function getAllFilesInDir($dir){
+            $rii = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
+            $files = array(); 
+            foreach ($rii as $file) {
+                if ($file->isDir()){ 
+                    continue;
+                }
+                $files[] = utf8_encode($file->getPathname()); 
             }
+            return $files;
         }
-    //be carefull with subdirectory :
-    //-use while and is_dir()
     ?>
 </body>
 </html>
