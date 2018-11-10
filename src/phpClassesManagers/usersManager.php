@@ -26,20 +26,36 @@
             }
         }
 
-        public function addUser(){
-
+        public function addUser($name){
+            $request = "INSERT INTO `user` (`user_id`, `user_nb_playlists`, `user_nb_music`, `user_name`, `user_analysisPrecision`, `user_libraryPath`, `user_libraryName`) 
+            VALUES (NULL, 0, 0, , '$name', 0, '', '')";
+            $this->_dbh->exec($request) or die(print_r($this->_dbh->errorInfo(), true));    
         }
 
-        public function deleteUser(){
-
+        public function deleteUser($name){
+            $request = "DELETE FROM `user` WHERE `user`.'user_name' = $name";
+            $this->_dbh->exec($request);
         }
 
-        public function getUser(){
-        
+        public function getUser($name){
+            $request = "SELECT * FROM `user` WHERE `user`.'user_name' = $name ";
+            $result = array();
+            foreach($this->_dbh->query($request) as $raw){
+               array_push($result,$raw);
+            }
+            return new User($result);           
         }
 
-        public function updateUser(){
-            
+        public function updateUser(User $user){
+            $request="UPDATE `user` 
+            SET `user_name` = ".$user->getName().", 
+            `user_nb_playlists` = '".$user->gettNbPlaylists()."', 
+            `user_nb_music` = ".$user->getNbMusic().", 
+            `user_analysisPrecision` = ".$user->getAnalysisPresicion().",
+            `user_libraryPath` = ".$user->getLibraryPath().",
+            `user_libraryName` = ".$user->getLibraryName().",
+            WHERE `user`.`user_id` = ".$user->getId();
+            $this->_dbh->exec($request);
         }
     }
 ?>
