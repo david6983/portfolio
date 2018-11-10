@@ -1,4 +1,4 @@
-class player {
+class Player {
     constructor(musicLink){
         this.src = musicLink;
         this.wavesurfer = WaveSurfer.create({
