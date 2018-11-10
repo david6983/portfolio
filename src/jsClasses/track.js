@@ -1,18 +1,18 @@
 class Track {
     constructor(id,name,artists,genre,localpath){
-        this.id = id;
-        this.name = name;
-        this.artists = artists;
-        this.genre = genre;
-        this.localpath = localpath;
-        this.bpm = null;
-        this.lenght = "";
-        this.key = "";
+        this._id = id;
+        this._name = name;
+        this._artists = artists;
+        this._genre = genre;
+        this._localpath = localpath;
+        this._bpm = null;
+        this._lenght = "";
+        this._key = "";
     }
     analyzeTrack(precision){
-        this.bpm = this.findBPM(precision);
-        this.key = this.findKey();
-        this.lenght = this.findLenght();
+        this._bpm = this.findBPM(precision);
+        this._key = this.findKey();
+        this._lenght = this.findLenght();
     }
     findBPM(precision){
         // Create offline context
@@ -23,7 +23,6 @@ class Track {
         // Create filter
         var filter = offlineContext.createBiquadFilter();
         filter.type = "lowpass";
-        // Pipe the song into the filter, and the filter into the offline context
         source.connect(filter);
         filter.connect(offlineContext.destination);
         // Schedule the song to start playing at time:0
@@ -34,6 +33,8 @@ class Track {
         offlineContext.oncomplete = function(e) {
             // Filtered buffer!
             var filteredBuffer = e.renderedBuffer;
+            this._bpm = countIntervalsBetweenNearbyPeaks(groupNeighborsByTempo(filteredBuffer));
+            console.log(this._bpm);
         };
     }
     groupNeighborsByTempo(intervalCounts) {
@@ -76,7 +77,7 @@ class Track {
           }
         });
         return intervalCounts;
-      }
+    }
     getPeaksAtThreshold(data, threshold) {
         var peaksArray = [];
         var length = data.length;
@@ -101,41 +102,71 @@ class Track {
         let dataArray = new Uint8Array(bufferLength);
         analyser.getByteDomainData(dataArray);
         console.log(dataArray);
-        this.key = dataArray[0];
+        this._key = dataArray[0];
     }
     findLenght(){
-        let audio = new Audio();
-        audio.src = this.pathFromLocalToServer(this.path);
-        let floatLenght = audio.duration;
-        console.log(floatLenght);
+        let audioCtx = new AudioContext();
+        this.pathFromLocalToServer();
+        let src = audioCtx.createBufferSource();
+        var audioBuffer;
+        var request = new XMLHttpRequest();
+        request.open("GET",this._localpath,true);
+        request.responseType = "arraybuffer";
+        request.onload = function(){
+            audioCtx.decodeAudioData(
+                request.response,
+                function(buffer){
+                    audioBuffer = buffer;
+                    this._lenght = audioBuffer.duration;
+                }
+            );
+        }
+        request.send();
     }
-    pathFromLocalToServer(localpath){
-        /* ex : D:\Documents\Musique\MUSIQUES\MUSIQUE LIBRARY WEI\FUTURE BOUNCE\caca.mp3 */
-        /* virtualhost settings :
-            -musiques
-            -d:/documents/musique/musiques/musique library wei
-
+    pathFromLocalToServer(){
+        var vhostLibraryName = "musiques"; //ajax request
+        var vhostLibraryPath = "d:/documents/musique/musiques/musique library wei"; //ajax request
         
-       var libraryname = "musiques";
-       var httppath = "http://"+libraryname+localpath;
-        */
+        var serverPath = "http://"+vhostLibraryName+this.path.substring(vhostLibraryPath.length);
+        this.newPath = serverPath.replace(" ","%20");
     }
-    set newBPM(bpm){
-        this.bpm = bpm;
+    set bpm(bpm){
+        this._bpm = bpm;
     }
-    set newKey(key){
-        this.key = key;
+    set key(key){
+        this._key = key;
     }
     set genre(genre){
-        this.genre = genre;
+        this._genre = genre;
     }
-    set newLenght(lenght){
-        this.lenght = lenght
+    set lenght(lenght){
+        this._lenght = lenght
     }
     set newPath(localpath){
-        this.localpath = localpath
+        this._localpath = localpath
     }
     get id(){
-        return this.id;
+        return this._id;
+    }
+    get name(){
+        return this._name;
+    }
+    get artist(){
+        return this._artists;
+    }
+    get genre(){
+        return this._genre;
+    }
+    get path(){
+        return this._localpath;
+    }
+    get bpm(){
+        return this._bpm;   
+    }    
+    get lenght(){
+        return this._lenght;
+    }
+    get key(){
+    return this._key;   
     }
 }
