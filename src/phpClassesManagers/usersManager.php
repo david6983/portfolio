@@ -13,9 +13,6 @@
             $this->_pass = $pass;
         }
 
-        /**
-         * se connecte a la bdd a partir des attributs
-         */
         public function connect(){
             try {
                 $this->_dbh = new PDO('mysql:host='.$this->_host.';dbname='.$this->_db,$this->_user,$this->_pass);
@@ -49,7 +46,7 @@
         public function updateUser(User $user){
             $request="UPDATE `user` 
             SET `user_name` = ".$user->getName().", 
-            `user_nb_playlists` = '".$user->gettNbPlaylists()."', 
+            `user_nb_playlists` = '".$user->getNbPlaylists()."', 
             `user_nb_music` = ".$user->getNbMusic().", 
             `user_analysisPrecision` = ".$user->getAnalysisPresicion().",
             `user_libraryPath` = ".$user->getLibraryPath().",

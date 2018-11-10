@@ -13,9 +13,6 @@
             $this->_pass = $pass;
         }
 
-        /**
-         * se connecte a la bdd a partir des attributs
-         */
         public function connect(){
             try {
                 $this->_dbh = new PDO('mysql:host='.$this->_host.';dbname='.$this->_db,$this->_user,$this->_pass);
@@ -26,19 +23,39 @@
             }
         }
 
-        public function addTrack(){
-
+        public function addTrack($path,$useId){
+            $requete = "INSERT INTO `music` (`music_id`, `music_name`, `music_artists_name`, `music_path`, `music_genre`, `music_key`, `music_bpm`, `music_lenght`, `id_user`) 
+            VALUES (NULL, '', '', , '', '', '', '$path', NULL,$userId)";
+            $this->_dbh->exec($requete) or die(print_r($this->_dbh->errorInfo(), true));
         }
 
-        public function deleteTrack(){
-
+        public function deleteTrack($id){
+            $requete = 'DELETE FROM `music` WHERE `music_id`=' . $id . '';
+            $this->_dbh->exec($requete);
         }
 
-        public function getTrack(){
-        
+        public function getTrack($id){
+            $requete = 'SELECT * FROM `music` WHERE `music_id`=' . $id . '';
+            $result = array();
+            foreach($this->_dbh->query($request) as $raw){
+               array_push($result,$raw);
+            }
+            return new Track($result);
         }
 
-        public function updateTrack(){
+        public function updateTrack(Track $music){
+            $request="UPDATE `music` 
+            SET `music_id` = ".$music->getId().", 
+            `music_name` = ".$music->getName().", 
+            `music_artists_name` = ".$music->getArtists().", 
+            `music_path` = ".$music->getPath().", 
+            `music_genre` = ".$music->getGenre().", 
+            `music_key` = ".$music->getKey().", 
+            `music_bpm` = ".$music->getBpm().", 
+            `music_lenght` = ".$music->getLenght().", 
+            `id_user` = ".$music->getUserId().",
+            WHERE `music`.`music_id` = ".$music->getId();
+            $this->_dbh->exec($request);
             
         }
     }

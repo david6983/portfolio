@@ -4,6 +4,7 @@
         private $_id;
         private $_name;
         private $_totalNumberOfTracks;
+        private $_userId;
         //private $_tracks; //array of track objects
 
         public function __construct($data){
@@ -38,6 +39,7 @@
         {
             return $this->_name;
         }
+        
 
         /**
          * Get the value of _totalNumberOfTracks
@@ -72,6 +74,23 @@
         public function setTotalNumberOfTracks($totalNumberOfTracks)
         {
             $this->_totalNumberOfTracks = $_totalNumberOfTracks;
+        }
+
+        /**
+         * Set the value of _userId
+         *
+         */ 
+        public function setUserId($userId)
+        {
+            $this->_userId = $userId;
+        }
+
+        /**
+         * Get the value of _userId
+         */ 
+        public function getUserId()
+        {
+            return $this->_userId;
         }
     }
 

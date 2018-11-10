@@ -8,6 +8,7 @@
         private $_key;
         private $_lenght;
         private $_bpm;
+        private $_userId;
         
         public function __construct($data){
             $this->_hydrate($data[0]);
@@ -153,6 +154,22 @@
             $this->_bpm = $bpm;
         }
 
+        /**
+         * Set the value of _userId
+         *
+         */ 
+        public function setUserId($userId)
+        {
+            $this->_userId = $userId;
+        }
+
+        /**
+         * Get the value of _userId
+         */ 
+        public function getUserId()
+        {
+            return $this->_userId;
+        }
 
     }
 ?>
