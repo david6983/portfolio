@@ -14,20 +14,20 @@
 </head>
 <body class="w3-blue">
     <header>
-        <h1>Welcome to 2KEY</h1>
+        <h1 class="w3-center w3-margin w3-padding">Welcome to 2KEY</h1>
     </header>
     <form class="connectForm" method="POST" action="main.php">
-        <div class="w3-card w3-margin">
-            <div class="w3-container lightblue">
+        <div class="w3-card w3-margin" >
+            <div class="w3-container w3-center lightblue">
                 <h2>Choose a session</h2>
             </div>
-            <div class="w3-container w3-white">
-                <select name="username" class="w3-select" name="option">
+            <div class="w3-container w3-white w3-center">
+                <select name="username" class="w3-select w3-margin" name="option">
                     <option value="0" disabled selected>Choose your session</option>
                     <option value="dev">dev</option>
                 </select>
             </div>
-            <div class="w3-container w3-white">
+            <div class="w3-container w3-xlarge w3-white w3-padding">
                 <input class="w3-button w3-round-xlarge lightblue" type="submit" value="Connect">
             </div>
         </div>      
