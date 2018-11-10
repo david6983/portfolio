@@ -1,5 +1,5 @@
 <?php   
-    class track {
+    class Track {
         private $_id;
         private $_name;
         private $_artists;
@@ -8,15 +8,27 @@
         private $_key;
         private $_lenght;
         private $_bpm;
-
-        public function isAvailable(){
-
+        
+        public function __construct($data){
+            $this->_hydrate($data[0]);
         }
-      
+
+        /* methodes d'hydratations  */
+        private function _hydrate(array $data){
+            foreach($data as $key => $value){
+                //on recupere le nom du setter correspondant à l'attribut
+                $method = 'set'.ucfirst($key);
+                //si le settler correspondant existe
+                if(method_exists($this,$method)){
+                    $this->$method($value);
+                }
+            }
+        }
+       
         /**
          * Get the value of _id
          */ 
-        public function get_id()
+        public function getId()
         {
             return $this->_id;
         }
@@ -24,7 +36,7 @@
         /**
          * Set the value of _id
          */ 
-        public function set_id($_id)
+        public function setId($_id)
         {
             $this->_id = $_id;
         }
@@ -32,7 +44,7 @@
         /**
          * Get the value of _name
          */ 
-        public function get_name()
+        public function getName()
         {
             return $this->_name;
         }
@@ -40,7 +52,7 @@
         /**
          * Set the value of _name
          */ 
-        public function set_name($name)
+        public function setName($name)
         {
             $this->_name = $_name;
         }
@@ -48,7 +60,7 @@
         /**
          * Get the value of _artists
          */ 
-        public function get_artists()
+        public function getArtists()
         {
             return $this->_artists;
         }
@@ -56,7 +68,7 @@
         /**
          * Set the value of _artists
          */ 
-        public function set_artists($artists)
+        public function setArtists($artists)
         {
             $this->_artists = $_artists;
         }
@@ -64,7 +76,7 @@
         /**
          * Get the value of _genre
          */ 
-        public function get_genre()
+        public function getGenre()
         {
             return $this->_genre;
         }
@@ -72,7 +84,7 @@
         /**
          * Set the value of _genre
          */ 
-        public function set_genre($genre)
+        public function setGenre($genre)
         {
             $this->_genre = $_genre;
         }
@@ -80,7 +92,7 @@
         /**
          * Get the value of _path
          */ 
-        public function get_path()
+        public function getPath()
         {
             return $this->_path;
         }
@@ -88,7 +100,7 @@
         /**
          * Set the value of _path
          */ 
-        public function set_path($path)
+        public function setPath($path)
         {
             $this->_path = $_path;
         }
@@ -96,7 +108,7 @@
         /**
          * Get the value of _key
          */ 
-        public function get_key()
+        public function get_Key()
         {
             return $this->_key;
         }
@@ -104,7 +116,7 @@
         /**
          * Set the value of _key
          */ 
-        public function set_key($key)
+        public function setKey($key)
         {
             $this->_key = $_key;
         }
@@ -112,19 +124,33 @@
         /**
          * Get the value of _lenght
          */ 
-        public function get_lenght()
+        public function getLenght()
         {
             return $this->_lenght;
         }
 
-
+        /**
+         * Set the value of _lenght
+         */ 
+        public function setLenght($lenght)
+        {
+            $this->_lenght = $length;
+        }
 
         /**
          * Get the value of _bpm
          */ 
-        public function get_bpm()
+        public function getBpm()
         {
             return $this->_bpm;
+        }
+
+        /**
+         * Get the value of _bpm
+         */ 
+        public function setBpm($bpm)
+        {
+            $this->_bpm = $bpm;
         }
 
 

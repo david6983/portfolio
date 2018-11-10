@@ -22,12 +22,12 @@
                 <h2>Choose a session</h2>
             </div>
             <div class="w3-container w3-white w3-center">
-                <select name="username" class="w3-select w3-margin" name="option">
-                    <option value="0" disabled selected>Choose your session</option>
-                    <option value="dev">dev</option>
-                </select>
+                <input class="w3-input" type="text" value="Choose a name" name="sessionName">
             </div>
-            <div class="w3-container w3-xlarge w3-white w3-padding">
+            <div class="w3-container w3-xlarge w3-white w3-padding w3-left">
+                <input class="w3-button w3-round-xlarge lightblue" type="submit" value="Connect">
+            </div>
+            <div class="w3-container w3-xlarge w3-white w3-padding w3-right">
                 <input class="w3-button w3-round-xlarge lightblue" type="submit" value="Connect">
             </div>
         </div>      
