@@ -10,8 +10,9 @@ class Track {
         this._key = "";
     }
     analyzeTrack(precision){
-        this._bpm = this.findBPM(precision);
-        this._key = this.findKey();
+        //this._bpm = this.findBPM(precision);
+        //this._key = this.findKey();
+        this.pathFromLocalToServer();
         this._lenght = this.findLenght();
     }
     findBPM(precision){
@@ -93,16 +94,38 @@ class Track {
     }
       
     findKey(){
-        let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        this.requestFreq(this.updateKey,this);
+    }
+    updateKey(freq){
+        console.log(freq);
+    }
+    requestFreq(callback,object){
+        let audioCtx = new AudioContext();
         let analyser = audioCtx.createAnalyser();
-        let src = audioCtx.createMediaStreamSource(this.pathFromLocalToServer(localpath));
-        src.connect(analyser);
         analyser.fftSize = 2048;
+        this.pathFromLocalToServer();
+        let src = audioCtx.createBufferSource();
         let bufferLength = analyser.frequencyBinCount;
         let dataArray = new Uint8Array(bufferLength);
-        analyser.getByteDomainData(dataArray);
-        console.log(dataArray);
-        this._key = dataArray[0];
+        /*
+        console.log(Math.round(dataArray[0]);
+        */
+        var request = getXMLHttpRequest();
+        request.responseType = "arraybuffer";
+        request.onreadystatechange = function () {
+            if(request.readyState === 4 && request.status === 200) {
+                audioCtx.decodeAudioData(
+                    request.response,
+                    function(buffer){
+                        src.connect(analyser);
+                        analyser.getByteTimeDomainData(dataArray);
+                        console.log(dataArray[0]);  
+                    }
+                );
+            }
+        };
+        request.open("GET",this._localpath,true);
+        request.send();
     }
     findLenght(){
         this.requestLenght(this.updateLenght,this);
@@ -112,7 +135,6 @@ class Track {
     }
     requestLenght(callback,object){
         let audioCtx = new AudioContext();
-        this.pathFromLocalToServer();
         var audioBuffer;
         var request = getXMLHttpRequest();
         request.responseType = "arraybuffer";
