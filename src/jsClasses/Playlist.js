@@ -1,9 +1,10 @@
 class Playlist {
-    constructor(){
+    constructor(type){
         /* ajax request for fill up the playlist */
         this.id = 0;
         this.name = "test";
         this.nbOfTracks = 3;
+        this.type = type;
         this.tracks = [
             {
                 track_id:"1",
@@ -86,9 +87,12 @@ class Playlist {
         l.appendChild(idCol);
 
         l.appendChild(this.createHoverCheckbox(index));
-        l.appendChild(this.createHoverButton("play",index,"..\\..\\..\\assets\\icons\\play.png","play"))
-        l.appendChild(this.createHoverButton("remove",index,"..\\..\\..\\assets\\icons\\remove.png","remove"))
-        
+        l.appendChild(this.createHoverButton("play",index,"..\\..\\..\\assets\\icons\\play.png","play"));
+        if(this.type === "playlist"){
+            l.appendChild(this.createHoverButton("remove",index,"..\\..\\..\\assets\\icons\\remove.png","remove"));
+        }else if(this.type === "viewAll"){
+            l.appendChild(this.createHoverButton("remove",index,"..\\..\\..\\assets\\icons\\remove.png","remove"));
+        }
         l.appendChild(this.createSimpleColumn("name",index,track.track_name));
         l.appendChild(this.createSimpleColumn("artist",index,track.track_artists));
         l.appendChild(this.createSimpleColumn("genre",index,track.track_genre));

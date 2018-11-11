@@ -65,12 +65,14 @@ body {
 #importButton {
     float: left;
     width: 42%;
+    margin-bottom: 10px;
 }
 
 #exportButton {
     float: right;
     margin-right: 5%;
     width: 42%;
+    margin-bottom: 10px;
 }
 
 /* the sidebar need to be a little bit under the top navbar and light blue */
@@ -107,6 +109,15 @@ body {
 .textSideBarMargin{
     margin-left: 5%;
     margin-top: 5%;
+}
+
+.playlistName {
+    margin-left: 7% !important;
+}
+
+.playlistButton {
+    float: right;
+    margin-right: 45px;
 }
 
 /* special class to create a "badge" based on the themes */

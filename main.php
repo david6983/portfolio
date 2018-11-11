@@ -82,6 +82,14 @@
     <div id="sidebar" class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left">
         <img id="camelotImg" src="assets/img/camalote-wheel-logo.png" alt="camalote wheel of keys">
         <button class="w3-button w3-round-xlarge lightblue sidebarElement">Analyze your tracks</button>
+        <button id="importButton" class="w3-button w3-round-xlarge lightblue sidebarElement" onclick="displayModal('importMenu')" >
+            <img class="ioIcons" src="assets/icons/import.png" alt="importIcon">
+            Import
+        </button>
+        <button id="exportButton" class="w3-button w3-round-xlarge lightblue sidebarElement" onclick="displayModal('exportMenu')" >
+            <img class="ioIcons" src="assets/icons/export.png" alt="exportIcon">
+            Export
+        </button>
         <p class="textSideBar textSideBarMargin">ANALYSIS QUEUE 
             <span id="numberOfMusicToAnalyse">
                 <?php 
@@ -103,39 +111,12 @@
                 <img class="navleftIcon" src="assets/icons/add.png" alt="plusIcon">
             </button>
         </p>
-        <p class="textSideBar textSideBarMargin w3-large">VIEW ALL <button id="totalNumberOfMusic" class="w3-button w3-round-xlarge lightblue">0</button></p>
-        <!-- here is the code to generate a menu scrollable with overflow css property
-        for the playlists thanks to either ajax or php
-        -->
-        <div class="textSideBar textSideBarMargin" style="overflow: auto;">
-            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
-            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
-            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
-            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
-            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
-            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
-            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
-            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
-            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
-            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
-            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
-            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
-            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
-            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
-            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
-
+        <p class="textSideBar textSideBarMargin w3-large">VIEW ALL <button id="totalNumberOfMusic" onclick="viewAll();" class="w3-button w3-round-xlarge lightblue">0</button></p>
+        <div id="playlistNameContainer" style="overflow:auto;">
+            <script>
+                var list = new PlaylistsList();
+            </script>
         </div>
-        <script>
-            var list = new PlaylistsList();
-        </script>
-        <button id="importButton" class="w3-button w3-round-xlarge lightblue sidebarElement" onclick="displayModal('importMenu')" >
-            <img class="ioIcons" src="assets/icons/import.png" alt="importIcon">
-            Import
-        </button>
-        <button id="exportButton" class="w3-button w3-round-xlarge lightblue sidebarElement" onclick="displayModal('exportMenu')" >
-            <img class="ioIcons" src="assets/icons/export.png" alt="exportIcon">
-            Export
-        </button>
     </div>
     <div class="mainContent">
         <!-- new collection menu (modal) -->
@@ -148,8 +129,8 @@
                     </div>
                     <div class="w3-container w3-white">
                         <div class="w3-container w3-white">
-                            <p><input id="playlistNameInput" class="w3-input w3-border" type="text" placeholder="Name of your Playlist"></p>
-                            <p><button class="w3-button w3-round-xlarge lightblue" onclick="requestNewCollection(displayPlaylistOnSideBar,document.getElementById('playlistNameInput').value);">Create</button></p>
+                            <p><input id="playlistNameInput" class="w3-input w3-border" type="text" placeholder="Name of your Playlist" required></p>
+                            <p><button class="w3-button w3-round-xlarge lightblue" onclick="requestNewCollection(document.getElementById('playlistNameInput').value);">Create</button></p>
                         </div>
                     </div>
                 </div>
