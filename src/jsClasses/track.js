@@ -6,7 +6,7 @@ class Track {
         this._genre = genre;
         this._localpath = localpath;
         this._bpm = null;
-        this._lenght = "";
+        this._lenght = 0;
         this._key = "";
     }
     analyzeTrack(precision){
@@ -105,22 +105,29 @@ class Track {
         this._key = dataArray[0];
     }
     findLenght(){
+        this.requestLenght(this.updateLenght,this);
+    }
+    updateLenght(lenght,object){
+        object.lenght = lenght;
+    }
+    requestLenght(callback,object){
         let audioCtx = new AudioContext();
         this.pathFromLocalToServer();
-        let src = audioCtx.createBufferSource();
         var audioBuffer;
-        var request = new XMLHttpRequest();
-        request.open("GET",this._localpath,true);
+        var request = getXMLHttpRequest();
         request.responseType = "arraybuffer";
-        request.onload = function(){
-            audioCtx.decodeAudioData(
-                request.response,
-                function(buffer){
-                    audioBuffer = buffer;
-                    this._lenght = audioBuffer.duration;
-                }
-            );
-        }
+        request.onreadystatechange = function () {
+            if(request.readyState === 4 && request.status === 200) {
+                audioCtx.decodeAudioData(
+                    request.response,
+                    function(buffer){
+                        audioBuffer = buffer;
+                        callback(Math.round(audioBuffer.duration),object);    
+                    }
+                );
+            }
+        };
+        request.open("GET",this._localpath,true);
         request.send();
     }
     pathFromLocalToServer(){
@@ -151,13 +158,22 @@ class Track {
         }
     }
     set genre(genre){
-        this._genre = genre;
+        if(typeof genre === "string"){
+            this._genre = genre;
+        }else{
+            console.log("error expected a string");
+        }
     }
     set lenght(lenght){
-        this._lenght = lenght
-    }
+        this._lenght = lenght;
+    }    
     set newPath(localpath){
-        this._localpath = localpath
+        const reg = /[A-Z]:|http:[//][//]/y;
+        if(typeof localpath === "string" && reg.test(localpath) === true){
+            this._localpath = localpath.replace(" ","%20");
+        }else{
+            console.log("error : expected a correct path like D:/ or C:/ ");
+        }    
     }
     get id(){
         return this._id;
@@ -178,6 +194,7 @@ class Track {
         return this._bpm;   
     }    
     get lenght(){
+        console.log("test");
         return this._lenght;
     }
     get key(){

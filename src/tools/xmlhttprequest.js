@@ -19,7 +19,7 @@ function getXMLHttpRequest(){
             xhr= new XMLHttpRequest();
         }
     }else{
-        alert("petit cocinou va");
+        alert("error");
         return null;
     }
     return xhr;
