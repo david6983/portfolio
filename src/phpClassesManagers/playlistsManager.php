@@ -52,5 +52,13 @@
             WHERE playlist_name = '".$playlist->getId()."'";
             $this->_dbh->exec($request);
         }
+        public function getPlaylistNames($user_id){
+            $request = "SELECT playlist_name,playlist_nb_music FROM playlist WHERE user_id = '$user_id' ";
+            $result = array();
+            foreach($this->_dbh->query($request) as $raw){
+               array_push($result,$raw);
+            }
+            return json_encode($result); 
+        }
     }
 ?>

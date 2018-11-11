@@ -15,6 +15,10 @@
     <script src="src/js/searchBar.js"></script>
     <script src="src/js/playerDisplay.js"></script>
     <script src="src/js/createPlaylist.js"></script>
+    <script src="src/jsClasses/PlaylistsList.js"></script>
+    <script src="src/jsClasses/player.js"></script>
+    <script src="src/jsClasses/track.js"></script>
+    <script src="src/jsClasses/Playlist.js"></script>
 </head>
 <body>
     <header>
@@ -103,6 +107,27 @@
         <!-- here is the code to generate a menu scrollable with overflow css property
         for the playlists thanks to either ajax or php
         -->
+        <div class="textSideBar textSideBarMargin" style="overflow: auto;">
+            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
+            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
+            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
+            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
+            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
+            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
+            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
+            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
+            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
+            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
+            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
+            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
+            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
+            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
+            <p class="textSideBar textSideBarMargin w3-large">Name<button id="" class="w3-button w3-round-xlarge lightblue">0</button></p>
+
+        </div>
+        <script>
+            var list = new PlaylistsList();
+        </script>
         <button id="importButton" class="w3-button w3-round-xlarge lightblue sidebarElement" onclick="displayModal('importMenu')" >
             <img class="ioIcons" src="assets/icons/import.png" alt="importIcon">
             Import
