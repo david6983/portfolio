@@ -47,13 +47,22 @@
                                 <span onclick="closeModal('sessionMenu')" class="w3-button w3-display-topright">&times;</span>
                             </div>
                             <div class="w3-container">
-                                <h4 class="w3-center" style="color: blue;">
+                                <h4 style="color: blue;">
                                     <?php 
-                                        echo $_SESSION["username"];
+                                        echo "<p>Session name : ".$_SESSION["username"]."</p>";
+                                        if(isset($_SESSION["libraryName"])){
+                                            echo "<p>Library name : ".$_SESSION["libraryName"]."</p>";
+                                        }
+                                        if(isset($_SESSION["libraryPath"])){
+                                            echo "<p>Library path : ".$_SESSION["libraryPath"]."</p>";
+                                        }
+                                        if(isset($_SESSION["analysisPrecision"])){
+                                            echo "<p>Analysis Precision : ".$_SESSION["analysisPrecision"]."</p>";
+                                        }
                                     ?>
                                 </h4>
                             </div>
-                            <div class="w3-container">
+                            <div class="w3-container w3-center">
                                 <a href="src/phpScripts/deconnexion.php" class="w3-bar-item w3-center w3-button w3-mobile w3-blue w3-round-xlarge">Change session</a>
                             </div>
                         </div>

@@ -40,18 +40,19 @@
             foreach($this->_dbh->query($request) as $raw){
                array_push($result,$raw);
             }
+            $u = new User($result);
             return new User($result);           
         }
 
         public function updateUser(User $user){
             $request="UPDATE user 
-            SET `user_name` = ".$user->getName().", 
-            `user_nb_playlists` = '".$user->getNbPlaylists()."', 
-            `user_nb_music` = ".$user->getNbMusic().", 
-            `user_analysisPrecision` = ".$user->getAnalysisPresicion().",
-            `user_libraryPath` = ".$user->getLibraryPath().",
-            `user_libraryName` = ".$user->getLibraryName().",
-            WHERE user_id = ".$user->getId();
+            SET user_nb_playlists = '".$user->getNbPlaylists()."', 
+            user_nb_music = '".$user->getNbMusic()."', 
+            user_name = '".$user->getName()."',  
+            user_analysisPrecision = '".$user->getAnalysisPrecision()."',
+            user_libraryPath = '".$user->getLibraryPath()."',
+            user_libraryName = '".$user->getLibraryName()."'
+            WHERE user_name = '".$user->getName()."'";
             $this->_dbh->exec($request);
         }
 

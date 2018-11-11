@@ -36,7 +36,7 @@
         /**
          * Set the value of _id
          */ 
-        public function setId($_id)
+        public function setUser_id($_id)
         {
             $this->_id = $_id;
         }
@@ -52,7 +52,7 @@
         /**
          * Set the value of _name
          */ 
-        public function setName($_name)
+        public function setUser_name($_name)
         {
             $this->_name = $_name;
         }
@@ -68,7 +68,7 @@
         /**
          * Set the value of _nbPlaylists
          */ 
-        public function setNbPlaylists($_nbPlaylists)
+        public function setUser_nb_playlists($_nbPlaylists)
         {
             $this->_nbPlaylists = $_nbPlaylists;
         }
@@ -84,7 +84,7 @@
         /**
          * Set the value of _nbMusic
          */ 
-        public function setNbMusic($_nbMusic)
+        public function setUser_nb_music($_nbMusic)
         {
             $this->_nbMusic = $_nbMusic;
         }
@@ -92,7 +92,7 @@
         /**
          * Get the value of _analysisPrecision
          */ 
-        public function getAnalysisPresicion()
+        public function getAnalysisPrecision()
         {
             return $this->_analysisPrecision;
         }
@@ -100,7 +100,7 @@
         /**
          * Set the value of _analysisPrecision
          */ 
-        public function setAnalysisPresicion($_analisysPrecision)
+        public function setUser_analysisPrecision($_analysisPrecision)
         {
             $this->_analysisPrecision = $_analysisPrecision;
         }
@@ -116,7 +116,7 @@
         /**
          * Set the value of _libraryPath
          */ 
-        public function setLibraryPath($_libraryPath)
+        public function setUser_libraryPath($_libraryPath)
         {
             $this->_libraryPath = $_libraryPath;
         }
@@ -126,13 +126,13 @@
          */ 
         public function getLibraryName()
         {
-            return $this->_id;
+            return $this->_libraryName;
         }
 
         /**
          * Set the value of _libraryName
          */ 
-        public function setLibraryName($_libraryName)
+        public function setUser_libraryName($_libraryName)
         {
             $this->_libraryName = $_libraryName;
         }
