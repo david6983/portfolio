@@ -76,7 +76,21 @@
     <div id="sidebar" class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left">
         <img id="camelotImg" src="assets/img/camalote-wheel-logo.png" alt="camalote wheel of keys">
         <button class="w3-button w3-round-xlarge lightblue sidebarElement">Analyze your tracks</button>
-        <p class="textSideBar textSideBarMargin">ANALYSIS QUEUE <span id="numberOfMusicToAnalyse">EMPTY</span></p>
+        <p class="textSideBar textSideBarMargin">ANALYSIS QUEUE 
+            <span id="numberOfMusicToAnalyse">
+                <?php 
+                    require "src/phpScripts/getAllFilesInDir.php";
+                    $array = getAllFilesInDir($_SESSION["libraryPath"]);
+                    if(count($array) == 0){
+                        echo "EMPTY";
+                    }else{
+                        $_SESSION["numberOfMusics"] = count($array);
+                        echo $_SESSION["numberOfMusics"];
+                    }  
+                    updateNbMusicUser($_SESSION["numberOfMusics"]);
+                ?>
+            </span>
+        </p>
         <p class="textSideBar textSideBarMargin">
             NEW COLLECTION 
             <button class="w3-button w3-round-xlarge lightblue marginLeft32p" onclick="displayModal('newCollectionMenu') ">
