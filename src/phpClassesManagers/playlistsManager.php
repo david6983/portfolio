@@ -1,5 +1,5 @@
 <?php   
-    class PlaylistsManager {
+    class playlistsManager {
         private $_host; 
         private $_db; 
         private $_user; 
@@ -24,18 +24,18 @@
         }
 
         public function addPlaylist($name,$user){
-            $requete = "INSERT INTO `playlist` (`playlist_id`, `playlist_name`, `playlist_nb_music`, `user_id`) 
-            VALUES (NULL, '$name', 0, $user)";
+            $requete = "INSERT INTO playlist (`playlist_id`, `playlist_name`, `playlist_nb_music`, `user_id`) 
+            VALUES (NULL, '$name', 0, '$user')";
             $this->_dbh->exec($requete) or die(print_r($this->_dbh->errorInfo(), true));
         }
 
-        public function deletePlaylist($id){
-            $requete = 'DELETE FROM `playlist` WHERE `playlist_id`=' . $id . '';
+        public function deletePlaylist($name){
+            $requete = "DELETE FROM playlist WHERE playlist_name = '$name' ";
             $this->_dbh->exec($requete);
         }
 
-        public function getPlaylist($id){
-            $request = "SELECT * FROM `playlist` WHERE `playlist`.'playlist_id' = $id ";
+        public function getPlaylist($name){
+            $request = "SELECT * FROM playlist WHERE playlist_name = $name ";
             $result = array();
             foreach($this->_dbh->query($request) as $raw){
                array_push($result,$raw);
@@ -45,11 +45,11 @@
 
         public function updatePlaylist(Playlist $playlist){
             $request="UPDATE `playlist` 
-            SET `playlist_id` = ".$playlist->getId().", 
-            `playlist_name` = '".$playlist->getName()."', 
-            `playlist_nb_music` = ".$playlist->getTotalNumberOfTracks().", 
-            `playlist_userId` = ".$playlist->getUserId().",
-            WHERE `playlist`.`playlist_id` = ".$playlist->getId();
+            SET playlist_id = '".$playlist->getId()."', 
+            playlist_name = '".$playlist->getName()."', 
+            playlist_nb_music = '".$playlist->getTotalNumberOfTracks()."', 
+            playlist_userId = '".$playlist->getUserId()."'
+            WHERE playlist_name = '".$playlist->getId()."'";
             $this->_dbh->exec($request);
         }
     }

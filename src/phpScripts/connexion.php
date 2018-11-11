@@ -8,10 +8,12 @@
 
     $userMan = new usersManager("localhost","2key","root","");
     $userMan->connect();
-
+    
     session_start();
 
     $_SESSION["username"] = $_POST["username"];
+    $user = $userMan->getUser($_SESSION["username"]);
+    $_SESSION["user_id"] = $user->getId();
 
     header("location: ../../main.php");
 ?>

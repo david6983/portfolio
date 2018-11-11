@@ -53,7 +53,7 @@
          * Set the value of _name
          *
          */ 
-        public function setName($name)
+        public function setPlaylist_name($name)
         {
             $this->_name = $_name;
         }
@@ -62,7 +62,7 @@
          * Set the value of _id
          *
          */ 
-        public function setId($id)
+        public function setPlaylist_id($id)
         {
             $this->_id = $id;
         }
@@ -71,7 +71,7 @@
          * Set the value of _totalNumberOfTracks
          *
          */ 
-        public function setTotalNumberOfTracks($totalNumberOfTracks)
+        public function setPlaylist_nb_music($totalNumberOfTracks)
         {
             $this->_totalNumberOfTracks = $_totalNumberOfTracks;
         }
@@ -80,7 +80,7 @@
          * Set the value of _userId
          *
          */ 
-        public function setUserId($userId)
+        public function setUser_id($userId)
         {
             $this->_userId = $userId;
         }

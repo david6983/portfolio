@@ -37,7 +37,7 @@
         /**
          * Set the value of _id
          */ 
-        public function setId($_id)
+        public function setMusic_id($_id)
         {
             $this->_id = $_id;
         }
@@ -45,7 +45,7 @@
         /**
          * Get the value of _name
          */ 
-        public function getName()
+        public function getMusic_name()
         {
             return $this->_name;
         }
@@ -61,7 +61,7 @@
         /**
          * Get the value of _artists
          */ 
-        public function getArtists()
+        public function getMusic_artists_names()
         {
             return $this->_artists;
         }
@@ -85,7 +85,7 @@
         /**
          * Set the value of _genre
          */ 
-        public function setGenre($genre)
+        public function setMusic_genre($genre)
         {
             $this->_genre = $_genre;
         }
@@ -101,7 +101,7 @@
         /**
          * Set the value of _path
          */ 
-        public function setPath($path)
+        public function setMusic_path($path)
         {
             $this->_path = $_path;
         }
@@ -117,7 +117,7 @@
         /**
          * Set the value of _key
          */ 
-        public function setKey($key)
+        public function setMusic_key($key)
         {
             $this->_key = $_key;
         }
@@ -133,7 +133,7 @@
         /**
          * Set the value of _lenght
          */ 
-        public function setLenght($lenght)
+        public function setMusic_lenght($lenght)
         {
             $this->_lenght = $length;
         }
@@ -149,7 +149,7 @@
         /**
          * Get the value of _bpm
          */ 
-        public function setBpm($bpm)
+        public function setMusic_bpm($bpm)
         {
             $this->_bpm = $bpm;
         }
@@ -158,7 +158,7 @@
          * Set the value of _userId
          *
          */ 
-        public function setUserId($userId)
+        public function setUser_id($userId)
         {
             $this->_userId = $userId;
         }

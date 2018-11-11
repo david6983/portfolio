@@ -26,8 +26,8 @@
             <!-- Buttons -->
             <div id="navItems" class="w3-hide-small">
                 <!-- navigation buttons : modify,settings, ... -->
-                <a href="../../index.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Collections</a>
-                <a href="../../index.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tags</a>
+                <a href="../../main.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Collections</a>
+                <a href="../../main.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tags</a>
                 <a href="settings.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Settings</a>
                 <a href="tutorial.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tutorial</a>
                 <!-- search and user profile icons -->

@@ -8,11 +8,13 @@
     <title>2KEY</title>
     <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="src/css/index.css">
+    <script src="src/tools/xmlhttprequest.js"></script>
     <script src="src/js/collapseMenuBar.js"></script>
     <script src="src/js/sidebar.js"></script>  
     <script src="src/js/tagsEditable.js"></script> 
     <script src="src/js/searchBar.js"></script>
     <script src="src/js/playerDisplay.js"></script>
+    <script src="src/js/createPlaylist.js"></script>
 </head>
 <body>
     <header>
@@ -120,12 +122,10 @@
                         <span onclick="closeModal('newCollectionMenu')" class="w3-button w3-display-topright">&times;</span>
                     </div>
                     <div class="w3-container w3-white">
-                        <form method="POST" action="">
-                            <div class="w3-container w3-white">
-                                <p><input class="w3-input w3-border" type="text" placeholder="Name of your Playlist"></p>
-                                <p><input class="w3-button w3-round-xlarge lightblue" type="submit" value="Create"></p>
-                            </div>
-                        </form>
+                        <div class="w3-container w3-white">
+                            <p><input id="playlistNameInput" class="w3-input w3-border" type="text" placeholder="Name of your Playlist"></p>
+                            <p><button class="w3-button w3-round-xlarge lightblue" onclick="requestNewCollection(displayPlaylistOnSideBar,document.getElementById('playlistNameInput'));">Create</button></p>
+                        </div>
                     </div>
                 </div>
             </div>
