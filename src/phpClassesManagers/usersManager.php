@@ -1,5 +1,5 @@
 <?php   
-    class UsersManager {
+    class usersManager {
         private $_host; 
         private $_db; 
         private $_user; 
@@ -24,18 +24,18 @@
         }
 
         public function addUser($name){
-            $request = "INSERT INTO `user` (`user_id`, `user_nb_playlists`, `user_nb_music`, `user_name`, `user_analysisPrecision`, `user_libraryPath`, `user_libraryName`) 
-            VALUES (NULL, 0, 0, , '$name', 0, '', '')";
+            $request = "INSERT INTO user (`user_id`, `user_nb_playlists`, `user_nb_music`, `user_name`, `user_analysisPrecision`, `user_libraryPath`, `user_libraryName`) 
+            VALUES (NULL, 0, 0, '$name', 0, '', '')";
             $this->_dbh->exec($request) or die(print_r($this->_dbh->errorInfo(), true));    
         }
 
         public function deleteUser($name){
-            $request = "DELETE FROM `user` WHERE `user`.'user_name' = $name";
+            $request = "DELETE FROM user WHERE user_name = '$name' ";
             $this->_dbh->exec($request);
         }
 
         public function getUser($name){
-            $request = "SELECT * FROM `user` WHERE `user`.'user_name' = $name ";
+            $request = "SELECT * FROM user WHERE user_name = '$name'";
             $result = array();
             foreach($this->_dbh->query($request) as $raw){
                array_push($result,$raw);
@@ -44,15 +44,22 @@
         }
 
         public function updateUser(User $user){
-            $request="UPDATE `user` 
+            $request="UPDATE user 
             SET `user_name` = ".$user->getName().", 
             `user_nb_playlists` = '".$user->getNbPlaylists()."', 
             `user_nb_music` = ".$user->getNbMusic().", 
             `user_analysisPrecision` = ".$user->getAnalysisPresicion().",
             `user_libraryPath` = ".$user->getLibraryPath().",
             `user_libraryName` = ".$user->getLibraryName().",
-            WHERE `user`.`user_id` = ".$user->getId();
+            WHERE user_id = ".$user->getId();
             $this->_dbh->exec($request);
+        }
+
+        public function createOptionFromUserName(){
+            $request="SELECT user_name FROM user ";
+            foreach($this->_dbh->query($request) as $raw){
+               echo "<option value=\"$raw[0]\">$raw[0]</option>";
+            }
         }
     }
 ?>
