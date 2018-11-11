@@ -124,7 +124,7 @@
                     <div class="w3-container w3-white">
                         <div class="w3-container w3-white">
                             <p><input id="playlistNameInput" class="w3-input w3-border" type="text" placeholder="Name of your Playlist"></p>
-                            <p><button class="w3-button w3-round-xlarge lightblue" onclick="requestNewCollection(displayPlaylistOnSideBar,document.getElementById('playlistNameInput'));">Create</button></p>
+                            <p><button class="w3-button w3-round-xlarge lightblue" onclick="requestNewCollection(displayPlaylistOnSideBar,document.getElementById('playlistNameInput').value);">Create</button></p>
                         </div>
                     </div>
                 </div>

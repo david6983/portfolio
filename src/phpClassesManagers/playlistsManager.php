@@ -35,7 +35,7 @@
         }
 
         public function getPlaylist($name){
-            $request = "SELECT * FROM playlist WHERE playlist_name = $name ";
+            $request = "SELECT * FROM playlist WHERE playlist_name = '$name' ";
             $result = array();
             foreach($this->_dbh->query($request) as $raw){
                array_push($result,$raw);

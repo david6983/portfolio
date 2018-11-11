@@ -55,7 +55,7 @@
          */ 
         public function setPlaylist_name($name)
         {
-            $this->_name = $_name;
+            $this->_name = $name;
         }
 
         /**
@@ -73,7 +73,7 @@
          */ 
         public function setPlaylist_nb_music($totalNumberOfTracks)
         {
-            $this->_totalNumberOfTracks = $_totalNumberOfTracks;
+            $this->_totalNumberOfTracks = $totalNumberOfTracks;
         }
 
         /**
