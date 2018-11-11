@@ -19,6 +19,7 @@
     <script src="src/jsClasses/player.js"></script>
     <script src="src/jsClasses/track.js"></script>
     <script src="src/jsClasses/Playlist.js"></script>
+    <script src="src/js/viewAll.js"></script>
 </head>
 <body>
     <header>
@@ -111,7 +112,10 @@
                 <img class="navleftIcon" src="assets/icons/add.png" alt="plusIcon">
             </button>
         </p>
-        <p class="textSideBar textSideBarMargin w3-large">VIEW ALL <button id="totalNumberOfMusic" onclick="viewAll();" class="w3-button w3-round-xlarge lightblue">0</button></p>
+        <p class="textSideBar textSideBarMargin w3-large">VIEW ALL 
+        <button id="totalNumberOfMusic" onclick="viewAll();" class="w3-button w3-round-xlarge lightblue"><?php 
+            echo $_SESSION["numberOfMusics"];
+            ?></button></p>
         <div id="playlistNameContainer" style="overflow:auto;">
             <script>
                 var list = new PlaylistsList();
@@ -201,7 +205,8 @@
         <!-- table -->
         <div class="w3-card w3-margin w3-white">
             <!-- php code for the table or js code with ajax -->
-            <div contenteditable="false">test</div>
+            <table id="renderedPlaylist" class="w3-table w3-striped w3-bordered w3-responsive tableOfSongs">
+            </table>
         </div>
     </div>
 </body>

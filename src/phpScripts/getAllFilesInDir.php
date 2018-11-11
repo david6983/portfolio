@@ -1,10 +1,7 @@
 <?php 
-    function chargeClasse($classe){
-        require $classe.'.php';
-    }
-    spl_autoload_register('chargeClasse');  
-    chargeClasse("src/phpClasses/user");
-    chargeClasse("src/phpClassesManagers/usersManager");
+ 
+    require "src/phpClasses/user.php";
+    require "src/phpClassesManagers/usersManager.php";
     
     function getAllFilesInDir($dir){
         $rii = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));

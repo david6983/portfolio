@@ -1,5 +1,5 @@
 class Playlist {
-    constructor(type){
+    constructor(type,data){
         /* ajax request for fill up the playlist */
         this.id = 0;
         this.name = "test";
