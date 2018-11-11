@@ -131,7 +131,16 @@ class Track {
         this.newPath = serverPath.replace(" ","%20");
     }
     set bpm(bpm){
-        this._bpm = bpm;
+        const reg = /[0-9]{3}|[0-9]{2}/g;
+        if(typeof bpm === "number"){
+            if(reg.test(bpm) == true && bpm.toString().length < 4){
+                this._bpm = bpm;
+            }else{
+                console.log("error syntax : expected 2 digits or 3 digits");
+            }
+        }else{
+            console.log("the new BPM is not a number")
+        }
     }
     set key(key){
         this._key = key;
@@ -167,6 +176,6 @@ class Track {
         return this._lenght;
     }
     get key(){
-    return this._key;   
+        return this._key;   
     }
 }
