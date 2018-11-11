@@ -91,7 +91,7 @@ class Playlist {
         if(this.type === "playlist"){
             l.appendChild(this.createHoverButton("remove",index,"..\\..\\..\\assets\\icons\\remove.png","remove"));
         }else if(this.type === "viewAll"){
-            l.appendChild(this.createHoverButton("remove",index,"..\\..\\..\\assets\\icons\\remove.png","remove"));
+            l.appendChild(this.createHoverButton("plus",index,"..\\..\\..\\assets\\icons\\plus.png","plus"));
         }
         l.appendChild(this.createSimpleColumn("name",index,track.track_name));
         l.appendChild(this.createSimpleColumn("artist",index,track.track_artists));
