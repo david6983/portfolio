@@ -143,7 +143,12 @@ class Track {
         }
     }
     set key(key){
-        this._key = key;
+        const reg = /[1-9]{1}[A-B]{1}|[1]{1}[0-2]{1}[A-B]{1}/y;
+        if(typeof key === "string" && reg.test(key) == true){
+            this._key = key;
+        }else{
+            console.log("error expected a string like [a number between 1 and 12][A or B] (camelot wheel)");
+        }
     }
     set genre(genre){
         this._genre = genre;
