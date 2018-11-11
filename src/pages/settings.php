@@ -71,6 +71,7 @@
 
             </div>
         </div>
+        <!--
         <div class="w3-card w3-margin">
             <div class="w3-container lightblue">
                 <h2 class="w3-tooltip">Editable tags
@@ -106,6 +107,7 @@
                 </p>
             </div>
         </div>
+        -->
         <div class="w3-container">
             <input class="w3-button w3-round-xlarge lightblue" type="submit" value="Save">
         </div>

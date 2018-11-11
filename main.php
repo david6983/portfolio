@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,11 +47,14 @@
                                 <span onclick="closeModal('sessionMenu')" class="w3-button w3-display-topright">&times;</span>
                             </div>
                             <div class="w3-container">
-                                <!-- php request for all user caracteristics -->
-                                <!-- SELECT * FROM USER WHERE userName= $['POST] -->
+                                <h4 class="w3-center" style="color: blue;">
+                                    <?php 
+                                        echo $_SESSION["username"];
+                                    ?>
+                                </h4>
                             </div>
                             <div class="w3-container">
-                                <a href="index.php" class="w3-bar-item w3-button w3-mobile w3-blue w3-round-xlarge">Change session</a>
+                                <a href="src/phpScripts/deconnexion.php" class="w3-bar-item w3-center w3-button w3-mobile w3-blue w3-round-xlarge">Change session</a>
                             </div>
                         </div>
                     </div>

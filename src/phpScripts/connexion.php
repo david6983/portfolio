@@ -11,8 +11,7 @@
 
     session_start();
 
-    $user = $userMan->getUser($_POST["username"]);
-    $_SESSION["user"] = $user;
+    $_SESSION["username"] = $_POST["username"];
 
     header("location: ../../main.php");
 ?>
