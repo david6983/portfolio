@@ -20,6 +20,7 @@
     <script src="src/jsClasses/track.js"></script>
     <script src="src/jsClasses/Playlist.js"></script>
     <script src="src/js/viewAll.js"></script>
+    <script src="src/js/search.js"></script>
 </head>
 <body>
     <header>
@@ -54,7 +55,7 @@
                                 <span onclick="closeModal('sessionMenu')" class="w3-button w3-display-topright">&times;</span>
                             </div>
                             <div class="w3-container">
-                                <h4 style="color: blue;">
+                                <h4 style="color: rgb(0, 194, 255);">
                                     <?php 
                                         echo "<p>Session name : ".$_SESSION["username"]."</p>";
                                         if(isset($_SESSION["libraryName"])){
@@ -93,7 +94,7 @@
             Export
         </button>
         <p class="textSideBar textSideBarMargin">ANALYSIS QUEUE 
-            <span id="numberOfMusicToAnalyse">
+            <span id="numberOfMusicToAnalyse" class="sidebarButtonElementRight">
                 <?php 
                     require "src/phpScripts/getAllFilesInDir.php";
                     $array = getAllFilesInDir($_SESSION["libraryPath"]);
@@ -109,12 +110,12 @@
         </p>
         <p class="textSideBar textSideBarMargin">
             NEW COLLECTION 
-            <button class="w3-button w3-round-xlarge lightblue marginLeft32p" onclick="displayModal('newCollectionMenu') ">
+            <button class="w3-button w3-round-xlarge lightblue marginLeft32p sidebarButtonElementRight" onclick="displayModal('newCollectionMenu') ">
                 <img class="navleftIcon" src="assets/icons/add.png" alt="plusIcon">
             </button>
         </p>
         <p class="textSideBar textSideBarMargin w3-large">VIEW ALL 
-        <button id="totalNumberOfMusic" onclick="viewAll();" class="w3-button w3-round-xlarge lightblue"><?php 
+        <button id="totalNumberOfMusic" onclick="viewAll();" class="w3-button w3-round-xlarge lightblue sidebarButtonElementRight"><?php 
             echo $_SESSION["numberOfMusics"];
             ?></button></p>
         <div id="playlistNameContainer" style="overflow:auto;">
@@ -130,7 +131,7 @@
                 <div class="w3-card">
                     <div class="w3-container lightblue">
                         <h3>New Collection</h3>
-                        <span onclick="closeModal('newCollectionMenu')" class="w3-button w3-display-topright">&times;</span>
+                        <span onclick="closeModal('newCollectionMenu')" class="w3-button w3-display-topright sidebarButtonElementRight">&times;</span>
                     </div>
                     <div class="w3-container w3-white">
                         <div class="w3-container w3-white">
@@ -180,7 +181,7 @@
         </div>
         <!-- hiden  search input -->
         <div class="w3-card w3-margin w3-white">
-            <input class="w3-input w3-border w3-hide" type="text" placeholder="Search for a song.." id="searchInput" onkeyup="">
+            <input class="w3-input w3-border w3-hide" type="text" placeholder="Search for a song name.." id="searchInput" onkeyup="search()">
         </div>
         <!-- player -->
         <div class="w3-card w3-margin w3-white Player">
@@ -208,7 +209,7 @@
         <!-- table -->
         <div class="w3-card w3-margin w3-white">
             <!-- php code for the table or js code with ajax -->
-            <table id="renderedPlaylist" class="w3-table w3-striped w3-bordered w3-responsive tableOfSongs">
+            <table id="renderedPlaylist" class="w3-table w3-striped w3-bordered tableOfSongs">
             </table>
         </div>
     </div>

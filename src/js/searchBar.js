@@ -6,6 +6,7 @@ function collapseSearchInput(){
     } else { 
         x.classList.replace("w3-show","w3-hide");
     }
+
 }
 
 function filter(inputId,tableId) {

@@ -1,5 +1,8 @@
 function viewAll(){
     let playlistRenderer = new Playlist("viewAll");
-    playlistRenderer.createTable("renderedPlaylist");
-    playlistRenderer.hideControl();
+    var table = document.getElementById("renderedPlaylist");
+    if( table.childElementCount === 0){
+        playlistRenderer.createTable("renderedPlaylist");
+        playlistRenderer.hideControl();
+    }
 }

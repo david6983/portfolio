@@ -86,6 +86,8 @@ body {
     margin-left: 400px;
 }
 
+
+
 /* nav items have to be center vertically*/
 .navMiddleButton {
     /* center vertically and horizontally */
@@ -202,6 +204,10 @@ body {
     }
     #camelotImg {
         margin-left: 19%;
+    }
+    #renderedPlaylist{
+        display: block !important;
+        overflow: auto !important;
     }
 }
 
