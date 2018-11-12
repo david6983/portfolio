@@ -225,12 +225,13 @@
             <input class="w3-input w3-border w3-hide" type="text" placeholder="Search for a song name.." id="searchInput" onkeyup="search()">
         </div>
         <!-- player -->
+        <!--
         <div class="w3-card w3-margin w3-white Player">
-            <!-- js code for the player -->
+            <!-- js code for the player 
             <div id="waveform" class="w3-container">
                 
             </div>
-            <!-- player buttons -->
+            <!-- player buttons 
             <div class="w3-container controlPlayer">        
                 <button class="w3-button">
                     <img src="assets\icons\previous.png" alt="previous logo">
@@ -242,11 +243,12 @@
                     <img class="rotate180" src="assets\icons\previous.png" alt="next logo">
                 </button>              
             </div>
-            <!-- song attributs -->
+            <!-- song attributs 
             <div class="w3-container">
-                <!-- display a table with all the track's attributs -->
+                <!-- display a table with all the track's attributs 
             </div>
         </div>
+        -->
         <!-- hiden control bar -->
         <div id="controlBar" class="w3-card w3-margin w3-white" style="display: none;">
             <div class="w3-container w3-blue checkBar">

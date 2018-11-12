@@ -19,8 +19,8 @@
     spl_autoload_register('chargeClasse');  
     chargeClasse("../phpClasses/user");
     chargeClasse("../phpClassesManagers/usersManager");
-    chargeClasse("../phpCLasses/track");
-    chargeClasse("../phpCLasses/tracksManager");
+    chargeClasse("../phpClasses/track");
+    chargeClasse("../phpClassesManagers/tracksManager");
 
     $userMan = new usersManager("localhost","2key","root","");
     $userMan->connect();
