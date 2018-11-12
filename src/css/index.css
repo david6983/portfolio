@@ -8,6 +8,12 @@ html {
     overflow: hidden;
 }
 
+#renderedPlaylist {
+    display: block;
+    overflow: auto;
+    max-height: 705px;
+}
+
 /* define the lightblue color for an element and the text inside need to be white */
 .lightblue {
     background-color: #00C2FF;
@@ -171,6 +177,11 @@ html {
     .mainContent {
         margin-left: 0;
     }
+    #renderedPlaylist {
+        display: block;
+        overflow: auto;
+        max-height: 490px;
+    }
 }
 
 /* MID TABLETS */
@@ -183,6 +194,11 @@ html {
     }
     .navLeftElement {
         margin-left: 4%;
+    }
+    #renderedPlaylist {
+        display: block;
+        overflow: auto;
+        max-height: 490px;
     }
 }
 
@@ -212,6 +228,11 @@ html {
     #renderedPlaylist{
         display: block !important;
         overflow: auto !important;
+    }
+    #renderedPlaylist {
+        display: block;
+        overflow: auto;
+        max-height: 390px;
     }
 }
 
