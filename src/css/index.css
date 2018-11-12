@@ -4,6 +4,10 @@ body {
     background-color: rgb(245, 245,245);
 }
 
+html {
+    overflow: hidden;
+}
+
 /* define the lightblue color for an element and the text inside need to be white */
 .lightblue {
     background-color: #00C2FF;
