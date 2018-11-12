@@ -75,6 +75,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- showControl -->
             </div>                       
         </nav>
         
@@ -184,9 +185,11 @@
         <!-- player -->
         <div class="w3-card w3-margin w3-white Player">
             <!-- js code for the player -->
-            <div id="waveform" class="w3-container"></div>
+            <div id="waveform" class="w3-container">
+                
+            </div>
             <!-- player buttons -->
-            <div class="w3-container">        
+            <div class="w3-container controlPlayer">        
                 <button class="w3-button">
                     <img src="assets\icons\previous.png" alt="previous logo">
                 </button>
