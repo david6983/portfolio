@@ -1,10 +1,10 @@
 class Playlist {
     constructor(type,data){
         /* ajax request for fill up the playlist */
-        this.id = 0;
-        this.name = "test";
-        this.nbOfTracks = 3;
+        this.nbOfTracks = data.length;
         this.type = type;
+        this.tracks = data;
+        /*
         this.tracks = [
             {
                 track_id:"1",
@@ -37,6 +37,7 @@ class Playlist {
                 track_path:"D:/musiques"
             },
         ];
+        */
     }
     createTable(id){
         /* create the header */
@@ -102,6 +103,32 @@ class Playlist {
         l.appendChild(this.createSimpleColumn("path",index,track.track_path));
         return l;
     }
+    createLigneViewAll(track,id){
+        let index = id;
+        let l = document.createElement("tr");
+        
+        let idCol = document.createElement("td");
+        idCol.setAttribute("id","id"+index);
+        idCol.appendChild(document.createTextNode(index));
+        l.appendChild(idCol);
+
+        l.appendChild(this.createHoverCheckbox(index));
+        l.appendChild(this.createHoverButton("play",index,"..\\..\\..\\assets\\icons\\play.png","play"));
+        if(this.type === "playlist"){
+            l.appendChild(this.createHoverButton("remove",index,"..\\..\\..\\assets\\icons\\remove.png","remove"));
+        }else if(this.type === "viewAll"){
+            l.appendChild(this.createHoverButton("plus",index,"..\\..\\..\\assets\\icons\\plus.png","plus"));
+        }
+        let parts = track.split("\\");
+        l.appendChild(this.createSimpleColumn("name",index,parts[parts.length-1].split(".")[0]));
+        l.appendChild(this.createSimpleColumn("artist",index," "));
+        l.appendChild(this.createSimpleColumn("genre",index," "));
+        l.appendChild(this.createSimpleColumn("key",index," "));
+        l.appendChild(this.createSimpleColumn("bpm",index,0));
+        l.appendChild(this.createSimpleColumn("lenght",index," "));
+        l.appendChild(this.createSimpleColumn("path",index,track));
+        return l;
+    }
     createSimpleColumn(id,index,content){
         let c = document.createElement("td");
         c.setAttribute("id",id+index);
@@ -143,7 +170,11 @@ class Playlist {
     }
     createAllLignes(table){
         for(let i = 0; i < this.nbOfTracks; i++) {
-            table.appendChild(this.createLigne(this.tracks[i]));           
+            if(this.type === "playlist"){
+                table.appendChild(this.createLigne(this.tracks[i]));
+            }else if(this.type === "viewAll"){
+                table.appendChild(this.createLigneViewAll(this.tracks[i],i));
+            }        
         }
     }
     hideControl(){

@@ -115,7 +115,7 @@
             </button>
         </p>
         <p class="textSideBar textSideBarMargin w3-large">VIEW ALL 
-        <button id="totalNumberOfMusic" onclick="viewAll();" class="w3-button w3-round-xlarge lightblue sidebarButtonElementRight"><?php 
+        <button id="totalNumberOfMusic" onclick="requestAllFilesInDir(viewAll);" class="w3-button w3-round-xlarge lightblue sidebarButtonElementRight"><?php 
             echo $_SESSION["numberOfMusics"];
             ?></button></p>
         <div id="playlistNameContainer" style="overflow:auto;">
