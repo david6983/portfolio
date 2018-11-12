@@ -132,7 +132,7 @@ class Playlist {
     createSimpleColumn(id,index,content){
         let c = document.createElement("td");
         c.setAttribute("id",id+index);
-        c.setAttribute("contentEditable","true");
+        c.setAttribute("contentEditable","false");
         c.appendChild(document.createTextNode(content));
         return c;
     }
@@ -140,10 +140,9 @@ class Playlist {
         let b = document.createElement("td");
         b.setAttribute("id",id+index);
         b.setAttribute("class","hoverElement");
-        
         let btn = document.createElement("button");
         btn.setAttribute("class","w3-button");
-        
+        btn.setAttribute("onclick","execFunction(\""+b.getAttribute("id")+"\")");
         let img = document.createElement("img");
         img.setAttribute("src",imgPath);
         img.setAttribute("alt",alt);

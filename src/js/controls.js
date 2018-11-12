@@ -20,3 +20,14 @@ function showControl(){
         cb.setAttribute("style","display: none;");
     }
 }
+
+function execFunction(id){
+    let btn = id.substring(0,4);
+    let id = id.substring(4,5);
+
+    if( btn === "play"){
+        
+    }else if( btn === "plus"){
+
+    }
+}
