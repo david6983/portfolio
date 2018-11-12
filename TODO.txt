@@ -1,9 +1,0 @@
--create classes in php
--settings :
-    -content editable on :
-        -name ?
-        -artist ?
-        -bpm ?
-        -lenght ?
-        -genre ?
-        -path ?

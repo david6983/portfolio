@@ -1,4 +1,7 @@
 <?php   
+    /**
+     * manage the 'playlist' table in the database
+     */
     class playlistsManager {
         private $_host; 
         private $_db; 
@@ -6,6 +9,13 @@
         private $_pass; 
         private $_dbh; 
 
+        /**
+         * set all the attribute
+         * @param {string} $host name of the host for the database
+         * @param {string} $db name of the database
+         * @param {string} $user username
+         * @param {string} $pass password
+         */
         public function __construct($host,$db,$user,$pass){
             $this->_host = $host;
             $this->_db = $db;
@@ -13,19 +23,31 @@
             $this->_pass = $pass;
         }
 
+        /**
+         * connection to the data base by using the PDO object
+         */
         public function connect(){
             try {
+                /* try to create a new PDO from the attributs given */
                 $this->_dbh = new PDO('mysql:host='.$this->_host.';dbname='.$this->_db,$this->_user,$this->_pass);
             }
             catch(PDOException $e)
             {
+                /* on failed , echo an error message */
                 echo "Connection failed: " . $e->getMessage();
             }
         }
 
+        /**
+         * add a playlist in the database
+         * 
+         * @param {string} $name name of your playlist
+         * @param {integer} $user the user to whom the playlist belongs
+         */
         public function addPlaylist($name,$user){
             $requete = "INSERT INTO playlist (`playlist_id`, `playlist_name`, `playlist_nb_music`, `user_id`) 
             VALUES (NULL, '$name', 0, '$user')";
+            /* exec the request or print the error message */
             $this->_dbh->exec($requete) or die(print_r($this->_dbh->errorInfo(), true));
         }
 

@@ -1,4 +1,7 @@
 <?php 
+    /**
+     * describe a user
+     */
     class User {
         private $_id;
         private $_name;
@@ -7,18 +10,23 @@
         private $_analysisPrecision;
         private $_libraryPath;
         private $_libraryName;
-        //private $_playlists; //array of playlists
 
         public function __construct($data){
+            /* call all the setter */
             $this->_hydrate($data[0]);
         }
 
-        /* methodes d'hydratations  */
+        /**
+         * call all the setter
+         * 
+         * @param {array} $data from the database
+         */
         private function _hydrate(array $data){
+            /* for each attributs in the database */            
             foreach($data as $key => $value){
-                //on recupere le nom du setter correspondant à l'attribut
+                //get the setter name of the attributs
                 $method = 'set'.ucfirst($key);
-                //si le settler correspondant existe
+                //if the setter exist 
                 if(method_exists($this,$method)){
                     $this->$method($value);
                 }

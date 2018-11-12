@@ -1,3 +1,7 @@
+/**
+ * 
+ * @param {json} data 
+ */
 function viewAll(data){
     var playlistRenderer = new Playlist("viewAll",data);
     var table = document.getElementById("renderedPlaylist");

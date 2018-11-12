@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>2KEY</title>
+    <!-- W3.css framework -->
     <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- own css -->
     <link rel="stylesheet" type="text/css" href="src/css/index.css">
     <script src="src/js/collapseMenuBar.js"></script>
     <script src="src/js/sidebar.js"></script>  
@@ -16,6 +18,7 @@
     <header>
         <h1 class="w3-center w3-margin w3-padding">Welcome to 2KEY</h1>
     </header>
+    <!-- Connexion form -->
     <form class="connectForm w3-margin" method="POST" action="src/phpScripts/connexion.php">
         <div class="w3-container w3-center lightblue">
             <h2>Choose a session</h2>
@@ -24,6 +27,9 @@
             <select name="username" class="w3-select w3-margin" name="option">
                 <option value="0" disabled selected>Choose your session</option>
                 <?php 
+                    /* display user_name as option in the select  */
+
+                    /* get classes for users management */
                     function chargeClasse($classe){
                         require $classe.'.php';
                     }
@@ -31,8 +37,10 @@
                     chargeClasse("src/phpClasses/User");
                     chargeClasse("src/phpClassesManagers/usersManager");
 
+                    /* new user manager */
                     $userMan = new usersManager("localhost","2key","root","");
                     $userMan->connect();
+                    /* call to the function to display option in the select */
                     $userMan->createOptionFromUserName();
                 ?>
             </select>

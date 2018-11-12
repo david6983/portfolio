@@ -4,14 +4,16 @@ body {
     background-color: rgb(245, 245,245);
 }
 
+/* no overflow => scrollable document */
 html {
     overflow: hidden;
 }
 
+/* style of the table for the playlist or view all*/
 #renderedPlaylist {
-    display: block;
-    overflow: auto;
-    max-height: 705px;
+    display: block; /* display type */
+    overflow: auto; /* scrollable like the sidebar because there a ton of tracks */
+    max-height: 705px; /* max height to perform the scroll */
 }
 
 /* define the lightblue color for an element and the text inside need to be white */
@@ -55,7 +57,8 @@ html {
 
 /* 2KEY logo */
 .mainLogo {
-    font-weight: bold;
+    /* about the font */
+    font-weight: bold; 
     font-size: larger;
     /* center vertically and horizontally */
     padding: 20px 170px !important; 
@@ -64,24 +67,25 @@ html {
 /* big wheel on top of the sidebar */
 #camelotImg {
     width: 200px; /* real width */
-    margin-left: 24%;
-    margin-top: 20px; 
+    margin-left: 24%; /* left offset */
+    margin-top: 20px; /* top offset */
 }
 
+/* import and export icons width */
 .ioIcons {
     width: 25%;
 }
-
+/* import icon style */
 #importButton {
-    float: left;
-    width: 42%;
+    float: left; /* on the left */
+    width: 42%; /* button width */
     margin-bottom: 10px;
 }
-
+/* exportt icon style */
 #exportButton {
-    float: right;
-    margin-right: 5%;
-    width: 42%;
+    float: right; /* on the right */
+    margin-right: 5%; /* offset from the right button */
+    width: 42%; /* button width */
     margin-bottom: 10px;
 }
 
@@ -95,8 +99,6 @@ html {
 .mainContent {
     margin-left: 400px;
 }
-
-
 
 /* nav items have to be center vertically*/
 .navMiddleButton {
@@ -123,12 +125,14 @@ html {
     margin-top: 5%;
 }
 
+/* for all playlist name in sidebar */
 .playlistName {
-    margin-left: 7% !important;
+    margin-left: 7% !important; /* offset from the left */
 }
 
+/* for all playlist Button in sidebar */
 .playlistButton {
-    float: right;
+    float: right; /* at the right of the text */
     margin-right: 45px;
 }
 

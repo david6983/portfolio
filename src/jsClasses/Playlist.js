@@ -4,40 +4,6 @@ class Playlist {
         this.nbOfTracks = data.length;
         this.type = type;
         this.tracks = data;
-        /*
-        this.tracks = [
-            {
-                track_id:"1",
-                track_name:"Like I do",
-                track_artists:"David Guetta,Brooks",
-                track_genre:"Future Bounce",
-                track_bpm:"126",
-                track_key:"2A",
-                track_lenght:"2:31",
-                track_path:"D:/musiques"
-            },
-            {
-                track_id:"2",
-                track_name:"Like I do",
-                track_artists:"David Guetta,Brooks",
-                track_genre:"Future Bounce",
-                track_bpm:"126",
-                track_key:"2A",
-                track_lenght:"2:31",
-                track_path:"D:/musiques"
-            },
-            {
-                track_id:"3",
-                track_name:"Like I do",
-                track_artists:"David Guetta,Brooks",
-                track_genre:"Future Bounce",
-                track_bpm:"126",
-                track_key:"2A",
-                track_lenght:"2:31",
-                track_path:"D:/musiques"
-            },
-        ];
-        */
     }
     createTable(id){
         /* create the header */

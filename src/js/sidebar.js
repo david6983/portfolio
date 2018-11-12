@@ -1,3 +1,6 @@
+/**
+ * open the sidebar on mobile version
+ */
 function openSideBar(){
     var x = document.getElementById("sidebar");
     
@@ -8,10 +11,18 @@ function openSideBar(){
     }
 }
 
+/**
+ * display a generic w3.css modal in the document
+ * @param {string} id 
+ */
 function displayModal(id){
     document.getElementById(id).style.display = "block";
 }
 
+/**
+ * close a generic w3.css modal in the document
+ * @param {string} id 
+ */
 function closeModal(id){
     document.getElementById(id).style.display = "none";
 }
