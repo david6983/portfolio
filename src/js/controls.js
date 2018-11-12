@@ -30,5 +30,6 @@ function execFunction(id){
     }else if( btn === "plus"){
         displayModal('addToPlaylistModal');
         var p = new PlaylistSelect();
+        document.getElementById("idTrackModal").textContent = nb;
     }
 }

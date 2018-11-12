@@ -205,7 +205,7 @@
             <div class="w3-modal-content">
                 <div class="w3-card">
                     <div class="w3-container lightblue">
-                        <h3>Add this track to : </h3>
+                        <h3>Add this track n°<span id="idTrackModal"></span> to : </h3>
                         <span onclick="closeModal('addToPlaylistModal')" class="w3-button w3-display-topright">&times;</span>
                     </div>
                     <div class="w3-container w3-white">
