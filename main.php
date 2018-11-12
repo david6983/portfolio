@@ -19,6 +19,7 @@
     <script src="src/jsClasses/player.js"></script>
     <script src="src/jsClasses/track.js"></script>
     <script src="src/jsClasses/Playlist.js"></script>
+    <script src="src/js/controls.js"></script>
     <script src="src/js/viewAll.js"></script>
     <script src="src/js/search.js"></script>
 </head>
@@ -83,7 +84,7 @@
     </header>
     <!-- sidebar on the left -->
     <div id="sidebar" class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left">
-        <img id="camelotImg" src="assets/img/camalote-wheel-logo.png" alt="camalote wheel of keys">
+        <img onclick="showControl();" id="camelotImg" src="assets/img/camalote-wheel-logo.png" alt="camalote wheel of keys">
         <button class="w3-button w3-round-xlarge lightblue sidebarElement">Analyze your tracks</button>
         <button id="importButton" class="w3-button w3-round-xlarge lightblue sidebarElement" onclick="displayModal('importMenu')" >
             <img class="ioIcons" src="assets/icons/import.png" alt="importIcon">

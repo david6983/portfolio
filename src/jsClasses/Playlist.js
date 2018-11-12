@@ -177,16 +177,4 @@ class Playlist {
             }        
         }
     }
-    hideControl(){
-        let e = document.querySelectorAll(".hoverElement");
-        e.forEach(function(e){
-            e.setAttribute("style","display: none;");
-        })
-    }
-    showControl(){
-        let e = document.querySelectorAll(".hoverElement");
-        e.forEach(function(e){
-            e.removeAttribute("style");
-        })
-    }
 }

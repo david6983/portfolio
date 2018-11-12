@@ -3,7 +3,7 @@ function viewAll(data){
     var table = document.getElementById("renderedPlaylist");
     if( table.childElementCount === 0){
         playlistRenderer.createTable("renderedPlaylist");
-        playlistRenderer.hideControl();
+        hideControl();
     }
 }
 
