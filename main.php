@@ -102,10 +102,10 @@
                     require "src/phpScripts/getAllFilesInDir.php";
                     require "src/phpClasses/track.php";
                     require "src/phpClassesManagers/tracksManager.php";
-                    $array = getAllFilesInDir($_SESSION["libraryPath"]);
-                    if(count($array) == 0){
-                        echo "EMPTY";
-                    }else{
+
+
+                    if(isset($_SESSION["libraryPath"])) {
+                        $array = getAllFilesInDir($_SESSION["libraryPath"]);
                         $_SESSION["numberOfMusics"] = count($array);
                         echo $_SESSION["numberOfMusics"];
                         if($_SESSION["addTracks"] == true){
@@ -116,8 +116,11 @@
                             }
                             $_SESSION["addTracks"] = false;
                         }
+                        updateNbMusicUser($_SESSION["numberOfMusics"]);
+                    }else{
+                        echo "EMPTY";
                     }  
-                    updateNbMusicUser($_SESSION["numberOfMusics"]);
+                    
 
                 ?>
             </span>
@@ -130,7 +133,11 @@
         </p>
         <p class="textSideBar textSideBarMargin w3-large">VIEW ALL 
         <button id="totalNumberOfMusic" onclick="requestAllFilesInDir(viewAll);" class="w3-button w3-round-xlarge lightblue sidebarButtonElementRight"><?php 
-            echo $_SESSION["numberOfMusics"];
+            if(isset($_SESSION["numberOfMusics"])){
+                echo $_SESSION["numberOfMusics"];
+            }else{
+                echo 0;
+            }
             ?></button></p>
         <div id="playlistNameContainer" style="overflow:auto;">
             <script>

@@ -39,9 +39,11 @@
         </div>
         <div class="w3-container w3-center w3-xlarge w3-white w3-padding">
             <input class="w3-button w3-round-xlarge lightblue" type="submit" value="Connect">
-            <button class="w3-button w3-round-xlarge lightblue" ><a href="inscription.php" style="text-decoration: none;">New session</a></button>
-            <button class="w3-button w3-round-xlarge lightblue" ><a href="delete.php" style="text-decoration: none;">Delete</a></button>
-        </div>      
+        </div>    
     </form>
+    <div class="w3-container w3-center w3-xlarge w3-white w3-padding w3-margin">
+        <button class="w3-button w3-round-xlarge lightblue" ><a href="inscription.php" style="text-decoration: none;">New session</a></button>
+        <button class="w3-button w3-round-xlarge lightblue" ><a href="delete.php" style="text-decoration: none;">Delete</a></button>
+    </div> 
 </body>
 </html>
