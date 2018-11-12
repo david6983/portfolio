@@ -1,6 +1,6 @@
 <?php 
     session_start();
-
+    
     function getAllFilesInDir($dir){
         $rii = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
         $files = array(); 
@@ -12,6 +12,7 @@
         }
         return $files;
     }
+    
     header("content-type: application/json");
     echo json_encode(getAllFilesInDir($_SESSION["libraryPath"]));
 ?>

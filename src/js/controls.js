@@ -23,11 +23,12 @@ function showControl(){
 
 function execFunction(id){
     let btn = id.substring(0,4);
-    let id = id.substring(4,5);
+    let nb = id.substring(4,5);
 
     if( btn === "play"){
-        
+        //var player = new Player(document.getElementById("path"+nb).textContent);
     }else if( btn === "plus"){
-
+        displayModal('addToPlaylistModal');
+        var p = new PlaylistSelect();
     }
 }

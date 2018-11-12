@@ -1,4 +1,7 @@
 <?php 
+    session_start();
+    $_SESSION["addTracks"] = true;
+
     function chargeClasse($classe){
         require $classe.'.php';
     }

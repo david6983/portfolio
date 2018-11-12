@@ -14,6 +14,7 @@
     $_SESSION["username"] = $_POST["username"];
     $user = $userMan->getUser($_SESSION["username"]);
     $_SESSION["user_id"] = $user->getId();
+    $_SESSION["addTracks"] = false;
 
     header("location: ../../main.php");
 ?>

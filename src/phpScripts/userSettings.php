@@ -1,13 +1,26 @@
 <?php 
     session_start();
 
+    function getAllFilesInDir($dir){
+        $rii = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
+        $files = array(); 
+        foreach ($rii as $file) {
+            if ($file->isDir()){ 
+                continue;
+            }
+            $files[] = utf8_encode($file->getPathname()); 
+        }
+        return $files;
+    }
+
     function chargeClasse($classe){
         require $classe.'.php';
     }
     spl_autoload_register('chargeClasse');  
     chargeClasse("../phpClasses/user");
     chargeClasse("../phpClassesManagers/usersManager");
-
+    chargeClasse("../phpCLasses/track");
+    chargeClasse("../phpCLasses/tracksManager");
 
     $userMan = new usersManager("localhost","2key","root","");
     $userMan->connect();

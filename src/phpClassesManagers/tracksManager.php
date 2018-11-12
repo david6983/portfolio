@@ -23,9 +23,9 @@
             }
         }
 
-        public function addTrack($path,$useId){
-            $requete = "INSERT INTO music (`music_id`, `music_name`, `music_artists_name`, `music_path`, `music_genre`, `music_key`, `music_bpm`, `music_lenght`, `id_user`) 
-            VALUES (NULL, '', '', , '', '', '', '$path', NULL,'$userId')";
+        public function addTrack($path,$userId){
+            $requete = "INSERT INTO music (`music_id`, `music_name`, `music_artists_names`, `music_path`, `music_genre`, `music_key`, `music_bpm`, `music_lenght`, `user_id`) 
+            VALUES (NULL, '', '',\"$path\", '', '', NULL, NULL,'$userId')";
             $this->_dbh->exec($requete) or die(print_r($this->_dbh->errorInfo(), true));
         }
 

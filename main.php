@@ -8,6 +8,7 @@
     <title>2KEY</title>
     <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="src/css/index.css">
+    <script src="https://unpkg.com/wavesurfer.js"></script>
     <script src="src/tools/xmlhttprequest.js"></script>
     <script src="src/js/collapseMenuBar.js"></script>
     <script src="src/js/sidebar.js"></script>  
@@ -19,6 +20,7 @@
     <script src="src/jsClasses/player.js"></script>
     <script src="src/jsClasses/track.js"></script>
     <script src="src/jsClasses/Playlist.js"></script>
+    <script src="src/jsClasses/PlaylistSelect.js"></script>
     <script src="src/js/controls.js"></script>
     <script src="src/js/viewAll.js"></script>
     <script src="src/js/search.js"></script>
@@ -98,14 +100,25 @@
             <span id="numberOfMusicToAnalyse" class="sidebarButtonElementRight">
                 <?php 
                     require "src/phpScripts/getAllFilesInDir.php";
+                    require "src/phpClasses/track.php";
+                    require "src/phpClassesManagers/tracksManager.php";
                     $array = getAllFilesInDir($_SESSION["libraryPath"]);
                     if(count($array) == 0){
                         echo "EMPTY";
                     }else{
                         $_SESSION["numberOfMusics"] = count($array);
                         echo $_SESSION["numberOfMusics"];
+                        if($_SESSION["addTracks"] == true){
+                            $trackMan = new TracksManager("localhost","2key","root","");
+                            $trackMan->connect();
+                            foreach($array as $path){
+                                $trackMan->addTrack($path,$_SESSION["user_id"]);
+                            }
+                            $_SESSION["addTracks"] = false;
+                        }
                     }  
                     updateNbMusicUser($_SESSION["numberOfMusics"]);
+
                 ?>
             </span>
         </p>
@@ -180,6 +193,26 @@
                 </div>
             </div>
         </div>
+        <!-- add To Playlist modal-->
+        <div id="addToPlaylistModal" class="w3-modal">
+            <div class="w3-modal-content">
+                <div class="w3-card">
+                    <div class="w3-container lightblue">
+                        <h3>Add this track to : </h3>
+                        <span onclick="closeModal('addToPlaylistModal')" class="w3-button w3-display-topright">&times;</span>
+                    </div>
+                    <div class="w3-container w3-white">
+                        <div class="w3-container w3-white">
+                            <p>
+                                <select id="playlistSelected" name="playlistSelected" class="w3-select w3-margin">         
+                                </select>
+                            </p>
+                            <p><button onclick="addToPlaylist()" class="w3-button w3-round-xlarge lightblue">Add</button></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- hiden  search input -->
         <div class="w3-card w3-margin w3-white">
             <input class="w3-input w3-border w3-hide" type="text" placeholder="Search for a song name.." id="searchInput" onkeyup="search()">
@@ -224,6 +257,8 @@
                 </button> 
             </div>
         </div>
+        <!-- add to modal -->
+
         <!-- table -->
         <div class="w3-card w3-margin w3-white">
             <!-- php code for the table or js code with ajax -->
