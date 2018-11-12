@@ -7,6 +7,10 @@ function hideControl(){
 function showControl(){
     let e = document.querySelectorAll(".hoverElement");
     e.forEach(function(e){
-        e.removeAttribute("style");
+        if(e.getAttribute("style") == "display: none;"){
+            e.removeAttribute("style");
+        }else{
+            e.setAttribute("style","display: none;");
+        }
     })
 }
