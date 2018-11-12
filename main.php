@@ -207,6 +207,23 @@
                 <!-- display a table with all the track's attributs -->
             </div>
         </div>
+        <!-- hiden control bar -->
+        <div id="controlBar" class="w3-card w3-margin w3-white" style="display: none;">
+            <div class="w3-container w3-blue checkBar">
+                <button class="w3-button w3-round-xlarge cancelCheck" >
+                    <img src="..\..\..\assets\icons\checklist.png" alt="cancel check" style="width: 25px;">
+                    <p>Cancel</p>
+                </button> 
+                <button class="w3-button w3-round-xlarge checkAll" >
+                    <img src="..\..\..\assets\icons\checkAll.png" alt="check all" style="width: 25px;">
+                    <p>Select all</p>
+                </button>
+                <button class="w3-button w3-round-xlarge addTo" >
+                    <img src="..\..\..\assets\icons\add.png" alt="add" style="width: 25px;">
+                    <p>Add Selected to</p>
+                </button> 
+            </div>
+        </div>
         <!-- table -->
         <div class="w3-card w3-margin w3-white">
             <!-- php code for the table or js code with ajax -->
