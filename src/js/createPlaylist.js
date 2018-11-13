@@ -11,5 +11,4 @@ function requestNewCollection(playlist_name){
     request.send();
     /* close the window to create a collection */
     closeModal('newCollectionMenu');
-    //var list = new PlaylistsList();
 }

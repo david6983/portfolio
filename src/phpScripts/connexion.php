@@ -24,7 +24,8 @@
 
     /* save a user in session variables */
     $_SESSION["user_name"] = $_POST["user_name"];
-    $_SESSION["user_nb_playlists"] = $user->getId();
+    $_SESSION["user_nb_playlists"] = $user->getNbPlaylists();
+    $_SESSION["user_id"] = $user->getId();
     $_SESSION["user_nb_music"] = $user->getNbMusic();
     /* for the analysis of the tracks */
     $_SESSION["nb_music_to_analyze"] = $_SESSION["user_nb_music"];

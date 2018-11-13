@@ -1,17 +1,20 @@
 class PlaylistsList {
     constructor(){
         this.requestPlaylist(this);
+        console.log("test");
     }
     requestPlaylist(object){
         var request = getXMLHttpRequest();
         request.responseType = "json";
         request.onreadystatechange = function () {
             if(request.readyState === 4 && request.status === 200) {
+                console.log(request.response);
                 object.displayData(request.response);
             }
         };
         request.open("GET","src/phpScripts/getPlaylistNames.php?",true);
         request.send();
+        console.log("ok");
     }
     displayData(data){
         //exemple

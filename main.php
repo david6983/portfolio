@@ -26,7 +26,6 @@
     <script src="src/jsClasses/PlaylistSelect.js"></script>
     <script src="src/js/controls.js"></script>
     <script src="src/js/viewAll.js"></script>
-    <script src="src/js/search.js"></script>
 </head>
 <body>
     <header>
@@ -72,6 +71,9 @@
                                         }
                                         if(isset($_SESSION["user_analysisPrecision"])){
                                             echo "<p>Analysis Precision : ".$_SESSION["user_analysisPrecision"]."</p>";
+                                        }
+                                        if(isset($_SESSION["user_id"])){
+                                            echo "<p>Session n°".$_SESSION["user_id"]."</p>";
                                         }
                                     ?>
                                 </h4>
@@ -128,7 +130,7 @@
                 echo 0;
             }
             ?></button></p>
-        <div id="playlistNameContainer" style="overflow:auto;">
+        <div id="playlistNameContainer" style="overflow:auto; height: 320px;">
             <script>
                 var list = new PlaylistsList();
             </script>
