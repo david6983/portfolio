@@ -63,15 +63,15 @@
                             <div class="w3-container">
                                 <h4 style="color: rgb(0, 194, 255);">
                                     <?php 
-                                        echo "<p>Session name : ".$_SESSION["username"]."</p>";
-                                        if(isset($_SESSION["libraryName"])){
-                                            echo "<p>Library name : ".$_SESSION["libraryName"]."</p>";
+                                        echo "<p>Session name : ".$_SESSION["user_name"]."</p>";
+                                        if(isset($_SESSION["user_libraryName"])){
+                                            echo "<p>Library name : ".$_SESSION["user_libraryName"]."</p>";
                                         }
-                                        if(isset($_SESSION["libraryPath"])){
-                                            echo "<p>Library path : ".$_SESSION["libraryPath"]."</p>";
+                                        if(isset($_SESSION["user_libraryPath"])){
+                                            echo "<p>Library path : ".$_SESSION["user_libraryPath"]."</p>";
                                         }
-                                        if(isset($_SESSION["analysisPrecision"])){
-                                            echo "<p>Analysis Precision : ".$_SESSION["analysisPrecision"]."</p>";
+                                        if(isset($_SESSION["user_analysisPrecision"])){
+                                            echo "<p>Analysis Precision : ".$_SESSION["user_analysisPrecision"]."</p>";
                                         }
                                     ?>
                                 </h4>
@@ -102,29 +102,15 @@
         <p class="textSideBar textSideBarMargin">ANALYSIS QUEUE 
             <span id="numberOfMusicToAnalyse" class="sidebarButtonElementRight">
                 <?php 
-                    require "src/phpScripts/getAllFilesInDir.php";
-                    require "src/phpClasses/track.php";
-                    require "src/phpClassesManagers/tracksManager.php";
-
-
-                    if(isset($_SESSION["libraryPath"])) {
-                        $array = getAllFilesInDir($_SESSION["libraryPath"]);
-                        $_SESSION["numberOfMusics"] = count($array);
-                        echo $_SESSION["numberOfMusics"];
-                        if($_SESSION["addTracks"] == true){
-                            $trackMan = new TracksManager("localhost","2key","root","");
-                            $trackMan->connect();
-                            foreach($array as $path){
-                                $trackMan->addTrack($path,$_SESSION["user_id"]);
-                            }
-                            $_SESSION["addTracks"] = false;
+                    /* if the session variable for the number of musics exist */
+                    if(isset($_SESSION["nb_music_to_analyze"])) {
+                        /* the number is not 0 */
+                        if( $_SESSION["nb_music_to_analyze"] != 0 ){
+                            echo $_SESSION["nb_music_to_analyze"];
+                        }else{
+                            echo "EMPTY";
                         }
-                        updateNbMusicUser($_SESSION["numberOfMusics"]);
-                    }else{
-                        echo "EMPTY";
                     }  
-                    
-
                 ?>
             </span>
         </p>
@@ -135,9 +121,9 @@
             </button>
         </p>
         <p class="textSideBar textSideBarMargin w3-large">VIEW ALL 
-        <button id="totalNumberOfMusic" onclick="requestAllFilesInDir(viewAll);" class="w3-button w3-round-xlarge lightblue sidebarButtonElementRight"><?php 
-            if(isset($_SESSION["numberOfMusics"])){
-                echo $_SESSION["numberOfMusics"];
+        <button id="totalNumberOfMusic" onclick="" class="w3-button w3-round-xlarge lightblue sidebarButtonElementRight"><?php 
+            if(isset($_SESSION["user_nb_music"])){
+                echo $_SESSION["user_nb_music"];
             }else{
                 echo 0;
             }

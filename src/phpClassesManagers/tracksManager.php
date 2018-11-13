@@ -24,8 +24,9 @@
         }
 
         public function addTrack($path,$userId){
+            $path2 = str_replace("\\","\\\\",$path);
             $request = "INSERT INTO music (`music_id`, `music_name`, `music_artists_names`, `music_path`, `music_genre`, `music_key`, `music_bpm`, `music_length`, `user_id`) 
-            VALUES (NULL, '', '',\"$path\", '', '', 0, NULL,'$userId')";
+            VALUES (NULL, '', '',\"$path2\", '', '', 0, NULL,'$userId')";
             $this->_dbh->exec($request) or die(print_r($this->_dbh->errorInfo(), true));
         }
 
@@ -56,7 +57,8 @@
             return new Track($result);
         }
         public function getTrackByPath($path){
-            $request = "SELECT * FROM music WHERE music_path= \"$path\" ";
+            $path2 = str_replace("\\","\\\\",$path);
+            $request = "SELECT * FROM music WHERE music_path= \"$path2\" ";
             $result = array();
             foreach($this->_dbh->query($request) as $raw){
                array_push($result,$raw);
@@ -65,11 +67,12 @@
         }
 
         public function updateTrack(Track $music){
+            $path2 = str_replace("\\","\\\\",$music->getPath());
             $request="UPDATE music 
             SET music_id = \"".$music->getId()."\", 
             music_name = \"".$music->getName()."\", 
             music_artists_names = \"".$music->getArtists()."\",  
-            music_path = \"".$music->getPath()."\",
+            music_path = \"".$path2."\",
             music_genre = \"".$music->getGenre()."\",
             music_key = \"".$music->getKey()."\",
             music_bpm = ".$music->getBpm().",

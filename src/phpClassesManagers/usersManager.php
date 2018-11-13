@@ -63,7 +63,7 @@
             user_nb_music = '".$user->getNbMusic()."', 
             user_name = '".$user->getName()."',  
             user_analysisPrecision = '".$user->getAnalysisPrecision()."',
-            user_libraryPath = '".$user->getLibraryPath()."',
+            user_libraryPath = '".str_replace("\\","\\\\",$user->getLibraryPath())."',
             user_libraryName = '".$user->getLibraryName()."'
             WHERE user_name = '".$user->getName()."'";
             $this->_dbh->exec($request);

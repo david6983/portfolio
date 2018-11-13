@@ -26,8 +26,11 @@
     $_SESSION["user_name"] = $_POST["user_name"];
     $_SESSION["user_nb_playlists"] = $user->getId();
     $_SESSION["user_nb_music"] = $user->getNbMusic();
+    /* for the analysis of the tracks */
+    $_SESSION["nb_music_to_analyze"] = $_SESSION["user_nb_music"];
     $_SESSION["user_analysisPrecision"] = $user->getAnalysisPrecision();
     $_SESSION["user_libraryPath"] = $user->getLibraryPath();
+    echo $user->getLibraryPath();
     $_SESSION["user_libraryName"] = $user->getLibraryName();
 
     /* redirect the user to the main application */
