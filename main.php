@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="a free alternative to mixed in key">
+    <meta name="keywords" content="dj, music, camelot wheel">
+    <meta name="author" content="David Haioum, Bonnaric Nicolas">
     <title>2KEY</title>
     <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="src/css/index.css">

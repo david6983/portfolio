@@ -33,9 +33,22 @@
             $request = "DELETE FROM user WHERE user_name = '$name' ";
             $this->_dbh->exec($request);
         }
+        public function deleteUserById($id){
+            $request = "DELETE FROM user WHERE user_id = '$id' ";
+            $this->_dbh->exec($request);
+        }
 
         public function getUser($name){
             $request = "SELECT * FROM user WHERE user_name = '$name'";
+            $result = array();
+            foreach($this->_dbh->query($request) as $raw){
+               array_push($result,$raw);
+            }
+            $u = new User($result);
+            return new User($result);           
+        }
+        public function getUserById($id){
+            $request = "SELECT * FROM user WHERE user_id = '$id'";
             $result = array();
             foreach($this->_dbh->query($request) as $raw){
                array_push($result,$raw);

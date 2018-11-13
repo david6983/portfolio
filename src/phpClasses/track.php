@@ -9,7 +9,7 @@
         private $_genre;
         private $_path;
         private $_key;
-        private $_lenght;
+        private $_length;
         private $_bpm;
         private $_userId;
         
@@ -46,15 +46,15 @@
         /**
          * Set the value of _id
          */ 
-        public function setMusic_id($_id)
+        public function setMusic_id($id)
         {
-            $this->_id = $_id;
+            $this->_id = $id;
         }
 
         /**
          * Get the value of _name
          */ 
-        public function getMusic_name()
+        public function getName()
         {
             return $this->_name;
         }
@@ -62,15 +62,15 @@
         /**
          * Set the value of _name
          */ 
-        public function setName($name)
+        public function setMusic_name($name)
         {
-            $this->_name = $_name;
+            $this->_name = $name;
         }
 
         /**
          * Get the value of _artists
          */ 
-        public function getMusic_artists_names()
+        public function getArtists()
         {
             return $this->_artists;
         }
@@ -78,9 +78,9 @@
         /**
          * Set the value of _artists
          */ 
-        public function setArtists($artists)
+        public function setMusic_artists_names($artists)
         {
-            $this->_artists = $_artists;
+            $this->_artists = $artists;
         }
 
         /**
@@ -96,7 +96,7 @@
          */ 
         public function setMusic_genre($genre)
         {
-            $this->_genre = $_genre;
+            $this->_genre = $genre;
         }
 
         /**
@@ -112,13 +112,13 @@
          */ 
         public function setMusic_path($path)
         {
-            $this->_path = $_path;
+            $this->_path = $path;
         }
 
         /**
          * Get the value of _key
          */ 
-        public function get_Key()
+        public function getKey()
         {
             return $this->_key;
         }
@@ -128,23 +128,23 @@
          */ 
         public function setMusic_key($key)
         {
-            $this->_key = $_key;
+            $this->_key = $key;
         }
 
         /**
-         * Get the value of _lenght
+         * Get the value of _length
          */ 
-        public function getLenght()
+        public function getLength()
         {
-            return $this->_lenght;
+            return $this->_length;
         }
 
         /**
          * Set the value of _lenght
          */ 
-        public function setMusic_lenght($lenght)
+        public function setMusic_lenght($length)
         {
-            $this->_lenght = $length;
+            $this->_length = $length;
         }
 
         /**

@@ -173,6 +173,11 @@ html {
     margin-left: 49%;
 }
 
+/* width 100% */
+.width100{
+    width: 100%;
+}
+
 /* BIG TABLETS */
 @media only screen and (max-width: 992px) and (min-width: 772px) {
     .mainLogo {

@@ -1,8 +1,4 @@
 <?php 
- 
-    require "src/phpClasses/user.php";
-    require "src/phpClassesManagers/usersManager.php";
-    
     function getAllFilesInDir($dir){
         $rii = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
         $files = array(); 
@@ -14,7 +10,7 @@
         }
         return $files;
     }
-
+    /*
     function updateNbMusicUser($nb){
         $userMan = new usersManager("localhost","2key","root","");
         $userMan->connect();
@@ -24,4 +20,5 @@
 
         $userMan->updateUser($user);
     }
+    */
 ?>
