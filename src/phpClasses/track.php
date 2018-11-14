@@ -140,9 +140,9 @@
         }
 
         /**
-         * Set the value of _lenght
+         * Set the value of _length
          */ 
-        public function setMusic_lenght($length)
+        public function setMusic_length($length)
         {
             $this->_length = $length;
         }

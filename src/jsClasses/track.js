@@ -6,37 +6,62 @@ class Track {
         this._genre = genre;
         this._localpath = localpath;
         this._bpm = null;
-        this._lenght = 0;
+        this._length = 0;
         this._key = "";
     }
     analyzeTrack(precision){
-        //this._bpm = this.findBPM(precision);
-        //this._key = this.findKey();
+        
         this.pathFromLocalToServer();
-        this._lenght = this.findLenght();
+        this._length = this.findlength();
+        this._key = this.findKey();
+        //this._bpm = this.findBPM(precision,this);
     }
-    findBPM(precision){
-        // Create offline context
-        var offlineContext = new OfflineAudioContext(1, buffer.length, buffer.sampleRate);
-        // Create buffer source
-        var source = offlineContext.createBufferSource();
-        source.buffer = buffer;
-        // Create filter
-        var filter = offlineContext.createBiquadFilter();
-        filter.type = "lowpass";
-        source.connect(filter);
-        filter.connect(offlineContext.destination);
-        // Schedule the song to start playing at time:0
-        source.start(0);
-        // Render the song
-        offlineContext.startRendering()
-        // Act on the result
-        offlineContext.oncomplete = function(e) {
-            // Filtered buffer!
-            var filteredBuffer = e.renderedBuffer;
-            this._bpm = countIntervalsBetweenNearbyPeaks(groupNeighborsByTempo(filteredBuffer));
-            console.log(this._bpm);
+    findBPM(precision,object){    
+        let audioCtx = new AudioContext();
+        var request = getXMLHttpRequest();
+        request.responseType = "arraybuffer";
+        request.onreadystatechange = function () {
+            if(request.readyState === 4 && request.status === 200) {
+                audioCtx.decodeAudioData(
+                    request.response,
+                    function(output){
+                        // Create offline context
+                        var offlineContext = new OfflineAudioContext(1, output.length, output.sampleRate);
+                        // Create buffer source
+                        var source = offlineContext.createBufferSource();
+                        // Create filter
+                        var filter = offlineContext.createBiquadFilter();
+                        filter.type = "lowpass";
+                        source.connect(filter);
+                        filter.connect(offlineContext.destination);
+
+                        source.buffer = output;
+                        // Schedule the song to start playing at time:0
+                        source.start(0);
+                        // Render the song
+                        offlineContext.startRendering()
+                        // Act on the result
+                        offlineContext.oncomplete = function(e) {
+                            // Filtered buffer!
+                            var filteredBuffer = e.renderedBuffer;
+                            /*
+                            object.bpm = object.groupNeighborsByTempo(
+                                object.countIntervalsBetweenNearbyPeaks(
+                                    object.getPeaksAtThreshold(filteredBuffer.getChannelData(0), .98)
+                                )
+                            );
+                            */
+                            var peaks = object.getPeaksAtThreshold(filteredBuffer.getChannelData(0), .98);
+                            var intervalCounts = object.countIntervalsBetweenNearbyPeaks(peaks);
+                            var tempoCount = object.groupNeighborsByTempo(intervalCounts);
+                            console.log(tempoCount);
+                        };
+                    }
+                );
+            }
         };
+        request.open("GET",this._localpath,true);
+        request.send();
     }
     groupNeighborsByTempo(intervalCounts) {
         var tempoCounts = []
@@ -59,7 +84,7 @@ class Track {
             });
           }
         });
-    }
+      }
     countIntervalsBetweenNearbyPeaks(peaks) {
         var intervalCounts = [];
         peaks.forEach(function(peak, index) {
@@ -103,7 +128,6 @@ class Track {
         let audioCtx = new AudioContext();
         let analyser = audioCtx.createAnalyser();
         analyser.fftSize = 2048;
-        this.pathFromLocalToServer();
         let src = audioCtx.createBufferSource();
         let bufferLength = analyser.frequencyBinCount;
         let dataArray = new Uint8Array(bufferLength);
@@ -117,9 +141,11 @@ class Track {
                 audioCtx.decodeAudioData(
                     request.response,
                     function(buffer){
+                        src.buffer = buffer;
                         src.connect(analyser);
+
                         analyser.getByteTimeDomainData(dataArray);
-                        console.log(dataArray[0]);  
+                        console.log(dataArray);  
                     }
                 );
             }
@@ -127,13 +153,23 @@ class Track {
         request.open("GET",this._localpath,true);
         request.send();
     }
-    findLenght(){
-        this.requestLenght(this.updateLenght,this);
+    findlength(){
+        this.requestlength(this.updatelength,this);
     }
-    updateLenght(lenght,object){
-        object.lenght = lenght;
+    updatelength(length,object){
+        object.length = object.lengthToHHMMSS(length);
     }
-    requestLenght(callback,object){
+    lengthToHHMMSS(secs){
+        var sec_num = parseInt(secs, 10)    
+        var hours   = Math.floor(sec_num / 3600) % 24
+        var minutes = Math.floor(sec_num / 60) % 60
+        var seconds = sec_num % 60    
+        return [hours,minutes,seconds]
+            .map(v => v < 10 ? "0" + v : v)
+            .filter((v,i) => v !== "00" || i > 0)
+            .join(":")
+    }
+    requestlength(callback,object){
         let audioCtx = new AudioContext();
         var audioBuffer;
         var request = getXMLHttpRequest();
@@ -154,10 +190,9 @@ class Track {
     }
     pathFromLocalToServer(){
         var vhostLibraryName = "musiques"; //ajax request
-        var vhostLibraryPath = "d:/documents/musique/musiques/musique library wei"; //ajax request
-        
+        var vhostLibraryPath = "d:/documents/musique/musiques/MUSIQUES LIBRARY 2KEY"; //ajax request
         var serverPath = "http://"+vhostLibraryName+this.path.substring(vhostLibraryPath.length);
-        this.newPath = serverPath.replace(" ","%20");
+        this.newPath = serverPath;
     }
     set bpm(bpm){
         const reg = /[0-9]{3}|[0-9]{2}/g;
@@ -186,13 +221,13 @@ class Track {
             console.log("error expected a string");
         }
     }
-    set lenght(lenght){
-        this._lenght = lenght;
+    set length(length){
+        this._length = length;
     }    
     set newPath(localpath){
         const reg = /[A-Z]:|http:[//][//]/y;
         if(typeof localpath === "string" && reg.test(localpath) === true){
-            this._localpath = localpath.replace(" ","%20");
+            this._localpath = localpath;
         }else{
             console.log("error : expected a correct path like D:/ or C:/ ");
         }    
@@ -215,9 +250,9 @@ class Track {
     get bpm(){
         return this._bpm;   
     }    
-    get lenght(){
+    get length(){
         console.log("test");
-        return this._lenght;
+        return this._length;
     }
     get key(){
         return this._key;   

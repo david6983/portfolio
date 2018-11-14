@@ -136,7 +136,7 @@
                 </p>
                 <p>
                     <input class="w3-check" type="checkbox" checked="checked">
-                    <label>Lenght</label>
+                    <label>length</label>
                 </p>
                 <p>
                     <input class="w3-check" type="checkbox" checked="checked">

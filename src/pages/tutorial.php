@@ -72,7 +72,7 @@
 
                     <p>
                         <b>Collection</b><br/>
-                        <label class="w3-tooltip"><b>Analyse your track :</b> This button give you informations about your tracks like the key, bpm and lenght</label><br/>
+                        <label class="w3-tooltip"><b>Analyse your track :</b> This button give you informations about your tracks like the key, bpm and length</label><br/>
                         <label class="w3-tooltip"><b>New collection :</b> This button is for create a new collection/playlist of musics.</label><br/>
                         <label class="w3-tooltip"><b>View all :</b> This button will show you all your musics.</label><br/>
                         <label class="w3-tooltip"><b>Export/Import :</b> You can export/import .json files.</label><br/>
