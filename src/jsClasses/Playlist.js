@@ -39,7 +39,7 @@ class Playlist {
         h.appendChild(this.createHeaderColumn("Genre",""));
         h.appendChild(this.createHeaderColumn("Key",""));
         h.appendChild(this.createHeaderColumn("BPM",""));
-        h.appendChild(this.createHeaderColumn("Lenght",""));
+        h.appendChild(this.createHeaderColumn("length",""));
         h.appendChild(this.createHeaderColumn("Path",""));
         
         return h;
@@ -65,7 +65,7 @@ class Playlist {
         l.appendChild(this.createSimpleColumn("genre",index,track.track_genre));
         l.appendChild(this.createSimpleColumn("key",index,track.track_key));
         l.appendChild(this.createSimpleColumn("bpm",index,track.track_bpm));
-        l.appendChild(this.createSimpleColumn("lenght",index,track.track_lenght));
+        l.appendChild(this.createSimpleColumn("length",index,track.track_length));
         l.appendChild(this.createSimpleColumn("path",index,track.track_path));
         return l;
     }
@@ -91,7 +91,7 @@ class Playlist {
         l.appendChild(this.createSimpleColumn("genre",index," "));
         l.appendChild(this.createSimpleColumn("key",index," "));
         l.appendChild(this.createSimpleColumn("bpm",index,0));
-        l.appendChild(this.createSimpleColumn("lenght",index," "));
+        l.appendChild(this.createSimpleColumn("length",index," "));
         l.appendChild(this.createSimpleColumn("path",index,track));
         return l;
     }
