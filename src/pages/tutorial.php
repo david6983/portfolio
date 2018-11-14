@@ -28,11 +28,13 @@
                     <!-- navigation buttons : modify,settings, ... -->
                     <a href="../../main.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Collections</a>
                     <a href="../../main.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tags</a>
-                    <a href="" class="w3-bar-item w3-button w3-mobile navMiddleButton">Settings</a>
+                    <a href="settings.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Settings</a>
                     <a href="tutorial.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tutorial</a>
                     <!-- search and user profile icons -->
+                    <!--
                     <div class="w3-bar-item w3-button w3-mobile w3-right"><img src="../../assets/icons/user.png" class="navleftIcon" alt="userProfile"></div>
                     <div class="w3-bar-item w3-button w3-mobile w3-right"><img src="../../assets/icons/search.png" class="navleftIcon" alt="toggle search bar"></div>
+                    -->
                 </div>                       
             </nav>
 

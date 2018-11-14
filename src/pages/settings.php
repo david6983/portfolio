@@ -45,15 +45,17 @@
                             <div class="w3-container">
                                 <h4 style="color: blue;">
                                     <?php 
-                                        echo "<p>Session name : ".$_SESSION["username"]."</p>";
-                                        if(isset($_SESSION["libraryName"])){
-                                            echo "<p>Library name : ".$_SESSION["libraryName"]."</p>";
+                                        if(isset($_SESSION["user_name"])){
+                                            echo "<p>Session name : ".$_SESSION["user_name"]."</p>";
                                         }
-                                        if(isset($_SESSION["libraryPath"])){
-                                            echo "<p>Library path : ".$_SESSION["libraryPath"]."</p>";
+                                        if(isset($_SESSION["user_libraryName"])){
+                                            echo "<p>Library name : ".$_SESSION["user_libraryName"]."</p>";
                                         }
-                                        if(isset($_SESSION["analysisPrecision"])){
-                                            echo "<p>Analysis Precision : ".$_SESSION["analysisPrecision"]."</p>";
+                                        if(isset($_SESSION["user_libraryPath"])){
+                                            echo "<p>Library path : ".$_SESSION["user_libraryPath"]."</p>";
+                                        }
+                                        if(isset($_SESSION["user_analysisPrecision"])){
+                                            echo "<p>Analysis Precision : ".$_SESSION["user_analysisPrecision"]."</p>";
                                         }
                                     ?>
                                 </h4>
