@@ -1,6 +1,7 @@
 class PlaylistSelect {
-    constructor(){
+    constructor(container){
         this.requestPlaylist(this);
+        this.container = container;
     }
     requestPlaylist(object){
         var request = getXMLHttpRequest();
@@ -14,7 +15,7 @@ class PlaylistSelect {
         request.send();
     }
     displayData(data){
-        var container = document.getElementById("playlistSelected");
+        var container = document.getElementById(this.container);
         if( container.childElementCount === 0){
             for(var i=0;i < Object.keys(data).length; i++){
                 var el = document.createElement("option");

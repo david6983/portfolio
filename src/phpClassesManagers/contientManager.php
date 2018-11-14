@@ -68,6 +68,12 @@
             return $arrayOfTracks; 
         }
 
+        /**
+         * based on the 'contient' table , count the tracks for a playlist given
+         * 
+         * @param {string} id of the playlist
+         * @return {integer} number of tracks in the playlist
+         */
         public function getNumberOfTrackOfPlaylist($idPlaylist){
             $request = "SELECT count(*) FROM contient WHERE playlist_id = '$idPlaylist'";
             $result = array();

@@ -76,11 +76,12 @@ function execFunction(id){
         /* open the window to select the playlist */
         displayModal('addToPlaylistModal');
         /* do some stuff to be fixed */
-        var p = new PlaylistSelect();
+        var p = new PlaylistSelect("playlistSelected");
         document.getElementById("idTrackModal").textContent = nb;
     }
 }
 
-function createPlayerFromTrack(id){
-
+function controlAddSelectedTo(){
+    displayModal('addAllToPlaylistModal');
+    var p = new PlaylistSelect("playlistSelectedAll");
 }

@@ -253,10 +253,29 @@
                     <img src="..\..\..\assets\icons\checkAll.png" alt="check all" style="width: 25px;">
                     <p>Select all</p>
                 </button>
-                <button id="ActiontoolbarButton" class="w3-button w3-round-xlarge addTo" >
+                <button id="ActiontoolbarButton" class="w3-button w3-round-xlarge addTo" onclick="controlAddSelectedTo();">
                     <img id="ActiontoolbarButtonImg" src="..\..\..\assets\icons\add.png" alt="add" style="width: 25px;">
                     <p id="ActiontoolbarButtonText">Add Selected to</p>
                 </button> 
+                <div id="addAllToPlaylistModal" class="w3-modal">
+                    <div class="w3-modal-content">
+                        <div class="w3-card">
+                            <div class="w3-container lightblue">
+                                <h3>Add All tracks selected to :</h3>
+                                <span onclick="closeModal('addAllToPlaylistModal')" class="w3-button w3-display-topright">&times;</span>
+                            </div>
+                            <div class="w3-container w3-white">
+                                <div class="w3-container w3-white">
+                                    <p>
+                                        <select id="playlistSelectedAll" name="playlistSelectedAll" class="w3-select w3-margin">         
+                                        </select>
+                                    </p>
+                                    <p><button onclick="addSelectedToPlaylist()" class="w3-button w3-round-xlarge lightblue">Add All</button></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- add to modal -->

@@ -15,8 +15,12 @@ $contientMan->connect();
 /* get the information about the playlist requested */
 $playlist = $playlistMan->getPlaylist($_GET["playlist_name"]);
 
-/* add in contient the track in the playlist */
-$contientMan->addTrackToPlaylist($_GET["track_id"],$playlist->getId());
+/* add in contient the all tracks in the playlist */
+$tracks = json_decode($_GET["tracks_id"]);
+$playlist_id = $playlist->getId();
+for($i=0; $i < count($tracks); $i++) { 
+    $contientMan->addTrackToPlaylist($tracks[$i],$playlist_id);
+}
 
 /* set the new total number of music for the playlist based on
 the 'contient' table : count all the music for a playlist
