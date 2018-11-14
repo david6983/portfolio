@@ -178,9 +178,10 @@ html {
     width: 100%;
 }
 
+/* set up the overflow for the playlist names in the sidebar */
 #playlistNameContainer {
     overflow:auto; 
-    height: 320px;
+    height: 320px; /* we need a height to enable the overflow */
 }
 
 /* BIG TABLETS */

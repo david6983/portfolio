@@ -43,15 +43,23 @@ function showControl(){
     }
 }
 
+/**
+ * check all the checkbox in the document
+ */
 function check() {
     var checkboxes = document.querySelectorAll(".w3-check");
+    //for each checkbox 
     for(var i = 0;i < checkboxes.length ;i++){
-    	checkboxes[i].checked = true;
+    	checkboxes[i].checked = true; /* check it */
     }
 }
 
+/**
+ * uncheck all the checkbox in the document
+ */
 function uncheck() {
     var checkboxes = document.querySelectorAll(".w3-check");
+    //for each checkbox
     for(var i = 0;i < checkboxes.length ;i++){
     	checkboxes[i].checked = false;
     }
@@ -81,7 +89,12 @@ function execFunction(id){
     }
 }
 
+/**
+ * on click on add selected to 
+ */
 function controlAddSelectedTo(){
+    /* open the modal to select the playlist */
     displayModal('addAllToPlaylistModal');
+    /* add the option in the select */
     var p = new PlaylistSelect("playlistSelectedAll");
 }

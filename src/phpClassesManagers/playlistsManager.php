@@ -51,16 +51,31 @@
             $this->_dbh->exec($requete) or die(print_r($this->_dbh->errorInfo(), true));
         }
 
+        /**
+         * delete a playlist in the database
+         * 
+         * @param {string} playlist_name
+         */
         public function deletePlaylist($name){
             $requete = "DELETE FROM playlist WHERE playlist_name = '$name' ";
             $this->_dbh->exec($requete);
         }
 
+        /**
+         * delete the playlist by it id
+         * 
+         * @param {string} playlist_id
+         */
         public function deletePlaylistById($id){
             $requete = "DELETE FROM playlist WHERE playlist_name = '$id' ";
             $this->_dbh->exec($requete);
         }
 
+        /**
+         * get all the informations about a playlist by it name
+         * 
+         * @param {string} name of the playlist
+         */
         public function getPlaylist($name){
             $request = "SELECT * FROM playlist WHERE playlist_name = '$name' ";
             $result = array();
@@ -70,6 +85,11 @@
             return new Playlist($result); 
         }
 
+        /**
+         * get all the informations about a playlist by it id
+         * 
+         * @param {string} id of the playlist
+         */
         public function getPlaylistById($id){
             $request = "SELECT * FROM playlist WHERE playlist_id = '$id' ";
             $result = array();
@@ -79,6 +99,11 @@
             return new Playlist($result); 
         }
 
+        /**
+         * update the attributs in the database from the object
+         * 
+         * @param {object} the playlist
+         */
         public function updatePlaylist(Playlist $playlist){
             $request="UPDATE playlist 
             SET playlist_id = '".$playlist->getId()."', 
@@ -88,6 +113,12 @@
             WHERE playlist_id = '".$playlist->getId()."'";
             $this->_dbh->exec($request);
         }
+
+        /**
+         * get all the playlist names from a user
+         * 
+         * @param {string} user_id
+         */
         public function getPlaylistNames($user_id){
             $request = "SELECT playlist_name,playlist_nb_music FROM playlist WHERE user_id = '$user_id' ";
             $result = array();
@@ -96,6 +127,12 @@
             }
             return json_encode($result); 
         }
+
+        /**
+         * get the name of a playlist from it name
+         * 
+         * @param {string} playlist_name
+         */
         public function getThePlaylistNameOf($playlist_name){
             $request = "SELECT playlist_name,playlist_nb_music FROM playlist WHERE playlist_name = '$playlist_name' ";
             $result = array();

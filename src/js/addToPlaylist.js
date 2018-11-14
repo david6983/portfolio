@@ -25,26 +25,35 @@ function addToPlaylist(){
     request.send();
 }
 
+/**
+ * add the tracks selected by the checkboxes into the corresponding playlist
+ */
 function addSelectedToPlaylist(){
     //create a request
     var request = getXMLHttpRequest();
-
+    //create a new array to store the track ids
     var output = new Array();
+    //get the name of the playlist from the select
     var playlist_name = document.getElementById("playlistSelectedAll").value;
+    //select all the checkbox
     var checkboxes = document.querySelectorAll(".w3-check");
-
+    //and for all of it
     for(var i = 0;i < checkboxes.length ;i++){
+        //if the checkbox is checked
     	if(checkboxes[i].checked === true){
+            //add it value in the output array
             output.push(checkboxes[i].value);
         }
     }
     
-    //open the request 
+    //open a request and send the array as a JSON string
     request.open("GET","src/phpScripts/addSelectedToPlaylist.php?playlist_name="+playlist_name+"&tracks_id="+JSON.stringify(output),true);
-    /* close the modal if finished */
+    /* we are going to get the total number of tracks in the playlist as text */
     request.responseType = "text";
     request.onreadystatechange = function () {
+        //on success
         if(request.readyState === 4 && request.status === 200) {
+            /* close the modal if finished */
             closeModal('addAllToPlaylistModal');
             /* update the number of track in the appropriate playlist */
             document.getElementById(playlist_name).innerHTML = request.response;
