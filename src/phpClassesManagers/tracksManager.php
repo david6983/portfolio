@@ -80,5 +80,13 @@
             WHERE music_id = \"".$music->getId()."\"";
             $this->_dbh->exec($request);
         }
+        public function getAllTrackFromUser($user_id){
+            $request = "SELECT * FROM music WHERE user_id= \"$user_id\" ";
+            $result = array();
+            foreach($this->_dbh->query($request) as $raw){
+               array_push($result,$raw);
+            }
+            return json_encode($result);
+        }
     }
 ?>

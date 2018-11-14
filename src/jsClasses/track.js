@@ -1,3 +1,11 @@
+/**
+ * this class is just here to analyze a track
+ * when the user click on analyze track
+ * for each track , new track object , analyze length,(bpm,key)
+ * and then update the database
+ * this class isn't for the display because the display is always from the
+ * database
+ */
 class Track {
     constructor(id,name,artists,genre,localpath){
         this._id = id;

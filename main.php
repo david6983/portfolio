@@ -123,7 +123,7 @@
             </button>
         </p>
         <p class="textSideBar textSideBarMargin w3-large">VIEW ALL 
-        <button id="totalNumberOfMusic" onclick="" class="w3-button w3-round-xlarge lightblue sidebarButtonElementRight"><?php 
+        <button id="totalNumberOfMusic" onclick="requestViewAll(viewAll)" class="w3-button w3-round-xlarge lightblue sidebarButtonElementRight"><?php 
             if(isset($_SESSION["user_nb_music"])){
                 echo $_SESSION["user_nb_music"];
             }else{

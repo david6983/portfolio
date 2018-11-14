@@ -11,7 +11,7 @@ function viewAll(data){
     }
 }
 
-function requestAllFilesInDir(callback){
+function requestViewAll(callback){
     var request = getXMLHttpRequest();
     request.responseType="json";
     request.onreadystatechange = function () {
@@ -19,6 +19,6 @@ function requestAllFilesInDir(callback){
             callback(request.response);
         }
     };
-    request.open("GET","src/phpScripts/viewAll.php",true);
+    request.open("GET","src/phpScripts/getMusicsFromUser.php",true);
     request.send();
 }

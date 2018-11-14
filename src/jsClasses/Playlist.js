@@ -3,7 +3,7 @@ class Playlist {
         /* ajax request for fill up the playlist */
         this.nbOfTracks = data.length;
         this.type = type;
-        this.tracks = data;
+        this.tracks = data; /* json format */
     }
     createTable(id){
         /* create the header */
@@ -69,8 +69,8 @@ class Playlist {
         l.appendChild(this.createSimpleColumn("path",index,track.track_path));
         return l;
     }
-    createLigneViewAll(track,id){
-        let index = id;
+    createLigneViewAll(track){
+        let index = track["music_id"]; /* auto increment start from 1 */
         let l = document.createElement("tr");
         
         let idCol = document.createElement("td");
@@ -85,14 +85,13 @@ class Playlist {
         }else if(this.type === "viewAll"){
             l.appendChild(this.createHoverButton("plus",index,"..\\..\\..\\assets\\icons\\plus.png","plus"));
         }
-        let parts = track.split("\\");
-        l.appendChild(this.createSimpleColumn("name",index,parts[parts.length-1].split(".")[0]));
-        l.appendChild(this.createSimpleColumn("artist",index," "));
-        l.appendChild(this.createSimpleColumn("genre",index," "));
-        l.appendChild(this.createSimpleColumn("key",index," "));
-        l.appendChild(this.createSimpleColumn("bpm",index,0));
-        l.appendChild(this.createSimpleColumn("length",index," "));
-        l.appendChild(this.createSimpleColumn("path",index,track));
+        l.appendChild(this.createSimpleColumn("name",index,track["music_name"]));
+        l.appendChild(this.createSimpleColumn("artist",index,track["music_artists_names"]));
+        l.appendChild(this.createSimpleColumn("genre",index,track["music_genre"]));
+        l.appendChild(this.createSimpleColumn("key",index,track["music_key"]));
+        l.appendChild(this.createSimpleColumn("bpm",index,track["music_bpm"]));
+        l.appendChild(this.createSimpleColumn("length",index,track["music_length"]));
+        l.appendChild(this.createSimpleColumn("path",index,track["music_path"]));
         return l;
     }
     createSimpleColumn(id,index,content){
@@ -138,7 +137,7 @@ class Playlist {
             if(this.type === "playlist"){
                 table.appendChild(this.createLigne(this.tracks[i]));
             }else if(this.type === "viewAll"){
-                table.appendChild(this.createLigneViewAll(this.tracks[i],i));
+                table.appendChild(this.createLigneViewAll(this.tracks[i]));
             }        
         }
     }
