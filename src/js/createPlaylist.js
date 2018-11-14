@@ -8,9 +8,12 @@ function requestNewCollection(playlist_name){
     var request = getXMLHttpRequest();
     /* the playlist_name is passed as a string by using the GET method (PHP and AJAX) */
     request.open("GET","src/phpScripts/newCollection.php?playlistName="+playlist_name,true);
+    request.responseType = "json";
     request.onreadystatechange = function () {
         if(request.readyState === 4 && request.status === 200) {
-            var list = new PlaylistsList();
+            /* add the new playlist in the sidebar */
+            var list = new PlaylistsList("playlistNameContainer");
+            list.addPlaylistName(request.response);
         }
     };
     request.send();

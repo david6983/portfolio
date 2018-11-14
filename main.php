@@ -130,9 +130,10 @@
                 echo 0;
             }
             ?></button></p>
-        <div id="playlistNameContainer" style="overflow:auto; height: 320px;">
+        <div id="playlistNameContainer">
             <script>
-                var list = new PlaylistsList();
+                var list = new PlaylistsList("playlistNameContainer");
+                list.requestPlaylistsNames(list);
             </script>
         </div>
     </div>
@@ -147,7 +148,7 @@
                     </div>
                     <div class="w3-container w3-white">
                         <div class="w3-container w3-white">
-                            <p><input id="playlistNameInput" class="w3-input w3-border" type="text" placeholder="Name of your Playlist" required></p>
+                            <p><input id="playlistNameInput" onfocus="this.value=''" class="w3-input w3-border" type="text" placeholder="Name of your Playlist" required></p>
                             <p><button class="w3-button w3-round-xlarge lightblue" onclick="requestNewCollection(document.getElementById('playlistNameInput').value);">Create</button></p>
                         </div>
                     </div>

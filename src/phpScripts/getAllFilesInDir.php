@@ -1,4 +1,11 @@
 <?php 
+    /**
+     * scan recursively a directory and extract all the path files
+     * return an array of all the paths
+     * 
+     * @param {string} $dir main directory of the library
+     * @return {array} $files array of all the paths
+     */
     function getAllFilesInDir($dir){
         $rii = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
         $files = array(); 
@@ -10,15 +17,4 @@
         }
         return $files;
     }
-    /*
-    function updateNbMusicUser($nb){
-        $userMan = new usersManager("localhost","2key","root","");
-        $userMan->connect();
-
-        $user = $userMan->getUser($_SESSION["username"]);
-        $user->setUser_nb_music($nb);
-
-        $userMan->updateUser($user);
-    }
-    */
 ?>

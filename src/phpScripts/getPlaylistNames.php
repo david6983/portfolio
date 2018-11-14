@@ -1,4 +1,8 @@
 <?php 
+    /**
+     * get the playlist names and number of music from database
+     */
+
     session_start();
 
     require "../phpClasses/playlist.php";

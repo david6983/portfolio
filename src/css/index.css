@@ -178,6 +178,11 @@ html {
     width: 100%;
 }
 
+#playlistNameContainer {
+    overflow:auto; 
+    height: 320px;
+}
+
 /* BIG TABLETS */
 @media only screen and (max-width: 992px) and (min-width: 772px) {
     .mainLogo {
@@ -232,7 +237,7 @@ html {
         margin-left: 33%;
     }
     #camelotImg {
-        margin-left: 19%;
+        margin-left: 28%;
     }
     #renderedPlaylist{
         display: block !important;
@@ -242,6 +247,10 @@ html {
         display: block;
         overflow: auto;
         max-height: 390px;
+    }
+    #playlistNameContainer {
+        overflow:auto; 
+        height: 280px;
     }
 }
 

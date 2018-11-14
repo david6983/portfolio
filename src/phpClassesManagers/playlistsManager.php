@@ -96,5 +96,13 @@
             }
             return json_encode($result); 
         }
+        public function getThePlaylistNameOf($playlist_name){
+            $request = "SELECT playlist_name,playlist_nb_music FROM playlist WHERE playlist_name = '$playlist_name' ";
+            $result = array();
+            foreach($this->_dbh->query($request) as $raw){
+               array_push($result,$raw);
+            }
+            return json_encode($result[0]); 
+        }
     }
 ?>
