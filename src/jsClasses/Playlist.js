@@ -4,6 +4,7 @@ class Playlist {
         this.nbOfTracks = data.length;
         this.type = type;
         this.tracks = data; /* json format */
+        this.changeToolbarButton();
     }
     createTable(id){
         /* create the header */
@@ -45,31 +46,6 @@ class Playlist {
         return h;
     }
     createLigne(track){
-        let index = track.track_id;
-        let l = document.createElement("tr");
-        
-        let idCol = document.createElement("td");
-        idCol.setAttribute("id","id"+index);
-        idCol.appendChild(document.createTextNode(index));
-        l.appendChild(idCol);
-
-        l.appendChild(this.createHoverCheckbox(index));
-        l.appendChild(this.createHoverButton("play",index,"..\\..\\..\\assets\\icons\\play.png","play"));
-        if(this.type === "playlist"){
-            l.appendChild(this.createHoverButton("remove",index,"..\\..\\..\\assets\\icons\\remove.png","remove"));
-        }else if(this.type === "viewAll"){
-            l.appendChild(this.createHoverButton("plus",index,"..\\..\\..\\assets\\icons\\plus.png","plus"));
-        }
-        l.appendChild(this.createSimpleColumn("name",index,track.track_name));
-        l.appendChild(this.createSimpleColumn("artist",index,track.track_artists));
-        l.appendChild(this.createSimpleColumn("genre",index,track.track_genre));
-        l.appendChild(this.createSimpleColumn("key",index,track.track_key));
-        l.appendChild(this.createSimpleColumn("bpm",index,track.track_bpm));
-        l.appendChild(this.createSimpleColumn("length",index,track.track_length));
-        l.appendChild(this.createSimpleColumn("path",index,track.track_path));
-        return l;
-    }
-    createLigneViewAll(track){
         let index = track["music_id"]; /* auto increment start from 1 */
         let l = document.createElement("tr");
         
@@ -134,11 +110,16 @@ class Playlist {
     }
     createAllLignes(table){
         for(let i = 0; i < this.nbOfTracks; i++) {
-            if(this.type === "playlist"){
-                table.appendChild(this.createLigne(this.tracks[i]));
-            }else if(this.type === "viewAll"){
-                table.appendChild(this.createLigneViewAll(this.tracks[i]));
-            }        
+            table.appendChild(this.createLigne(this.tracks[i]));        
+        }
+    }
+    changeToolbarButton(){
+        if( this.type === "playlist"){
+            var Img = document.getElementById("ActiontoolbarButtonImg");
+            var text = document.getElementById("ActiontoolbarButtonText");
+
+            Img.setAttribute("src","..\\..\\..\\assets\\icons\\remove.png");
+            text.innerHTML = "Remove Selected";
         }
     }
 }

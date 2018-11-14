@@ -43,6 +43,20 @@ function showControl(){
     }
 }
 
+function check() {
+    var checkboxes = document.querySelectorAll(".w3-check");
+    for(var i = 0;i < checkboxes.length ;i++){
+    	checkboxes[i].checked = true;
+    }
+}
+
+function uncheck() {
+    var checkboxes = document.querySelectorAll(".w3-check");
+    for(var i = 0;i < checkboxes.length ;i++){
+    	checkboxes[i].checked = false;
+    }
+}
+
 /**
  * on click on a play button , create the player of the chosen track
  * or on click on a plus button , open the window to add the chosen track in the selected playlist
@@ -56,6 +70,7 @@ function execFunction(id){
 
     /* according to the type of function requested : */
     if( btn === "play"){
+        createPlayerFromTrack(id);
         //var player = new Player(document.getElementById("path"+nb).textContent);
     }else if( btn === "plus"){
         /* open the window to select the playlist */
@@ -64,4 +79,8 @@ function execFunction(id){
         var p = new PlaylistSelect();
         document.getElementById("idTrackModal").textContent = nb;
     }
+}
+
+function createPlayerFromTrack(id){
+
 }

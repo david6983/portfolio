@@ -197,7 +197,7 @@
             <div class="w3-modal-content">
                 <div class="w3-card">
                     <div class="w3-container lightblue">
-                        <h3>Add this track n°<span id="idTrackModal"></span> to : </h3>
+                        <h3>Add track n°<span id="idTrackModal"></span> to : </h3>
                         <span onclick="closeModal('addToPlaylistModal')" class="w3-button w3-display-topright">&times;</span>
                     </div>
                     <div class="w3-container w3-white">
@@ -214,7 +214,7 @@
         </div>
         <!-- hiden  search input -->
         <div class="w3-card w3-margin w3-white">
-            <input class="w3-input w3-border w3-hide" type="text" placeholder="Search for a song name.." id="searchInput" onkeyup="search()">
+            <input class="w3-input w3-border w3-hide" type="text" placeholder="Search for a song name.." id="searchInput" onkeyup="filter()">
         </div>
         <!-- player -->
         <!--
@@ -244,17 +244,17 @@
         <!-- hiden control bar -->
         <div id="controlBar" class="w3-card w3-margin w3-white" style="display: none;">
             <div class="w3-container w3-blue checkBar">
-                <button class="w3-button w3-round-xlarge cancelCheck" >
+                <button class="w3-button w3-round-xlarge cancelCheck" onclick="uncheck();">
                     <img src="..\..\..\assets\icons\checklist.png" alt="cancel check" style="width: 25px;">
                     <p>Cancel</p>
                 </button> 
-                <button class="w3-button w3-round-xlarge checkAll" >
+                <button class="w3-button w3-round-xlarge checkAll" onclick="check();">
                     <img src="..\..\..\assets\icons\checkAll.png" alt="check all" style="width: 25px;">
                     <p>Select all</p>
                 </button>
-                <button class="w3-button w3-round-xlarge addTo" >
-                    <img src="..\..\..\assets\icons\add.png" alt="add" style="width: 25px;">
-                    <p>Add Selected to</p>
+                <button id="ActiontoolbarButton" class="w3-button w3-round-xlarge addTo" >
+                    <img id="ActiontoolbarButtonImg" src="..\..\..\assets\icons\add.png" alt="add" style="width: 25px;">
+                    <p id="ActiontoolbarButtonText">Add Selected to</p>
                 </button> 
             </div>
         </div>

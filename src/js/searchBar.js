@@ -15,14 +15,14 @@ function collapseSearchInput(){
 }
 
 /**
- * this function come from w3.schools :
+ * this function is based on :
  * https://www.w3schools.com/w3css/w3css_filters.asp
  */
-function filter(inputId,tableId) {
+function filter() {
     var input, filter, table, tr, td, i;
-    input = document.getElementById(inputId);
+    input = document.getElementById("searchInput");
     filter = input.value.toUpperCase();
-    table = document.getElementById(tableId);
+    table = document.getElementById("renderedPlaylist");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td")[4]; //search for a name

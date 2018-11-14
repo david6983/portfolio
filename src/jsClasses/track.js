@@ -7,11 +7,9 @@
  * database
  */
 class Track {
-    constructor(id,name,artists,genre,localpath){
+    constructor(id,name,localpath){
         this._id = id;
         this._name = name;
-        this._artists = artists;
-        this._genre = genre;
         this._localpath = localpath;
         this._bpm = null;
         this._length = 0;
