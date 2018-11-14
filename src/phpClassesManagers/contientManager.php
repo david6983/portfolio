@@ -67,5 +67,14 @@
             }
             return $arrayOfTracks; 
         }
+
+        public function getNumberOfTrackOfPlaylist($idPlaylist){
+            $request = "SELECT count(*) FROM contient WHERE playlist_id = '$idPlaylist'";
+            $result = array();
+            foreach($this->_dbh->query($request) as $raw){
+                array_push($result,$raw);
+            }
+            return intval($result[0][0]);
+        }
     }
 ?>

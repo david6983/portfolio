@@ -26,6 +26,7 @@
     <script src="src/jsClasses/PlaylistSelect.js"></script>
     <script src="src/js/controls.js"></script>
     <script src="src/js/viewAll.js"></script>
+    <script src="src/js/addToPlaylist.js"></script>
 </head>
 <body>
     <header>

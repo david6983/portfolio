@@ -15,14 +15,14 @@ class PlaylistSelect {
     }
     displayData(data){
         var container = document.getElementById("playlistSelected");
-        
-        for(var i=0;i < Object.keys(data).length; i++){
-            var el = document.createElement("option");
-            el.setAttribute("value",data[i]["playlist_name"]);
-            el.appendChild(document.createTextNode(data[i]["playlist_name"]));
-            container.appendChild(el);
+        if( container.childElementCount === 0){
+            for(var i=0;i < Object.keys(data).length; i++){
+                var el = document.createElement("option");
+                el.setAttribute("value",data[i]["playlist_name"]);
+                el.appendChild(document.createTextNode(data[i]["playlist_name"]));
+                container.appendChild(el);
+            }
         }
-        
         
     }
 }

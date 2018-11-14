@@ -80,12 +80,12 @@
         }
 
         public function updatePlaylist(Playlist $playlist){
-            $request="UPDATE `playlist` 
+            $request="UPDATE playlist 
             SET playlist_id = '".$playlist->getId()."', 
             playlist_name = '".$playlist->getName()."', 
             playlist_nb_music = '".$playlist->getTotalNumberOfTracks()."', 
-            playlist_userId = '".$playlist->getUserId()."'
-            WHERE playlist_name = '".$playlist->getId()."'";
+            user_id = '".$playlist->getUserId()."'
+            WHERE playlist_id = '".$playlist->getId()."'";
             $this->_dbh->exec($request);
         }
         public function getPlaylistNames($user_id){
