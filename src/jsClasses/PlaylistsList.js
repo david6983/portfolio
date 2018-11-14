@@ -55,7 +55,7 @@ class PlaylistsList {
         /* set an id which is the playlist name */
         btn.setAttribute("id",data["playlist_name"]);
         /* add the callback function on click */
-        btn.setAttribute("onclick","displayPlaylistFromNavbar(this.id);");
+        btn.setAttribute("onclick","requestPlaylistFromBDD(this.id);");
         /* set class attributs */
         btn.setAttribute("class","w3-button w3-round-xlarge lightblue playlistButton");
         /* add the number of music inside */

@@ -220,7 +220,7 @@ html {
 /* MOBILES */
 @media only screen and (max-width: 600px) {
     .mainLogo {
-        padding: 20px 23% !important;
+        padding: 20px 32% !important;
     }
     .mainContent {
         margin-left: 0;

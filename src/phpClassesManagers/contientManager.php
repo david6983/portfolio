@@ -82,5 +82,18 @@
             }
             return intval($result[0][0]);
         }
+
+        public function getAllTrackOfPlaylist($playlist_id){
+            $request="SELECT * FROM music INNER JOIN contient 
+            ON music.music_id = contient.music_id 
+            WHERE contient.playlist_id = '$playlist_id'";
+            $arrayOfTracks = array(); /* output array */
+            /* for each track finded */
+            foreach($this->_dbh->query($request) as $raw){
+                /* add it to the output array */
+                array_push($arrayOfTracks,$raw);
+            }
+            return json_encode($arrayOfTracks); 
+        }
     }
 ?>

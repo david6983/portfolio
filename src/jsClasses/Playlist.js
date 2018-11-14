@@ -1,7 +1,6 @@
 class Playlist {
     constructor(type,data){
         /* ajax request for fill up the playlist */
-        this.nbOfTracks = data.length;
         this.type = type;
         this.tracks = data; /* json format */
         this.changeToolbarButton();
@@ -109,7 +108,7 @@ class Playlist {
         return c;
     }
     createAllLignes(table){
-        for(let i = 0; i < this.nbOfTracks; i++) {
+        for(let i = 0; i < this.tracks.length; i++) {
             table.appendChild(this.createLigne(this.tracks[i]));        
         }
     }
@@ -120,6 +119,9 @@ class Playlist {
 
             Img.setAttribute("src","..\\..\\..\\assets\\icons\\remove.png");
             text.innerHTML = "Remove Selected";
+
+            var btn = document.getElementById("ActiontoolbarButton");
+            btn.setAttribute("onclick","controlRemoveSelectedTo()");
         }
     }
 }

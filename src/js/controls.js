@@ -73,12 +73,13 @@ function uncheck() {
  */
 function execFunction(id){
     /* the id given is like "play12" or "plus3" in the shape of "functionId" */
-    let btn = id.substring(0,4); /* select the first substring => the function name */
-    let nb = id.substring(4,5); /* select the second substring => the id of the track */
+    
+    btn = id.substring(0,4); /* select the first substring => the function name */
+    nb = id.substring(4,5); /* select the second substring => the id of the track */
 
     /* according to the type of function requested : */
     if( btn === "play"){
-        createPlayerFromTrack(id);
+        //createPlayerFromTrack(id);
         //var player = new Player(document.getElementById("path"+nb).textContent);
     }else if( btn === "plus"){
         /* open the window to select the playlist */
@@ -86,6 +87,8 @@ function execFunction(id){
         /* do some stuff to be fixed */
         var p = new PlaylistSelect("playlistSelected");
         document.getElementById("idTrackModal").textContent = nb;
+    }else if( btn === "remo"){
+        
     }
 }
 
