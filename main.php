@@ -44,7 +44,7 @@
             <div id="navItems" class="w3-hide-small">
                 <!-- navigation buttons : modify,settings, ... -->
                 <div onclick="tagsEditableFalse()" class="w3-bar-item w3-button w3-mobile navMiddleButton">Collections</div>
-                <div onclick="tagsEditableTrue(); showControl();" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tags</div>
+                <div onclick="tagsEditableTrue(); displayControlBar();" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tags</div>
                 <a href="src/pages/settings.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Settings</a>
                 <a href="src/pages/tutorial.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tutorial</a>
                 <!-- search and user profile icons -->
@@ -124,7 +124,7 @@
             </button>
         </p>
         <p class="textSideBar textSideBarMargin w3-large">VIEW ALL 
-        <button id="totalNumberOfMusic" onclick="requestViewAll(viewAll)" class="w3-button w3-round-xlarge lightblue sidebarButtonElementRight"><?php 
+        <button id="totalNumberOfMusic" onclick="requestViewAll(viewAll); hidePlaylistOption();" class="w3-button w3-round-xlarge lightblue sidebarButtonElementRight"><?php 
             if(isset($_SESSION["user_nb_music"])){
                 echo $_SESSION["user_nb_music"];
             }else{
@@ -319,6 +319,29 @@
                     <img src="..\..\..\assets\icons\vlc.png" alt="player icon" style="width: 25px;">
                     <p>Player</p>
                 </button>
+                <button id="playlistOption" class="w3-button w3-round-xlarge addTo" onclick="displayModal('playlistOptionModal')">
+                    <img src="..\..\..\assets\icons\playlist_option.png" alt="playlist options" style="width: 25px;">
+                    <p>Playlist Options</p>
+                </button>
+                <div id="playlistOptionModal" class="w3-modal">
+                    <div class="w3-modal-content">
+                        <div class="w3-card">
+                            <div class="w3-container lightblue">
+                                <h3>Playlist Options :</h3>
+                                <span onclick="closeModal('playlistOptionModal')" class="w3-button w3-display-topright">&times;</span>
+                            </div>
+                            <div class="w3-container w3-white">
+                                <div class="w3-container w3-white w3-margin">
+                                    <input id="playlistNewName" class="w3-input" name="playlist_new_name" placeholder="New name" >
+                                </div>
+                                <div class="w3-container w3-white w3-margin w3-center">
+                                    <button onclick="closeModal('playlistOptionModal'); " class="w3-button w3-round-xlarge lightblue">Change name</button>
+                                    <button onclick="closeModal('playlistOptionModal'); " class="w3-button w3-round-xlarge lightblue">Delete the playlist</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <button class="w3-button w3-round-xlarge addTo">
                     <h4 id="controlMessage" style="color: black; font-weight: bolder;">Tags edition disabled (click on TAGS to enable) !</h4>
                 </button>

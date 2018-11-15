@@ -11,6 +11,10 @@ function hideControl(){
         e.setAttribute("style","display: none;");
     })
 }
+
+function displayControlBar(){
+    document.getElementById("controlBar").removeAttribute("style");
+}
 /**
  * on click , show control of a playlist (or view all) and the toolbar for check multiple tracks
  * the checkbox row, plus or remove row and play button row
@@ -179,4 +183,12 @@ function controlAddSelectedTo(){
 
 function listennerOnClick(buttonId,callback){
     window.document.getElementById(buttonId).addEventListener("click",callback(callback));
+}
+
+function hidePlaylistOption(){
+    document.getElementById("playlistOption").style = "display: none;";
+}
+
+function showPlaylistOption(){
+    document.getElementById("playlistOption").removeAttribute("style");
 }
