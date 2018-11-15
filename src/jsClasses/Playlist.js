@@ -122,6 +122,15 @@ class Playlist {
 
             var btn = document.getElementById("ActiontoolbarButton");
             btn.setAttribute("onclick","controlRemoveSelectedTo()");
+        }else if( this.type === "viewAll"){
+            var Img = document.getElementById("ActiontoolbarButtonImg");
+            var text = document.getElementById("ActiontoolbarButtonText");
+
+            Img.setAttribute("src","..\\..\\..\\assets\\icons\\add.png");
+            text.innerHTML = "Add selected to";
+
+            var btn = document.getElementById("ActiontoolbarButton");
+            btn.setAttribute("onclick","controlAddSelectedTo()");
         }
     }
 }

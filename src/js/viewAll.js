@@ -9,6 +9,7 @@ function viewAll(data){
     //get the container
     var table = document.getElementById("renderedPlaylist");
     //the container have to be empty
+    removeContainerContent("renderedPlaylist");
     if( table.childElementCount === 0){
         //if ok , display the table 
         playlistRenderer.createTable("renderedPlaylist");
