@@ -75,6 +75,12 @@ html {
 .ioIcons {
     width: 25%;
 }
+
+/* player head content color */
+#playerTrackContent{
+    color: #63698E;
+}
+
 /* import icon style */
 #importButton {
     float: left; /* on the left */

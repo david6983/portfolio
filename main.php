@@ -218,7 +218,7 @@
             <input class="w3-input w3-border w3-hide" type="text" placeholder="Search for a song name.." id="searchInput" onkeyup="filter()">
         </div>
         <!-- player -->
-        <div class="w3-card w3-margin w3-white Player">
+        <div id="player" class="w3-card w3-margin w3-white Player" style="display: none;">
             <!-- js code for the player -->
             <div id="waveform" class="w3-container">
                 <script>
@@ -231,6 +231,9 @@
                     wavesurfer.on('ready',function(){
                         wavesurfer.play();
                     });
+                    document.getElementById("waveform").children[1].setAttribute("style",
+                        "display: block; position: relative; user-select: none; height: 128px; width: 100%; overflow: hidden; z-index: 0;"                 
+                    );
                 </script>
             </div>
             <!-- player buttons -->
@@ -243,12 +246,37 @@
                 </button>
                 <button id="nextButton" class="w3-button" onclick="wavesurfer.skipForward()">
                     <img class="rotate180" src="assets\icons\previous.png" alt="next logo">
-                </button>              
-            </div>
-            <!-- song attributs -->
-            <div class="w3-container">
-                <!-- display a table with all the track's attributs -->
-            </div>
+                </button>     
+                <!-- song attributs -->    
+                <table style="display: inline;">
+                    <tr id="playerTrackContent">
+                        <th>Name</th>
+                        <th>-</th>
+                        <th>Artists</th>
+                        <th>-</th>
+                        <th>Genre</th>
+                        <th>-</th>
+                        <th>Key</th>
+                        <th>-</th>
+                        <th>BPM</th>
+                        <th>-</th>
+                        <th>Length</th>
+                    </tr>
+                    <tr id="playerTrackValues">
+                        <td id="playerValueForName" ></td>
+                        <th> </th>
+                        <td id="playerValueForArtists" ></td>
+                        <th> </th>
+                        <td id="playerValueForGenre" ></td>
+                        <th> </th>
+                        <td id="playerValueForKey" ></td>
+                        <th> </th>
+                        <td id="playerValueForBPM" ></td>
+                        <th> </th>
+                        <td id="playerValueForLength" ></td>
+                    </tr>
+                </table>     
+            </div>   
         </div>
         <!-- hiden control bar -->
         <div id="controlBar" class="w3-card w3-margin w3-white" style="display: none;">
@@ -287,6 +315,10 @@
                         </div>
                     </div>
                 </div>
+                <button id="hidePlayer" class="w3-button w3-round-xlarge addTo" onclick="hidePlayer()">
+                    <img src="..\..\..\assets\icons\vlc.png" alt="player icon" style="width: 25px;">
+                    <p>Player</p>
+                </button>
                 <button class="w3-button w3-round-xlarge addTo">
                     <h4 id="controlMessage" style="color: black; font-weight: bolder;">Tags edition disabled (click on TAGS to enable) !</h4>
                 </button>

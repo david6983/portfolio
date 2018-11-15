@@ -99,8 +99,19 @@ function prepareToPlay(nb){
     var localPath = document.getElementById("path"+nb).textContent;
     var name = document.getElementById("name"+nb).textContent;
     var track = new Track(nb,name,localPath);
+    hidePlayer();
     track.pathFromLocalToServer();
     wavesurfer.load(track.path);
+    displayPlayerContentValues(nb);
+}
+
+function displayPlayerContentValues(id){
+    document.getElementById("playerValueForName").innerHTML = document.getElementById("name"+nb).textContent;
+    document.getElementById("playerValueForArtists").innerHTML = document.getElementById("artist"+nb).textContent;
+    document.getElementById("playerValueForGenre").innerHTML = document.getElementById("genre"+nb).textContent;
+    document.getElementById("playerValueForKey").innerHTML = document.getElementById("key"+nb).textContent;
+    document.getElementById("playerValueForBPM").innerHTML = document.getElementById("bpm"+nb).textContent;
+    document.getElementById("playerValueForLength").innerHTML = document.getElementById("length"+nb).textContent;
 }
 
 /**

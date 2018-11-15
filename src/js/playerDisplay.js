@@ -16,3 +16,12 @@ function pauseToPlayImg(){
         img.setAttribute('src',pause);
     }
 }
+
+function hidePlayer(){
+    var p = document.getElementById("player");
+    if( p.getAttribute("style") === "display: none;"){
+        p.removeAttribute("style");
+    }else{
+        p.setAttribute("style","display: none;")
+    }
+}
