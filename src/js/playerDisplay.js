@@ -7,7 +7,7 @@ function pauseToPlayImg(){
     /* pause image */
     const pause = "assets\\icons\\pause.png";
     /* play image */
-    const play = "assets\\icons\\play.png"; /* to fix !! */
+    const play = "assets\\icons\\playWhite.png"; /* to fix !! */
     /* switch images */
     if(img.getAttribute('src') === pause){
         img.setAttribute('src',play);

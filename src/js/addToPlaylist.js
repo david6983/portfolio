@@ -9,7 +9,6 @@ function addToPlaylist(){
     var playlist_name = document.getElementById("playlistSelected").value;
     //get track_id on document
     var track_id = document.getElementById("idTrackModal").textContent;
-    console.log(track_id);
     //open the request 
     request.open("GET","src/phpScripts/addToPlaylist.php?playlist_name="+playlist_name+"&track_id="+track_id,true);
     /* close the modal if finished */

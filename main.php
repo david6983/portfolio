@@ -20,7 +20,6 @@
     <script src="src/js/playerDisplay.js"></script>
     <script src="src/js/createPlaylist.js"></script>
     <script src="src/jsClasses/PlaylistsList.js"></script>
-    <script src="src/jsClasses/player.js"></script>
     <script src="src/jsClasses/track.js"></script>
     <script src="src/jsClasses/Playlist.js"></script>
     <script src="src/jsClasses/PlaylistSelect.js"></script>
@@ -219,32 +218,43 @@
             <input class="w3-input w3-border w3-hide" type="text" placeholder="Search for a song name.." id="searchInput" onkeyup="filter()">
         </div>
         <!-- player -->
-        <!--
         <div class="w3-card w3-margin w3-white Player">
-            <!-- js code for the player 
+            <!-- js code for the player -->
             <div id="waveform" class="w3-container">
-                
+                <script>
+                    var wavesurfer = WaveSurfer.create({
+                        container: '#waveform',
+                        waveColor: 'lightblue',
+                        barWidth: 3, /* looks like the soundcloud player */
+                        scrollParent: false
+                    });
+                    wavesurfer.on('ready',function(){
+                        wavesurfer.play();
+                    });
+                </script>
             </div>
-            <!-- player buttons 
+            <!-- player buttons -->
             <div class="w3-container controlPlayer">        
-                <button class="w3-button">
+                <button id="previousButton" class="w3-button" onclick="wavesurfer.skipBackward()">
                     <img src="assets\icons\previous.png" alt="previous logo">
                 </button>
-                <button class="w3-button w3-blue w3-circle" onclick="pauseToPlayImg()">
+                <button id="playButton" class="w3-button w3-blue w3-circle" onclick="pauseToPlayImg(); wavesurfer.playPause();">
                     <img id="playpauseImg" src="assets\icons\pause.png" alt="pause logo">
                 </button>
-                <button class="w3-button">
+                <button id="nextButton" class="w3-button" onclick="wavesurfer.skipForward()">
                     <img class="rotate180" src="assets\icons\previous.png" alt="next logo">
                 </button>              
             </div>
-            <!-- song attributs 
+            <!-- song attributs -->
             <div class="w3-container">
-                <!-- display a table with all the track's attributs 
+                <!-- display a table with all the track's attributs -->
             </div>
         </div>
-        -->
         <!-- hiden control bar -->
         <div id="controlBar" class="w3-card w3-margin w3-white" style="display: none;">
+            <div class="w3-container w3-center w3-blue">
+                <h4 id="controlStatus"></h4>
+            </div>
             <div class="w3-container w3-blue checkBar">
                 <button class="w3-button w3-round-xlarge cancelCheck" onclick="uncheck();">
                     <img src="..\..\..\assets\icons\checklist.png" alt="cancel check" style="width: 25px;">
@@ -277,6 +287,9 @@
                         </div>
                     </div>
                 </div>
+                <button class="w3-button w3-round-xlarge addTo">
+                    <h4 id="controlMessage" style="color: black; font-weight: bolder;">Tags edition disabled (click on TAGS to enable) !</h4>
+                </button>
             </div>
         </div>
         <!-- add to modal -->

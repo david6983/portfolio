@@ -15,6 +15,8 @@ function viewAll(data){
         playlistRenderer.createTable("renderedPlaylist");
         //hide the control in the table 
         hideControl();
+        //update controlStatus
+        document.getElementById("controlStatus").innerHTML = "View All";
     }
 }
 

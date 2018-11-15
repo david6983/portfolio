@@ -34,12 +34,14 @@ function showControl(){
     /* get the element in the docuement */
     let cb = document.getElementById("controlBar");
     /* if hiden */
-    if(cb.getAttribute("style") == "display: none;"){
-        /* then display it */
-        cb.removeAttribute("style");
-    }else{
-        /* or hide it */
-        cb.setAttribute("style","display: none;");
+    if(document.getElementById("renderedPlaylist").childElementCount != 0){
+        if(document.getElementById("play1").getAttribute("style") === "display: none;"){
+            /* then display it */
+            cb.setAttribute("style","display: none;");
+        }else{
+            /* or hide it */
+            cb.removeAttribute("style");
+        }
     }
 }
 
@@ -75,11 +77,12 @@ function execFunction(id){
     /* the id given is like "play12" or "plus3" in the shape of "functionId" */
     
     btn = id.substring(0,4); /* select the first substring => the function name */
-    nb = id.substring(4,5); /* select the second substring => the id of the track */
+    nb = id.substring(4,); /* select the second substring => the id of the track */
 
     /* according to the type of function requested : */
     if( btn === "play"){
         //createPlayerFromTrack(id);
+        prepareToPlay(nb);
         //var player = new Player(document.getElementById("path"+nb).textContent);
     }else if( btn === "plus"){
         /* open the window to select the playlist */
@@ -92,6 +95,14 @@ function execFunction(id){
     }
 }
 
+function prepareToPlay(nb){
+    var localPath = document.getElementById("path"+nb).textContent;
+    var name = document.getElementById("name"+nb).textContent;
+    var track = new Track(nb,name,localPath);
+    track.pathFromLocalToServer();
+    wavesurfer.load(track.path);
+}
+
 /**
  * on click on add selected to 
  */
@@ -100,4 +111,8 @@ function controlAddSelectedTo(){
     displayModal('addAllToPlaylistModal');
     /* add the option in the select */
     var p = new PlaylistSelect("playlistSelectedAll");
+}
+
+function listennerOnClick(buttonId,callback){
+    window.document.getElementById(buttonId).addEventListener("click",callback(callback));
 }
