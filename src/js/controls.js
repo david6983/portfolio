@@ -152,7 +152,7 @@ function prepareToPlay(nb){
     var localPath = document.getElementById("path"+nb).textContent;
     var name = document.getElementById("name"+nb).textContent;
     var track = new Track(nb,name,localPath);
-    hidePlayer();
+    document.getElementById("player").removeAttribute("style");
     track.pathFromLocalToServer();
     wavesurfer.load(track.path);
     displayPlayerContentValues(nb);
