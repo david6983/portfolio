@@ -56,7 +56,7 @@ class Playlist {
         l.appendChild(this.createHoverCheckbox(index));
         l.appendChild(this.createHoverButton("play",index,"..\\..\\..\\assets\\icons\\play.png","play"));
         if(this.type === "playlist"){
-            l.appendChild(this.createHoverButton("remove",index,"..\\..\\..\\assets\\icons\\remove.png","remove"));
+            l.appendChild(this.createHoverButton("remo",index,"..\\..\\..\\assets\\icons\\remove.png","remove"));
         }else if(this.type === "viewAll"){
             l.appendChild(this.createHoverButton("plus",index,"..\\..\\..\\assets\\icons\\plus.png","plus"));
         }
@@ -121,7 +121,7 @@ class Playlist {
             text.innerHTML = "Remove Selected";
 
             var btn = document.getElementById("ActiontoolbarButton");
-            btn.setAttribute("onclick","controlRemoveSelectedTo()");
+            btn.setAttribute("onclick","deleteSelectedToPlaylist()");
         }else if( this.type === "viewAll"){
             var Img = document.getElementById("ActiontoolbarButtonImg");
             var text = document.getElementById("ActiontoolbarButtonText");

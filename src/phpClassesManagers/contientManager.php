@@ -95,5 +95,11 @@
             }
             return json_encode($arrayOfTracks); 
         }
+
+        public function deleteTrackFromPlaylist($track_id,$playlist_id){
+            $request="DELETE FROM contient WHERE playlist_id = '$playlist_id' AND music_id = '$track_id' ";
+            /* execute the request */
+            $this->_dbh->exec($request);
+        }
     }
 ?>

@@ -31,11 +31,11 @@ function showControl(){
     })
     /* concerning the toolbar */
 
-    /* get the element in the docuement */
+    /* get the element in the document */
     let cb = document.getElementById("controlBar");
     /* if hiden */
     if(document.getElementById("renderedPlaylist").childElementCount != 0){
-        if(document.getElementById("play1").getAttribute("style") === "display: none;"){
+        if(document.getElementById(e[3].getAttribute("id")).getAttribute("style") === "display: none;"){
             /* then display it */
             cb.setAttribute("style","display: none;");
         }else{
@@ -91,8 +91,61 @@ function execFunction(id){
         var p = new PlaylistSelect("playlistSelected");
         document.getElementById("idTrackModal").textContent = nb;
     }else if( btn === "remo"){
-        
+        var playlist_name = document.getElementById("controlStatus").textContent;
+        var row = document.getElementById("id"+nb).parentNode;
+        var PlaylistBtn = document.getElementById(playlist_name);
+
+        requestDeleteTrackFromPlaylist(playlist_name,row,PlaylistBtn,nb);
     }
+}
+
+function requestDeleteTrackFromPlaylist(playlist_name,rowObject,PlaylistBtnObject,track_id){
+    var request = getXMLHttpRequest();
+    request.open("GET","src/phpScripts/deleteTrackFromPlaylist.php?playlist_name="+playlist_name+"&track_id="+track_id,true);
+    request.responseType = "text";
+    request.onreadystatechange = function () {
+        if(request.readyState === 4 && request.status === 200) {
+            PlaylistBtnObject.innerHTML = request.response;
+            rowObject.remove();
+        }
+    };
+    request.send();
+}
+
+function deleteSelectedToPlaylist(){
+    //create a request
+    var request = getXMLHttpRequest();
+    //create a new array to store the track ids
+    var output = new Array();
+    //get the name of the playlist from the select
+    var playlist_name = document.getElementById("controlStatus").textContent;
+    //select all the checkbox
+    var checkboxes = document.querySelectorAll(".w3-check");
+    //and for all of it
+    for(var i = 0;i < checkboxes.length ;i++){
+        //if the checkbox is checked
+    	if(checkboxes[i].checked === true){
+            //add it value in the output array
+            output.push(checkboxes[i].value);
+        }
+    }
+    
+    //open a request and send the array as a JSON string
+    request.open("GET","src/phpScripts/deleteSelectedTracksFromPlaylist.php?playlist_name="+playlist_name+"&tracks_id="+JSON.stringify(output),true);
+    /* we are going to get the total number of tracks in the playlist as text */
+    request.responseType = "text";
+    request.onreadystatechange = function () {
+        //on success
+        if(request.readyState === 4 && request.status === 200) {
+            /* update the number of track in the appropriate playlist */
+            document.getElementById(playlist_name).innerHTML = request.response;
+            for (var i = 0; i < output.length; i++) {
+                document.getElementById("id"+output[i]).parentNode.remove();
+            }
+        }
+    }
+    //send it
+    request.send();
 }
 
 function prepareToPlay(nb){

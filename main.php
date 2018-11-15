@@ -44,7 +44,7 @@
             <div id="navItems" class="w3-hide-small">
                 <!-- navigation buttons : modify,settings, ... -->
                 <div onclick="tagsEditableFalse()" class="w3-bar-item w3-button w3-mobile navMiddleButton">Collections</div>
-                <div onclick="tagsEditableTrue()" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tags</div>
+                <div onclick="tagsEditableTrue(); showControl();" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tags</div>
                 <a href="src/pages/settings.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Settings</a>
                 <a href="src/pages/tutorial.php" class="w3-bar-item w3-button w3-mobile navMiddleButton">Tutorial</a>
                 <!-- search and user profile icons -->
