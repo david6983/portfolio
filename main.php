@@ -332,11 +332,11 @@
                             </div>
                             <div class="w3-container w3-white">
                                 <div class="w3-container w3-white w3-margin">
-                                    <input id="playlistNewName" class="w3-input" name="playlist_new_name" placeholder="New name" >
+                                    <input id="playlistNewName" onfocus="this.value=''" class="w3-input" name="playlist_new_name" placeholder="New name" >
                                 </div>
                                 <div class="w3-container w3-white w3-margin w3-center">
                                     <button onclick="changePlaylistName();" class="w3-button w3-round-xlarge lightblue">Change name</button>
-                                    <button onclick="closeModal('playlistOptionModal'); " class="w3-button w3-round-xlarge lightblue">Delete the playlist</button>
+                                    <button onclick="deletePlaylist();" class="w3-button w3-round-xlarge lightblue">Delete the playlist</button>
                                 </div>
                             </div>
                         </div>

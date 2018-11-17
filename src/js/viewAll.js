@@ -13,6 +13,7 @@ function viewAll(data){
     if( table.childElementCount === 0){
         //if ok , display the table 
         playlistRenderer.createTable("renderedPlaylist");
+        var p = new PlaylistSelect("playlistSelected");
         //hide the control in the table 
         hideControl();
         //update controlStatus

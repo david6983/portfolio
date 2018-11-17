@@ -141,5 +141,14 @@
             }
             return json_encode($result[0]); 
         }
+
+        public function getNbPlaylist(){
+            $request="SELECT count(*) FROM playlist";
+            $result = array();
+            foreach($this->_dbh->query($request) as $raw){
+                array_push($result,$raw);
+            }
+            return intval($result[0][0]);
+        }
     }
 ?>

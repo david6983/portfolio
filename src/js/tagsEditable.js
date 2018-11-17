@@ -47,3 +47,27 @@ function changePlaylistName(){
 
     closeModal('playlistOptionModal'); 
 }
+
+function deletePlaylist(){
+    var playlist_name = document.getElementById("controlStatus").textContent;
+    var selectViewAll = document.getElementById("playlistSelected");
+    var btn = document.getElementById(playlist_name);
+    var parent = btn.parentNode; /* to remove it from the sidebar */
+    var request = getXMLHttpRequest();
+    /* the playlist_name is passed as a string by using the GET method (PHP and AJAX) */
+    request.open("GET","src/phpScripts/deletePlaylist.php?playlist_name="+playlist_name,true);
+    request.onreadystatechange = function () {
+        if(request.readyState === 4 && request.status === 200) {
+            parent.remove();
+            requestViewAll(viewAll);
+            for(var i=0;i<selectViewAll.children.length;i++){
+                if(selectViewAll.children[i].textContent === playlist_name){
+                    selectViewAll.children[i].remove();
+                }
+            }
+        }
+    };
+    request.send();
+
+    closeModal('playlistOptionModal');
+}

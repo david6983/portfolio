@@ -30,10 +30,12 @@ function requestPlaylistFromBDD(name){
     request.responseType="json";
     request.onreadystatechange = function () {
         if(request.readyState === 4 && request.status === 200) {
-            //call the viewAll function
-            displayPlaylistFromNavbar(request.response,name);
-            //add the name in the controlBar
-            document.getElementById("controlStatus").innerHTML = name;
+            if(document.getElementById(name).textContent != 0){
+                //call the viewAll function
+                displayPlaylistFromNavbar(request.response,name);
+                //add the name in the controlBar
+                document.getElementById("controlStatus").innerHTML = name;
+            }
         }
     };
     //open the PHP script to get the tracks

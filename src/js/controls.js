@@ -92,7 +92,7 @@ function execFunction(id){
         /* open the window to select the playlist */
         displayModal('addToPlaylistModal');
         /* do some stuff to be fixed */
-        var p = new PlaylistSelect("playlistSelected");
+        //var p = new PlaylistSelect("playlistSelected");
         document.getElementById("idTrackModal").textContent = nb;
     }else if( btn === "remo"){
         var playlist_name = document.getElementById("controlStatus").textContent;

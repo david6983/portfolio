@@ -101,5 +101,11 @@
             /* execute the request */
             $this->_dbh->exec($request);
         }
+
+        public function deleteAllTrackFromPlaylist($playlist_id){
+            $request="DELETE FROM contient WHERE playlist_id = '$playlist_id' ";
+            /* execute the request */
+            $this->_dbh->exec($request);
+        }
     }
 ?>
