@@ -26,3 +26,24 @@ function tagsEditableFalse(){
     cm.innerHTML = "Tags edition disabled (click on TAGS to enable) !";
     cm.setAttribute("style","color: black; font-weight: bolder;");
 }
+
+function changePlaylistName(){
+    var newName = document.getElementById("playlistNewName").value;
+    var oldName = document.getElementById("controlStatus").textContent;
+    var btn = document.getElementById(oldName);
+    var parent = btn.parentNode;
+    var request = getXMLHttpRequest();
+    /* the playlist_name is passed as a string by using the GET method (PHP and AJAX) */
+    request.open("GET","src/phpScripts/changePlaylistName.php?playlist_new_name="+newName+"&playlist_name="+oldName,true);
+    request.onreadystatechange = function () {
+        if(request.readyState === 4 && request.status === 200) {
+            document.getElementById("controlStatus").innerHTML = request.responseText;
+            parent.innerHTML = "";
+            parent.appendChild(document.createTextNode(request.response));
+            parent.appendChild(btn);
+        }
+    };
+    request.send();
+
+    closeModal('playlistOptionModal'); 
+}

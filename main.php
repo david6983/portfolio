@@ -281,7 +281,7 @@
         <!-- hiden control bar -->
         <div id="controlBar" class="w3-card w3-margin w3-white" style="display: none;">
             <div class="w3-container w3-center w3-blue">
-                <h4 id="controlStatus"></h4>
+                <h2 id="controlStatus"></h2>
             </div>
             <div class="w3-container w3-blue checkBar">
                 <button class="w3-button w3-round-xlarge cancelCheck" onclick="uncheck();">
@@ -335,7 +335,7 @@
                                     <input id="playlistNewName" class="w3-input" name="playlist_new_name" placeholder="New name" >
                                 </div>
                                 <div class="w3-container w3-white w3-margin w3-center">
-                                    <button onclick="closeModal('playlistOptionModal'); " class="w3-button w3-round-xlarge lightblue">Change name</button>
+                                    <button onclick="changePlaylistName();" class="w3-button w3-round-xlarge lightblue">Change name</button>
                                     <button onclick="closeModal('playlistOptionModal'); " class="w3-button w3-round-xlarge lightblue">Delete the playlist</button>
                                 </div>
                             </div>

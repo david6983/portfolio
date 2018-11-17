@@ -98,10 +98,10 @@
                         <label class="w3-tooltip">-Click on your Wamp Application </label><br/>
                         <label class="w3-tooltip">-Click on "Your VirtualHost" </label><br/>
                         <label class="w3-tooltip">-Click on "VirtualHost Management" </label><br/>
-                        <img class="width100" id="VH1" src="../../assets/img/VH1.jpg" alt="Picture of the first step for the VirtualHost"><br/>
+                        <img id="VH1" src="../../assets/img/VH1.jpg" alt="Picture of the first step for the VirtualHost"><br/>
                         <label class="w3-tooltip">-Write the name of your virtualhost "2KEY" and create a folder for the path here "D:\2key" </label><br/>
                         <label class="w3-tooltip">-Do the same manipulation for your local music, writing "Musics" and the path of your local music</label><br/>
-                        <img class="width100" id="VH2" src="../../assets/img/VH2.jpg" alt="Picture of the second step for the VirtualHost"><br/>
+                        <img id="VH2" src="../../assets/img/VH2.jpg" alt="Picture of the second step for the VirtualHost"><br/>
                         <label class="w3-tooltip">-Click on "Restart All Services" in your Wamp Application </label><br/>
                     </p>
                 </div> 
@@ -119,10 +119,10 @@
                         <label class="w3-tooltip">-Click on "Apache" </label><br/>
                         <label class="w3-tooltip">-Click on "Apache Modules" </label><br/>
                         <label class="w3-tooltip">-Enable "headers_module" </label><br/>
-                        <img class="width100" id="Tuto1" src="../../assets/img/tuto1.png" alt="Picture of the first step"><br/>
+                        <img id="Tuto1" src="../../assets/img/tuto1.png" alt="Picture of the first step"><br/>
                         <label class="w3-tooltip">-Then open "httpd.conf" in notepad </label><br/>
                         <label class="w3-tooltip">- Add this line : <IfModule mod_headers.c> Header set Access-Control-Allow-Origin: *</IfModule> </label><br/>
-                        <img class="width100" id="Tuto2" src="../../assets/img/tuto2.png" alt="Picture of the second step"><br/>
+                        <img id="Tuto2" src="../../assets/img/tuto2.png" alt="Picture of the second step"><br/>
 
 
                     </p>
