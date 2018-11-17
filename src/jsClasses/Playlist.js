@@ -73,6 +73,7 @@ class Playlist {
         let c = document.createElement("td");
         c.setAttribute("id",id+index);
         c.setAttribute("contentEditable","false");
+        c.setAttribute("onblur","var tgv = new tagVerifier;");
         c.appendChild(document.createTextNode(content));
         return c;
     }

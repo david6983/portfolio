@@ -21,6 +21,7 @@
     <script src="src/js/createPlaylist.js"></script>
     <script src="src/jsClasses/PlaylistsList.js"></script>
     <script src="src/jsClasses/track.js"></script>
+    <script src="src/jsClasses/tagVerifier.js"></script>
     <script src="src/jsClasses/Playlist.js"></script>
     <script src="src/jsClasses/PlaylistSelect.js"></script>
     <script src="src/js/controls.js"></script>
