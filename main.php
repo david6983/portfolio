@@ -343,6 +343,57 @@
                         </div>
                     </div>
                 </div>
+                <button id="helpTag" class="w3-button w3-round-xlarge addTo" onclick="displayModal('helpTagModal')">
+                    <img src="..\..\..\assets\icons\help.png" alt="help for tags" style="width: 25px;">
+                    <p>Help for Tags</p>
+                </button>
+                <div id="helpTagModal" class="w3-modal">
+                    <div class="w3-modal-content">
+                        <div class="w3-card">
+                            <div class="w3-container lightblue">
+                                <h3>How to edit your tags ?</h3>
+                                <span onclick="closeModal('helpTagModal')" class="w3-button w3-display-topright">&times;</span>
+                            </div>
+                            <div class="w3-container w3-white w3-center">
+                                <h4 style="color: red;">you can modify all the tags except the id and the path !</h4>
+                                <p>each tag has his proper syntax in order to be save :</p>
+                            </div>
+                            <div class="w3-container w3-white">
+                                <div class="w3-card w3-margin">
+                                    <table class="w3-table">
+                                        <tr class="w3-blue">
+                                            <th>Name</th>
+                                            <th>artists</th>
+                                            <th>genre</th>
+                                            <th>bpm</th>
+                                            <th>key</th>
+                                            <th>length</th>
+                                        </tr>
+                                        <tr>
+                                            <td>simple string</td>
+                                            <td>simple string</td>
+                                            <td>simple string</td>
+                                            <td>an integer number</td>
+                                            <td>a key like the wheel in the sidebar</td>
+                                            <td>in the form of mm:ss only</td>
+                                        </tr>
+                                        <tr>
+                                            <td>200 characters max</td>
+                                            <td>200 characters maxn</td>
+                                            <td>40 characters max</td>
+                                            <td>between 60 and 200 bpm</td>
+                                            <td>ex : 12B</td>
+                                            <td>02:21</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="w3-container w3-white">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <button class="w3-button w3-round-xlarge addTo">
                     <h4 id="controlMessage" style="color: black; font-weight: bolder;">Tags edition disabled (click on TAGS to enable) !</h4>
                 </button>

@@ -10,7 +10,7 @@ function tagsEditableTrue(){
     }
     //update controlMessage
     var cm = document.getElementById("controlMessage");
-    cm.innerHTML = "Tags edition enabled (don't forget to click on COLLECTION to save !";
+    cm.innerHTML = "Tags edition enabled";
     cm.setAttribute("style","color: lawngreen; font-weight: bolder;");
 }
 
