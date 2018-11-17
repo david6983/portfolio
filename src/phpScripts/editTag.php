@@ -8,8 +8,10 @@ $trackMan->connect();
 
 $track = $trackMan->getTrackById($_GET["track_id"]);
 
-$method = "set"+$_GET["track_method_name"];
-if(method_exists($method)){
+
+$method = 'set'.ucfirst($_GET["track_method_name"]);
+
+if(method_exists($track,$method)){
     $track->$method($_GET["track_content"]);
 }
 $trackMan->updateTrack($track);

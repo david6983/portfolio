@@ -1,85 +1,68 @@
 class tagVerifier {
     constructor(elementId){
         this.elementId = elementId;
-        this.object = this;
         this.content = document.getElementById(this.elementId).textContent;
-        this.sendTagToBDD();
+        this.sendTagToBDD(this);
     }
     returnMethod(){
-        var method ="";
         switch(this.returnTagName()){
             case "name":
-                method = "music_name";
-                break;
+                return "music_name";
             case "artist":
-                method= "music_artists_names";                
-                break;
+                return "music_artists_names";                
             case "genre":
-                method= "music_genre";        
-                break;
+                return "music_genre";        
             case "key":
-                method= "music_key";        
-                break;
+                return "music_key";        
             case "bpm":
-                method= "music_bpm";        
-                break;
+                return "music_bpm";        
             case "length":
-                method= "music_length";        
-                break;
+                return "music_length";        
         }
-        return method;
     }
     verifyTag(){
-        var bool = false;
         switch(this.returnTagName()){
             case "name":
-                bool = this.verifyString(this.content,200);
-                break;
+                return this.verifyString(this.content,200);
             case "artist":
-                bool = this.verifyString(this.content,200);                
-                break;
+                return this.verifyString(this.content,200);                
             case "genre":
-                bool = this.verifyString(this.content,40);       
-                break;
+                return this.verifyString(this.content,40);       
             case "key":
-                bool = this.verifyKey(this.content);         
-                break;
+                return this.verifyKey(this.content);         
             case "bpm":
-                bool = this.verifyBPM(this.content);           
-                break;
+                return this.verifyBPM(this.content);           
             case "length":
-                bool = this.verifyLength(this.content);          
-                break;
+                return this.verifyLength(this.content);          
         }
-        return bool;
     }
     returnTrackId(){
-        return this.splitNumberAndLetter(this.elementId)[0];
-    }
-    returnTagName(){
         return this.splitNumberAndLetter(this.elementId)[1];
     }
-    sendTagToBDD(){
+    returnTagName(){
+        return this.splitNumberAndLetter(this.elementId)[0];
+    }
+    sendTagToBDD(object){
         if(this.verifyTag() === true){
             var request = getXMLHttpRequest();
             var method = this.returnMethod();
-            request.open("GET","src/phpScripts/editTag.php?track_content="+this.content+"&track_id="+this.elementId[1]+"&track_method_name="+method,true);
+            request.open("GET","src/phpScripts/editTag.php?track_content="+encodeURIComponent(object.content)+"&track_id="+encodeURIComponent(object.returnTrackId())+"&track_method_name="+method,true);
+            request.onreadystatechange = function () {
+                if(request.readyState === 4 && request.status === 200) {
+                    console.log(request.response);
+                }
+            };
             request.send();
+            console.log("sent");
         }else{
             console.log("error tag");
         }
     }   
     splitNumberAndLetter(str){
-        var nb = "";
-        var name = "";
-        for(i=0;i<str.length;i++){
-            if(typeof str[i] === "number"){
-                nb.concat(str[i]);
-            }else{
-                name.concat(str[i]);
-            }
-        }
-        return [name,id];
+        var reg = /\D/g;
+        var name = str.match(reg).join("");
+        var nb = str.substring(name.length,)
+        return [name,nb];
     }
     verifyKey(key){
         const reg = /[1-9]{1}[A-B]{1}|[1]{1}[0-2]{1}[A-B]{1}/y;
@@ -90,6 +73,7 @@ class tagVerifier {
         }
     }    
     verifyString(str,lengthInBDD){
+        console.log(str);
         if( typeof str === "string" && str.length <= lengthInBDD){
             return true;
         }else{
