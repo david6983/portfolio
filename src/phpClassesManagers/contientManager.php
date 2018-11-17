@@ -107,5 +107,14 @@
             /* execute the request */
             $this->_dbh->exec($request);
         }
+        public function exportTracksFromPlaylist($playlist_id){
+            $request="SELECT * FROM music INNER JOIN contient 
+            ON music.music_id = contient.music_id 
+            WHERE contient.playlist_id = '$playlist_id'";
+            $stmt = $this->_dbh->prepare($request);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }
     }
 ?>

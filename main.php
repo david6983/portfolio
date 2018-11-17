@@ -99,7 +99,7 @@
             <img class="ioIcons" src="assets/icons/import.png" alt="importIcon">
             Import
         </button>
-        <button id="exportButton" class="w3-button w3-round-xlarge lightblue sidebarElement" onclick="displayModal('exportMenu')" >
+        <button id="exportButton" class="w3-button w3-round-xlarge lightblue sidebarElement" onclick="displayModal('exportMenu'); exportPlaylists();" >
             <img class="ioIcons" src="assets/icons/export.png" alt="exportIcon">
             Export
         </button>
@@ -185,11 +185,9 @@
                         <span onclick="closeModal('exportMenu')" class="w3-button w3-display-topright">&times;</span>
                     </div>
                     <div class="w3-container w3-white">
-                        <form method="POST" action="">
-                            <div class="w3-container w3-white">
-                                <button class="w3-button w3-blue w3-round-xlarge" id="exportCollectionButton">Download the file</button>
-                            </div>
-                        </form>
+                        <div class="w3-container w3-white">
+                            <button class="w3-button w3-blue w3-round-xlarge" id="exportCollectionButton"></button>
+                        </div>
                     </div>
                 </div>
             </div>

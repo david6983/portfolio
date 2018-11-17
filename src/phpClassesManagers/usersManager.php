@@ -75,5 +75,13 @@
                echo "<option value=\"$raw[0]\">$raw[0]</option>";
             }
         }
+
+        public function exportUser($name){
+            $request="SELECT * FROM user WHERE user_name = '$name'";
+            $stmt = $this->_dbh->prepare($request);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $result[0];
+        }
     }
 ?>

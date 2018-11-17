@@ -150,5 +150,12 @@
             }
             return intval($result[0][0]);
         }
+        public function exportPlaylist($id){
+            $request = "SELECT * FROM playlist WHERE playlist_id = '$id' ";
+            $stmt = $this->_dbh->prepare($request);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }
     }
 ?>
