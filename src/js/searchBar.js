@@ -25,7 +25,7 @@ function filter() {
     table = document.getElementById("renderedPlaylist");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[4]; //search for a name
+      td = tr[i].getElementsByTagName("td")[4]; //search for a name --> the 4th row of the table
       if (td) {
         if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
           tr[i].style.display = "";

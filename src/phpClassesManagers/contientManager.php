@@ -80,9 +80,16 @@
             foreach($this->_dbh->query($request) as $raw){
                 array_push($result,$raw);
             }
+            //return just a number
             return intval($result[0][0]);
         }
 
+        /**
+         * select all tracks from a playlist in the database
+         * 
+         * @param {string} $playlist_id id of the playlist
+         * @return {json} the array of tracks as json string
+         */
         public function getAllTrackOfPlaylist($playlist_id){
             $request="SELECT * FROM music INNER JOIN contient 
             ON music.music_id = contient.music_id 
@@ -96,23 +103,42 @@
             return json_encode($arrayOfTracks); 
         }
 
+        /**
+         * delete a track from a playlist 
+         * 
+         * @param {string} $track_id id of the track
+         * @param {string} $playlist_id id of the playlist
+         */
         public function deleteTrackFromPlaylist($track_id,$playlist_id){
             $request="DELETE FROM contient WHERE playlist_id = '$playlist_id' AND music_id = '$track_id' ";
             /* execute the request */
             $this->_dbh->exec($request);
         }
 
+        /**
+         * delete all tracks in a playlist 
+         * 
+         * @param {string} $playlist_id id of the playlist
+         */
         public function deleteAllTrackFromPlaylist($playlist_id){
             $request="DELETE FROM contient WHERE playlist_id = '$playlist_id' ";
             /* execute the request */
             $this->_dbh->exec($request);
         }
+
+        /**
+         * export all tracks from a playlist
+         * 
+         * @param {string} $playlist_id id of the playlist
+         */
         public function exportTracksFromPlaylist($playlist_id){
             $request="SELECT * FROM music INNER JOIN contient 
             ON music.music_id = contient.music_id 
             WHERE contient.playlist_id = '$playlist_id'";
             $stmt = $this->_dbh->prepare($request);
             $stmt->execute();
+            //because we are going to encode in json we use FETCH_ASSOC to not have the track twice
+            //So don't have something like : ["foo"]:bar and ["0"]:bar
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         }

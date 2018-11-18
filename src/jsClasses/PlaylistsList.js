@@ -1,3 +1,6 @@
+/**
+ * create elements in the sidebar for the playlist names
+ */
 class PlaylistsList {
     constructor(containerName){
         /* get the container to add the html elements */

@@ -12,6 +12,9 @@ function hideControl(){
     })
 }
 
+/**
+ * when the user click on the wheel in the sidebar
+ */
 function displayControlBar(){
     document.getElementById("controlBar").removeAttribute("style");
 }
@@ -103,19 +106,33 @@ function execFunction(id){
     }
 }
 
+/**
+ * delete a track from a playlist
+ * 
+ * @param {string} playlist_name 
+ * @param {html object} rowObject the line in the table
+ * @param {html object} PlaylistBtnObject 
+ * @param {string} track_id 
+ */
 function requestDeleteTrackFromPlaylist(playlist_name,rowObject,PlaylistBtnObject,track_id){
     var request = getXMLHttpRequest();
+    //sent to the delete track from playlist php script the name and the track id
     request.open("GET","src/phpScripts/deleteTrackFromPlaylist.php?playlist_name="+playlist_name+"&track_id="+track_id,true);
     request.responseType = "text";
     request.onreadystatechange = function () {
         if(request.readyState === 4 && request.status === 200) {
+            //if ok , return the new number of track in the playlist on the app
             PlaylistBtnObject.innerHTML = request.response;
+            //delete the line in the table
             rowObject.remove();
         }
     };
     request.send();
 }
 
+/**
+ * delete multiple track in a playlist
+ */
 function deleteSelectedToPlaylist(){
     //create a request
     var request = getXMLHttpRequest();
@@ -152,6 +169,11 @@ function deleteSelectedToPlaylist(){
     request.send();
 }
 
+/**
+ * prepare the player to play a track 
+ * 
+ * @param {string} nb id of the line 
+ */
 function prepareToPlay(nb){
     var localPath = document.getElementById("path"+nb).textContent;
     var name = document.getElementById("name"+nb).textContent;
@@ -162,7 +184,12 @@ function prepareToPlay(nb){
     displayPlayerContentValues(nb);
 }
 
-function displayPlayerContentValues(id){
+/**
+ * copy the information from the table to the player of the played track
+ * 
+ * @param {string} nb  id of the line
+ */
+function displayPlayerContentValues(nb){
     document.getElementById("playerValueForName").innerHTML = document.getElementById("name"+nb).textContent;
     document.getElementById("playerValueForArtists").innerHTML = document.getElementById("artist"+nb).textContent;
     document.getElementById("playerValueForGenre").innerHTML = document.getElementById("genre"+nb).textContent;
@@ -181,14 +208,26 @@ function controlAddSelectedTo(){
     var p = new PlaylistSelect("playlistSelectedAll");
 }
 
+/**
+ * create a listenner on click for a button
+ * 
+ * @param {string} buttonId 
+ * @param {function} callback 
+ */
 function listennerOnClick(buttonId,callback){
     window.document.getElementById(buttonId).addEventListener("click",callback(callback));
 }
 
+/**
+ * hide playlist options
+ */
 function hidePlaylistOption(){
     document.getElementById("playlistOption").style = "display: none;";
 }
 
+/**
+ * show playlist options 
+ */
 function showPlaylistOption(){
     document.getElementById("playlistOption").removeAttribute("style");
 }

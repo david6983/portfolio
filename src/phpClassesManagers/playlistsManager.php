@@ -142,14 +142,27 @@
             return json_encode($result[0]); 
         }
 
+        /**
+         * get the total tnumber of playlist
+         * 
+         * @return {integer} number of playlists
+         */
         public function getNbPlaylist(){
             $request="SELECT count(*) FROM playlist";
             $result = array();
             foreach($this->_dbh->query($request) as $raw){
                 array_push($result,$raw);
             }
+            //return just a number
             return intval($result[0][0]);
         }
+
+        /**
+         * export playlist attributes
+         * 
+         * @param {string} id of the playlist
+         * @return {array} all the data from the database
+         */
         public function exportPlaylist($id){
             $request = "SELECT * FROM playlist WHERE playlist_id = '$id' ";
             $stmt = $this->_dbh->prepare($request);

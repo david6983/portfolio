@@ -17,6 +17,9 @@ function pauseToPlayImg(){
     }
 }
 
+/**
+ * hide the player
+ */
 function hidePlayer(){
     var p = document.getElementById("player");
     if( p.getAttribute("style") === "display: none;"){

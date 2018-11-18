@@ -14,9 +14,11 @@
     <script src="src/js/sidebar.js"></script>  
 </head>
 <body class="w3-blue">
+    <!-- title -->
     <header>
         <h1 class="w3-center w3-margin w3-padding">Welcome to 2KEY</h1>
     </header>
+    <!-- inscription form -->
     <form class="connectForm w3-margin" method="POST" action="src/phpScripts/inscription.php">
         <div class="w3-card w3-margin">
             <div class="w3-container w3-center lightblue">
@@ -26,6 +28,7 @@
                 <input name="username" type="text" class="w3-input" placeholder="Enter a name" required>
             </div>
         </div>
+        <!-- about the library -->
         <div class="w3-card w3-margin">
             <div class="w3-container lightblue">
                 <h2 class="w3-tooltip">About your library <span class="w3-text">(<em>hosted by WAMP server</em>)</span></h2>
@@ -41,6 +44,7 @@
                 </p>
             </div>
         </div>
+        <!-- analysis precision -->
         <div class="w3-card w3-margin">
             <div class="w3-container lightblue">
                 <h2 class="w3-tooltip">Analysis precision
@@ -59,6 +63,7 @@
 
             </div>
         </div>
+        <!-- form buttons -->
         <div class="w3-card w3-margin">
             <div class="w3-container w3-center w3-xlarge w3-white w3-padding">
                 <button class="w3-button w3-round-xlarge lightblue" ><a href="javascript: displayModal('help')" style="text-decoration: none;">Add my Library</a></button>     
@@ -67,6 +72,7 @@
             </div>
         </div>
     </form>
+    <!-- help (modal) -->
     <div id="help" class="w3-modal">
         <div class="w3-modal-content">
             <div class="w3-card">

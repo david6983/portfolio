@@ -1,4 +1,8 @@
 /**
+ * /!\ this class is only used to transform a localpath to serverpath
+ * because the key detection and the path detection aren't working at all
+ * /!\ the length is ok
+ * 
  * this class is just here to analyze a track
  * when the user click on analyze track
  * for each track , new track object , analyze length,(bpm,key)
@@ -7,6 +11,13 @@
  * database
  */
 class Track {
+    /**
+     * initailisation
+     * 
+     * @param {string} id 
+     * @param {string} name 
+     * @param {string} localpath 
+     */
     constructor(id,name,localpath){
         this._id = id;
         this._name = name;
@@ -15,13 +26,21 @@ class Track {
         this._length = 0;
         this._key = "";
     }
-    analyzeTrack(precision){
-        
+    /**
+     * 
+     * @param {integer} precision 
+     */
+    analyzeTrack(precision){        
         this.pathFromLocalToServer();
         this._length = this.findlength();
         this._key = this.findKey();
         //this._bpm = this.findBPM(precision,this);
     }
+    /**
+     * 
+     * @param {integer} precision 
+     * @param {object} object 
+     */
     findBPM(precision,object){    
         let audioCtx = new AudioContext();
         var request = getXMLHttpRequest();
@@ -69,28 +88,36 @@ class Track {
         request.open("GET",this._localpath,true);
         request.send();
     }
+    /**
+     * 
+     * @param {} intervalCounts 
+     */
     groupNeighborsByTempo(intervalCounts) {
         var tempoCounts = []
         intervalCounts.forEach(function(intervalCount, i) {
-          // Convert an interval to tempo
-          var theoreticalTempo = 60 / (intervalCount.interval / 44100 );
-      
-          // Adjust the tempo to fit within the 90-180 BPM range
-          while (theoreticalTempo < 90) theoreticalTempo *= 2;
-          while (theoreticalTempo > 180) theoreticalTempo /= 2;
-      
-          var foundTempo = tempoCounts.some(function(tempoCount) {
+            // Convert an interval to tempo
+            var theoreticalTempo = 60 / (intervalCount.interval / 44100 );
+        
+            // Adjust the tempo to fit within the 90-180 BPM range
+            while (theoreticalTempo < 90) theoreticalTempo *= 2;
+            while (theoreticalTempo > 180) theoreticalTempo /= 2;
+        
+            var foundTempo = tempoCounts.some(function(tempoCount) {
             if (tempoCount.tempo === theoreticalTempo)
-              return tempoCount.count += intervalCount.count;
-          });
-          if (!foundTempo) {
-            tempoCounts.push({
-              tempo: theoreticalTempo,
-              count: intervalCount.count
+                return tempoCount.count += intervalCount.count;
             });
-          }
+            if (!foundTempo) {
+            tempoCounts.push({
+                tempo: theoreticalTempo,
+                count: intervalCount.count
+            });
+            }
         });
-      }
+    }
+    /**
+     * 
+     * @param {} peaks 
+     */
     countIntervalsBetweenNearbyPeaks(peaks) {
         var intervalCounts = [];
         peaks.forEach(function(peak, index) {
@@ -110,6 +137,11 @@ class Track {
         });
         return intervalCounts;
     }
+    /**
+     * 
+     * @param {*} data 
+     * @param {*} threshold 
+     */
     getPeaksAtThreshold(data, threshold) {
         var peaksArray = [];
         var length = data.length;
@@ -123,13 +155,24 @@ class Track {
         }
         return peaksArray;
     }
-      
+    /**
+     * 
+     */
     findKey(){
         this.requestFreq(this.updateKey,this);
     }
+    /**
+     * 
+     * @param {*} freq 
+     */
     updateKey(freq){
         console.log(freq);
     }
+    /**
+     * 
+     * @param {*} callback 
+     * @param {*} object 
+     */
     requestFreq(callback,object){
         let audioCtx = new AudioContext();
         let analyser = audioCtx.createAnalyser();
@@ -159,12 +202,24 @@ class Track {
         request.open("GET",this._localpath,true);
         request.send();
     }
+    /**
+     * 
+     */
     findlength(){
         this.requestlength(this.updatelength,this);
     }
+    /**
+     * 
+     * @param {*} length 
+     * @param {*} object 
+     */
     updatelength(length,object){
         object.length = object.lengthToHHMMSS(length);
     }
+    /**
+     * 
+     * @param {*} secs 
+     */
     lengthToHHMMSS(secs){
         var sec_num = parseInt(secs, 10)    
         var hours   = Math.floor(sec_num / 3600) % 24
@@ -175,6 +230,11 @@ class Track {
             .filter((v,i) => v !== "00" || i > 0)
             .join(":")
     }
+    /**
+     * 
+     * @param {*} callback 
+     * @param {*} object 
+     */
     requestlength(callback,object){
         let audioCtx = new AudioContext();
         var audioBuffer;
@@ -194,12 +254,18 @@ class Track {
         request.open("GET",this._localpath,true);
         request.send();
     }
+    /**
+     * 
+     */
     pathFromLocalToServer(){
         var vhostLibraryName = "musiques"; //ajax request
         var vhostLibraryPath = "d:/documents/musique/musiques/MUSIQUES LIBRARY 2KEY"; //ajax request
         var serverPath = "http://"+vhostLibraryName+this.path.substring(vhostLibraryPath.length);
         this.newPath = serverPath;
     }
+    /**
+     * 
+     */
     set bpm(bpm){
         const reg = /[0-9]{3}|[0-9]{2}/g;
         if(typeof bpm === "number"){
@@ -212,6 +278,9 @@ class Track {
             console.log("the new BPM is not a number")
         }
     }
+    /**
+     * 
+     */
     set key(key){
         const reg = /[1-9]{1}[A-B]{1}|[1]{1}[0-2]{1}[A-B]{1}/y;
         if(typeof key === "string" && reg.test(key) == true){
@@ -220,6 +289,9 @@ class Track {
             console.log("error expected a string like [a number between 1 and 12][A or B] (camelot wheel)");
         }
     }
+    /**
+     * 
+     */
     set genre(genre){
         if(typeof genre === "string"){
             this._genre = genre;
@@ -227,9 +299,15 @@ class Track {
             console.log("error expected a string");
         }
     }
+    /**
+     * 
+     */
     set length(length){
         this._length = length;
-    }    
+    }  
+    /**
+     *  
+     * */  
     set newPath(localpath){
         const reg = /[A-Z]:|http:[//][//]/y;
         if(typeof localpath === "string" && reg.test(localpath) === true){
@@ -257,7 +335,6 @@ class Track {
         return this._bpm;   
     }    
     get length(){
-        console.log("test");
         return this._length;
     }
     get key(){

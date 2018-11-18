@@ -73,7 +73,7 @@ html {
 
 /* import and export icons width */
 .ioIcons {
-    width: 25%;
+    width: 10%;
 }
 
 /* player head content color */
@@ -81,19 +81,7 @@ html {
     color: #63698E;
 }
 
-/* import icon style */
-#importButton {
-    float: left; /* on the left */
-    width: 42%; /* button width */
-    margin-bottom: 10px;
-}
-/* exportt icon style */
-#exportButton {
-    float: right; /* on the right */
-    margin-right: 5%; /* offset from the right button */
-    width: 42%; /* button width */
-    margin-bottom: 10px;
-}
+
 
 /* the sidebar need to be a little bit under the top navbar and light blue */
 #sidebar {
@@ -152,7 +140,7 @@ html {
 
 /* shifting the result */
 .textSideBarMargin span{
-    margin-left: 37%;
+    margin-left: 32%;
 }
 
 /* allow the scroll inside the sidebar */

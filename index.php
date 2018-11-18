@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="src/css/index.css">
 </head>
 <body class="w3-blue">
+    <!-- title -->
     <header>
         <h1 class="w3-center w3-margin w3-padding">Welcome to 2KEY</h1>
     </header>

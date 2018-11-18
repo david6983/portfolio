@@ -64,6 +64,9 @@
                             <div class="w3-container">
                                 <h4 style="color: rgb(0, 194, 255);">
                                     <?php 
+                                        /**
+                                         * display all the session variables here
+                                         */
                                         echo "<p>Session name : ".$_SESSION["user_name"]."</p>";
                                         if(isset($_SESSION["user_libraryName"])){
                                             echo "<p>Library name : ".$_SESSION["user_libraryName"]."</p>";
@@ -80,30 +83,27 @@
                                     ?>
                                 </h4>
                             </div>
+                            <!-- deconnect button -->
                             <div class="w3-container w3-center">
                                 <a href="src/phpScripts/deconnexion.php" class="w3-bar-item w3-center w3-button w3-mobile w3-blue w3-round-xlarge">Change session</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- showControl -->
             </div>                       
         </nav>
         
     </header>
     <!-- sidebar on the left -->
     <div id="sidebar" class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left">
+        <!-- when you click on the wheel you acces to the controls -->
         <img onclick="showControl();" id="camelotImg" src="assets/img/camalote-wheel-logo.png" alt="camalote wheel of keys">
-        <button class="w3-button w3-round-xlarge lightblue sidebarElement">Analyze your tracks</button>
-        <button id="importButton" class="w3-button w3-round-xlarge lightblue sidebarElement" onclick="displayModal('importMenu')" >
-            <img class="ioIcons" src="assets/icons/import.png" alt="importIcon">
-            Import
-        </button>
+        <!-- export playlists button -->
         <button id="exportButton" class="w3-button w3-round-xlarge lightblue sidebarElement" onclick="displayModal('exportMenu'); exportPlaylists();" >
             <img class="ioIcons" src="assets/icons/export.png" alt="exportIcon">
             Export
         </button>
-        <p class="textSideBar textSideBarMargin">ANALYSIS QUEUE 
+        <p class="textSideBar textSideBarMargin">NUMBER OF TRACKS  
             <span id="numberOfMusicToAnalyse" class="sidebarButtonElementRight">
                 <?php 
                     /* if the session variable for the number of musics exist */
@@ -118,12 +118,14 @@
                 ?>
             </span>
         </p>
+        <!-- new collection/playlist -->
         <p class="textSideBar textSideBarMargin">
             NEW COLLECTION 
             <button class="w3-button w3-round-xlarge lightblue marginLeft32p sidebarButtonElementRight" onclick="displayModal('newCollectionMenu') ">
                 <img class="navleftIcon" src="assets/icons/add.png" alt="plusIcon">
             </button>
         </p>
+        <!-- view all -->
         <p class="textSideBar textSideBarMargin w3-large">VIEW ALL 
         <button id="totalNumberOfMusic" onclick="requestViewAll(viewAll); hidePlaylistOption();" class="w3-button w3-round-xlarge lightblue sidebarButtonElementRight"><?php 
             if(isset($_SESSION["user_nb_music"])){
@@ -134,6 +136,9 @@
             ?></button></p>
         <div id="playlistNameContainer">
             <script>
+                /**
+                 * display all playlist names and their buttons
+                 */
                 var list = new PlaylistsList("playlistNameContainer");
                 list.requestPlaylistsNames(list);
             </script>
@@ -157,25 +162,6 @@
                 </div>
             </div>
         </div>
-        <!-- import menu (modal) -->
-        <div id="importMenu" class="w3-modal">
-            <div class="w3-modal-content">
-                <div class="w3-card">
-                    <div class="w3-container lightblue">
-                        <h3>Import collections from</h3>
-                        <span onclick="closeModal('importMenu')" class="w3-button w3-display-topright">&times;</span>
-                    </div>
-                    <div class="w3-container w3-white">
-                        <form method="POST" action="">
-                            <div class="w3-container w3-white">
-                                <p><input class="w3-input w3-border" type="file"></p>
-                                <p><input class="w3-button w3-round-xlarge lightblue" type="submit" value="Import"></p>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- export menu (modal) -->
         <div id="exportMenu" class="w3-modal">
             <div class="w3-modal-content">
@@ -184,8 +170,8 @@
                         <h3>Export your collections </h3>
                         <span onclick="closeModal('exportMenu')" class="w3-button w3-display-topright">&times;</span>
                     </div>
-                    <div class="w3-container w3-white">
-                        <div class="w3-container w3-white">
+                    <div class="w3-container w3-white w3-center w3-margin">
+                        <div class="w3-container w3-white w3-margin">
                             <button class="w3-button w3-blue w3-round-xlarge" id="exportCollectionButton"></button>
                         </div>
                     </div>
@@ -279,22 +265,28 @@
         </div>
         <!-- hiden control bar -->
         <div id="controlBar" class="w3-card w3-margin w3-white" style="display: none;">
+            <!-- name of the playlist -->
             <div class="w3-container w3-center w3-blue">
                 <h2 id="controlStatus"></h2>
             </div>
+            <!-- control buttons -->
             <div class="w3-container w3-blue checkBar">
+                <!-- cancel checkbox selection button -->
                 <button class="w3-button w3-round-xlarge cancelCheck" onclick="uncheck();">
                     <img src="..\..\..\assets\icons\checklist.png" alt="cancel check" style="width: 25px;">
                     <p>Cancel</p>
                 </button> 
+                <!-- select all tracks button -->
                 <button class="w3-button w3-round-xlarge checkAll" onclick="check();">
                     <img src="..\..\..\assets\icons\checkAll.png" alt="check all" style="width: 25px;">
                     <p>Select all</p>
                 </button>
+                <!-- add selected tracks to button -->
                 <button id="ActiontoolbarButton" class="w3-button w3-round-xlarge addTo" onclick="controlAddSelectedTo();">
                     <img id="ActiontoolbarButtonImg" src="..\..\..\assets\icons\add.png" alt="add" style="width: 25px;">
                     <p id="ActiontoolbarButtonText">Add Selected to</p>
                 </button> 
+                <!-- add multiple tracks menu (modal) -->
                 <div id="addAllToPlaylistModal" class="w3-modal">
                     <div class="w3-modal-content">
                         <div class="w3-card">
@@ -314,14 +306,17 @@
                         </div>
                     </div>
                 </div>
+                <!-- show/hide player -->
                 <button id="hidePlayer" class="w3-button w3-round-xlarge addTo" onclick="hidePlayer()">
                     <img src="..\..\..\assets\icons\vlc.png" alt="player icon" style="width: 25px;">
                     <p>Player</p>
                 </button>
+                <!-- playlist option -->
                 <button id="playlistOption" class="w3-button w3-round-xlarge addTo" onclick="displayModal('playlistOptionModal')">
                     <img src="..\..\..\assets\icons\playlist_option.png" alt="playlist options" style="width: 25px;">
                     <p>Playlist Options</p>
                 </button>
+                <!-- playlist option (modal) -->
                 <div id="playlistOptionModal" class="w3-modal">
                     <div class="w3-modal-content">
                         <div class="w3-card">
@@ -341,10 +336,12 @@
                         </div>
                     </div>
                 </div>
+                <!-- help for tags button -->
                 <button id="helpTag" class="w3-button w3-round-xlarge addTo" onclick="displayModal('helpTagModal')">
                     <img src="..\..\..\assets\icons\help.png" alt="help for tags" style="width: 25px;">
                     <p>Help for Tags</p>
                 </button>
+                <!-- help (modal) -->
                 <div id="helpTagModal" class="w3-modal">
                     <div class="w3-modal-content">
                         <div class="w3-card">
@@ -392,17 +389,16 @@
                         </div>
                     </div>
                 </div>
+                <!-- control message for tag edition -->
                 <button class="w3-button w3-round-xlarge addTo">
                     <h4 id="controlMessage" style="color: black; font-weight: bolder;">Tags edition disabled (click on TAGS to enable) !</h4>
                 </button>
             </div>
         </div>
-        <!-- add to modal -->
-
-        <!-- table -->
+        <!-- table of tracks -->
         <div class="w3-card w3-margin w3-white">
-            <!-- php code for the table or js code with ajax -->
             <table id="renderedPlaylist" class="w3-table w3-striped w3-bordered tableOfSongs">
+                <!-- tracks are rendered here -->
             </table>
         </div>
     </div>

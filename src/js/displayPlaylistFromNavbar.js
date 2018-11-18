@@ -23,6 +23,11 @@ function displayPlaylistFromNavbar(data,id){
     }
 }
 
+/**
+ * display a playlist in the main table from the database
+ * 
+ * @param {string} name name of the playlist 
+ */
 function requestPlaylistFromBDD(name){
     //create a request
     var request = getXMLHttpRequest();
@@ -51,6 +56,7 @@ function requestPlaylistFromBDD(name){
 function removeContainerContent(containerId){
     var c = document.getElementById(containerId);
     var el = c.querySelectorAll("tr");
+    //for all line in the table , remove it
     el.forEach(element => {
         element.remove();
     });
